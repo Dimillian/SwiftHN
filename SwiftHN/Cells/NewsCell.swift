@@ -15,11 +15,17 @@ class NewsCell: UITableViewCell {
     
     @IBOutlet var titleLabel : UILabel = nil
     @IBOutlet var urlLabel : UILabel = nil
+    @IBOutlet var timeLabel : StampLabel = nil
+    @IBOutlet var commentsLabel : StampLabel = nil
+    @IBOutlet var voteLabel : StampLabel = nil
     
     var post: HNPost! {
         didSet{
             self.titleLabel.text = self.post.Title
             self.urlLabel.text = self.post.UrlString
+            self.voteLabel.text = "\(self.post.Points) votes"
+            self.commentsLabel.text = "\(self.post.CommentCount) comments"
+            self.timeLabel.text = self.post.TimeCreatedString
         }
     }
     

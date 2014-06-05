@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import SwiftHNShared
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.setupStyle()
+        
         return true
+    }
+    
+    func setupStyle() {
+        //UINavigationBar.appearance().tintColor = UIColor.HNColor()
     }
 
     func applicationWillResignActive(application: UIApplication) {
