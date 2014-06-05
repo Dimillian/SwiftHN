@@ -16,7 +16,10 @@ class NewsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.hnManager.loadPostsWithFilter(PostFilterType.Top, completion: { (NSArray posts) in
+        self.title = "HN:News"
+        self.navigationController.condensesBarsOnSwipe = true
+        
+        self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
             self.posts = posts
             self.tableView.reloadData()
         })

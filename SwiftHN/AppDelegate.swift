@@ -22,7 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupStyle() {
-        //UINavigationBar.appearance().tintColor = UIColor.HNColor()
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: false)
+        
+        UINavigationBar.appearance().barTintColor = UIColor.HNColor()
+        UINavigationBar.appearance().translucent = true
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 16.0)]
     }
 
     func applicationWillResignActive(application: UIApplication) {

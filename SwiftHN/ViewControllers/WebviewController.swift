@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WebviewController: UIViewController {
+class WebviewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet var webView : UIWebView = nil
     
@@ -21,6 +21,11 @@ class WebviewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.webView.delegate = self
         self.webView.loadRequest(NSURLRequest(URL: NSURL(string: self.post.UrlString)))
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView!) {
+        self.title = webView.stringByEvaluatingJavaScriptFromString("document.title")
     }
 }

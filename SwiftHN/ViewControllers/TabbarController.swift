@@ -11,6 +11,6 @@ import UIKit
 class TabbarController: UITabBarController {
     
     override func awakeFromNib() {
-        
+        self.hidesBottomBarWhenPushed = true
     }
 }

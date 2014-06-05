@@ -13,8 +13,8 @@
 		9F1EE928194105C30061B4B6 /* SwiftHNSharedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1EE927194105C30061B4B6 /* SwiftHNSharedTests.swift */; };
 		9F1EE92B194105C30061B4B6 /* SwiftHNShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */; };
 		9F1EE92C194105C30061B4B6 /* SwiftHNShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		9F1EE93A194106C40061B4B6 /* UIColorEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1EE939194106C40061B4B6 /* UIColorEXT.swift */; };
 		9F1EE93D19410CC50061B4B6 /* VoteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1EE93C19410CC50061B4B6 /* VoteLabel.swift */; };
+		9F1EE940194119920061B4B6 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1EE93F194119920061B4B6 /* UIColorExt.swift */; };
 		9F21AA691940A45700CF4E63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21AA681940A45700CF4E63 /* AppDelegate.swift */; };
 		9F21AA701940A45700CF4E63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F21AA6E1940A45700CF4E63 /* Main.storyboard */; };
 		9F21AA721940A45700CF4E63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F21AA711940A45700CF4E63 /* Images.xcassets */; };
@@ -79,8 +79,8 @@
 		9F1EE920194105C30061B4B6 /* SwiftHNSharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftHNSharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1EE926194105C30061B4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1EE927194105C30061B4B6 /* SwiftHNSharedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHNSharedTests.swift; sourceTree = "<group>"; };
-		9F1EE939194106C40061B4B6 /* UIColorEXT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorEXT.swift; path = Extensions/UIColorEXT.swift; sourceTree = "<group>"; };
 		9F1EE93C19410CC50061B4B6 /* VoteLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoteLabel.swift; path = Cells/VoteLabel.swift; sourceTree = "<group>"; };
+		9F1EE93F194119920061B4B6 /* UIColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExt.swift; path = Extensions/UIColorExt.swift; sourceTree = "<group>"; };
 		9F21AA631940A45700CF4E63 /* SwiftHN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftHN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F21AA671940A45700CF4E63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F21AA681940A45700CF4E63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,7 +178,14 @@
 		9F1EE93B194106C90061B4B6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9F1EE939194106C40061B4B6 /* UIColorEXT.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		9F1EE93E194119720061B4B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9F1EE93F194119920061B4B6 /* UIColorExt.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 				9F21AA871940B5F300CF4E63 /* SwiftHN.entitlements */,
 				9F21AA681940A45700CF4E63 /* AppDelegate.swift */,
 				9F21AA6E1940A45700CF4E63 /* Main.storyboard */,
+				9F1EE93E194119720061B4B6 /* Extensions */,
 				9FEB20C61940E09A007EB9CF /* cells */,
 				9FEB20C51940DE0D007EB9CF /* ViewController */,
 				9F21AA711940A45700CF4E63 /* Images.xcassets */,
@@ -480,7 +488,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F1EE93A194106C40061B4B6 /* UIColorEXT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +507,7 @@
 				9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */,
 				9F1EE93D19410CC50061B4B6 /* VoteLabel.swift in Sources */,
 				9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */,
+				9F1EE940194119920061B4B6 /* UIColorExt.swift in Sources */,
 				9F1EE910194105700061B4B6 /* TabbarController.swift in Sources */,
 				9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */,
 			);
@@ -793,6 +801,7 @@
 				9F1EE931194105C30061B4B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F1EE933194105C30061B4B6 /* Build configuration list for PBXNativeTarget "SwiftHNSharedTests" */ = {
 			isa = XCConfigurationList;
@@ -801,6 +810,7 @@
 				9F1EE935194105C30061B4B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F21AA5E1940A45700CF4E63 /* Build configuration list for PBXProject "SwiftHN" */ = {
 			isa = XCConfigurationList;
