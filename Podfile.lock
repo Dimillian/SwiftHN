@@ -1,0 +1,10 @@
+PODS:
+  - libHN (1.1.1)
+
+DEPENDENCIES:
+  - libHN
+
+SPEC CHECKSUMS:
+  libHN: d29d1e67be4ff186c4441e0a6b5f0af0c6c15b97
+
+COCOAPODS: 0.33.1
