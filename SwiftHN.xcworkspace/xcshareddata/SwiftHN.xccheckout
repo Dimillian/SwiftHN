@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>978B6158-8AAC-46B9-90C0-2464321E5B27</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SwiftHN</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>76E270B8-BB72-4AFB-995D-2E8F15319C80</key>
+		<string>https://github.com/Dimillian/SwiftHN.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SwiftHN.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>76E270B8-BB72-4AFB-995D-2E8F15319C80</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Dimillian/SwiftHN.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>76E270B8-BB72-4AFB-995D-2E8F15319C80</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>76E270B8-BB72-4AFB-995D-2E8F15319C80</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SwiftHN</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsViewController: UITableViewController {
+class NewsViewController: UITableViewController, NewsCellDelegate {
     
     let hnManager = HNManager.sharedManager()
     var posts: NSArray!
@@ -25,6 +25,7 @@ class NewsViewController: UITableViewController {
         })
     }
     
+    // Mark: TableView Management
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int  {
         return 1
     }
@@ -42,6 +43,7 @@ class NewsViewController: UITableViewController {
             cell = NewsCell(style: UITableViewCellStyle.Default, reuseIdentifier: NewsCellsId)
         }
         cell.post = self.posts[indexPath.row] as HNPost
+        cell.cellDelegate = self
         return cell
     }
     
@@ -52,6 +54,11 @@ class NewsViewController: UITableViewController {
         }
     }
     
+    // Mark: NewsCellDelegate
+    
+    func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType) {
+        println(actionType)
+    }
     
     
 }

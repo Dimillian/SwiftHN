@@ -7,29 +7,57 @@
 //
 
 import UIKit
+import SwiftHNLiveViews
 
 let NewsCellsId = "newsCellId"
 
+enum NewsCellActionType: Int {
+    case Vote = 0
+    case Comments
+    case Time
+}
+
+protocol NewsCellDelegate {
+    func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType)
+}
+
 class NewsCell: UITableViewCell {
-    
     
     @IBOutlet var titleLabel : UILabel = nil
     @IBOutlet var urlLabel : UILabel = nil
-    @IBOutlet var timeLabel : StampLabel = nil
-    @IBOutlet var commentsLabel : StampLabel = nil
-    @IBOutlet var voteLabel : StampLabel = nil
+    @IBOutlet var voteLabel : BorderedButton = nil
+    @IBOutlet var commentsLabel : BorderedButton = nil
+    @IBOutlet var timeLabel : BorderedButton = nil
+    
+    var cellDelegate: NewsCellDelegate?
     
     var post: HNPost! {
         didSet{
             self.titleLabel.text = self.post.Title
             self.urlLabel.text = self.post.UrlString
-            self.voteLabel.text = "\(self.post.Points) votes"
-            self.commentsLabel.text = "\(self.post.CommentCount) comments"
-            self.timeLabel.text = self.post.TimeCreatedString
+            self.voteLabel.labelText = "\(self.post.Points) votes"
+            self.commentsLabel.labelText = "\(self.post.CommentCount) comments"
+            self.timeLabel.labelText = self.post.TimeCreatedString
+            
+            self.voteLabel.onButtonTouch = {
+                self.selectedAction(.Vote)
+            }
+            
+            self.commentsLabel.onButtonTouch = {
+                self.selectedAction(.Comments)
+            }
+            
+            self.timeLabel.onButtonTouch = {
+                self.selectedAction(.Time)
+            }
         }
     }
-    
+
     init(style: UITableViewCellStyle, reuseIdentifier: String!)  {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    func selectedAction(action: NewsCellActionType) {
+        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action)
     }
 }

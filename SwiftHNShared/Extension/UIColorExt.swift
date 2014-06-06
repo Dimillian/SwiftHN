@@ -18,3 +18,9 @@ extension UIColor {
         return UIColor.RGBColor(252, green: 102, blue: 33)
     }
 }
+
+class UIColorEXT {
+    class func HNColor() -> UIColor {
+        return UIColor.HNColor()
+    }
+}

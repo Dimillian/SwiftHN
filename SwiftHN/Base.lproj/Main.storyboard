@@ -9,7 +9,7 @@
             <objects>
                 <tabBarController hidesBottomBarWhenPushed="YES" id="49e-Tb-3d3" customClass="TabbarController" customModule="SwiftHN" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -39,81 +39,96 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbN-9W-4XT">
-                                            <rect key="frame" x="20" y="16" width="440" height="17"/>
+                                            <rect key="frame" x="20" y="16.5" width="440" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Domain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-tx-FXg">
-                                            <rect key="frame" x="20" y="44.5" width="440" height="15.5"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-tx-FXg">
+                                            <rect key="frame" x="20" y="44.5" width="440" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="Tzp-P5-tIC"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Votes: 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oql-gG-HOf" customClass="StampLabel" customModule="SwiftHN" customModuleProvider="target">
-                                            <rect key="frame" x="230" y="72" width="80" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="64" id="TR9-vD-mU6"/>
-                                            </constraints>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="TR9-vD-mU6"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments: 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj9-lb-dFv" customClass="StampLabel" customModule="SwiftHN" customModuleProvider="target">
-                                            <rect key="frame" x="125" y="72" width="80" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="96" id="xtI-SB-OHO"/>
-                                            </constraints>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="xtI-SB-OHO"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X hours ago" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8s-Gf-Waj" customClass="StampLabel" customModule="SwiftHN" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="72" width="80" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="NNI-TJ-On0"/>
-                                                <constraint firstAttribute="width" constant="80" id="nAN-bj-9fB"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-0f-MYO" customClass="BorderedButton" customModule="SwiftHNLiveViews">
+                                            <rect key="frame" x="16" y="67.5" width="80" height="26.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-aR-IBv" customClass="BorderedButton" customModule="SwiftHNLiveViews">
+                                            <rect key="frame" x="113" y="67.5" width="90" height="26.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yl-fy-Swn" customClass="BorderedButton" customModule="SwiftHNLiveViews">
+                                            <rect key="frame" x="220" y="67.5" width="90" height="26.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Oql-gG-HOf" firstAttribute="leading" secondItem="bj9-lb-dFv" secondAttribute="trailing" constant="25" id="0D0-Sj-vsG"/>
                                         <constraint firstItem="fkD-tx-FXg" firstAttribute="top" secondItem="QbN-9W-4XT" secondAttribute="bottom" constant="11" id="0gS-rk-doH"/>
-                                        <constraint firstItem="bj9-lb-dFv" firstAttribute="height" secondItem="m8s-Gf-Waj" secondAttribute="height" id="37s-AC-xNM"/>
+                                        <constraint firstItem="6yl-fy-Swn" firstAttribute="leading" secondItem="VdW-aR-IBv" secondAttribute="trailing" constant="17" id="1Za-gz-qcE"/>
                                         <constraint firstItem="QbN-9W-4XT" firstAttribute="width" secondItem="fkD-tx-FXg" secondAttribute="width" id="46Z-dQ-6FG"/>
-                                        <constraint firstItem="m8s-Gf-Waj" firstAttribute="height" secondItem="Oql-gG-HOf" secondAttribute="height" id="CaW-ED-vR8"/>
+                                        <constraint firstItem="K5O-0f-MYO" firstAttribute="height" secondItem="VdW-aR-IBv" secondAttribute="height" id="GD4-MX-XWT"/>
+                                        <constraint firstItem="VdW-aR-IBv" firstAttribute="leading" secondItem="qo4-uO-pvA" secondAttribute="leading" constant="113" id="GoT-Hk-5g2"/>
+                                        <constraint firstItem="K5O-0f-MYO" firstAttribute="width" secondItem="VdW-aR-IBv" secondAttribute="width" constant="-10" id="H8y-2B-0L2"/>
+                                        <constraint firstItem="6yl-fy-Swn" firstAttribute="width" secondItem="K5O-0f-MYO" secondAttribute="width" constant="10" id="HWe-Dl-iTh"/>
                                         <constraint firstAttribute="trailing" secondItem="QbN-9W-4XT" secondAttribute="trailing" constant="20" id="I0d-q9-yYT"/>
-                                        <constraint firstItem="m8s-Gf-Waj" firstAttribute="leading" secondItem="fkD-tx-FXg" secondAttribute="leading" id="JDh-BI-sFX"/>
-                                        <constraint firstItem="m8s-Gf-Waj" firstAttribute="top" secondItem="fkD-tx-FXg" secondAttribute="bottom" constant="12" id="NHz-yA-Sgn"/>
+                                        <constraint firstItem="fkD-tx-FXg" firstAttribute="leading" secondItem="K5O-0f-MYO" secondAttribute="leading" constant="4" id="MAx-mj-DNM"/>
                                         <constraint firstItem="QbN-9W-4XT" firstAttribute="top" secondItem="qo4-uO-pvA" secondAttribute="top" constant="16" id="cQs-eq-hUZ"/>
-                                        <constraint firstItem="bj9-lb-dFv" firstAttribute="width" secondItem="m8s-Gf-Waj" secondAttribute="width" id="dm3-pd-agj"/>
+                                        <constraint firstItem="VdW-aR-IBv" firstAttribute="leading" secondItem="K5O-0f-MYO" secondAttribute="trailing" constant="17" id="d7h-6K-5gF"/>
                                         <constraint firstItem="QbN-9W-4XT" firstAttribute="leading" secondItem="qo4-uO-pvA" secondAttribute="leading" constant="20" id="eay-a1-mYf"/>
-                                        <constraint firstItem="m8s-Gf-Waj" firstAttribute="leading" secondItem="QbN-9W-4XT" secondAttribute="leading" id="hqf-2M-R99"/>
-                                        <constraint firstItem="bj9-lb-dFv" firstAttribute="leading" secondItem="m8s-Gf-Waj" secondAttribute="trailing" constant="25" id="io5-Zb-G1N"/>
-                                        <constraint firstItem="bj9-lb-dFv" firstAttribute="centerY" secondItem="Oql-gG-HOf" secondAttribute="centerY" id="oU5-Dq-Z2y"/>
-                                        <constraint firstItem="m8s-Gf-Waj" firstAttribute="baseline" secondItem="QbN-9W-4XT" secondAttribute="baseline" constant="64" id="obU-df-KDV"/>
-                                        <constraint firstAttribute="bottom" secondItem="m8s-Gf-Waj" secondAttribute="bottom" constant="5.5" id="pWQ-zc-9Eb"/>
-                                        <constraint firstItem="bj9-lb-dFv" firstAttribute="centerY" secondItem="m8s-Gf-Waj" secondAttribute="centerY" id="uaz-2T-Uvm"/>
-                                        <constraint firstItem="m8s-Gf-Waj" firstAttribute="width" secondItem="Oql-gG-HOf" secondAttribute="width" id="zOl-30-oqC"/>
+                                        <constraint firstItem="K5O-0f-MYO" firstAttribute="top" secondItem="fkD-tx-FXg" secondAttribute="bottom" constant="7" id="elu-k0-gaC"/>
+                                        <constraint firstItem="6yl-fy-Swn" firstAttribute="centerY" secondItem="K5O-0f-MYO" secondAttribute="centerY" id="gsy-Fg-flh"/>
+                                        <constraint firstItem="fkD-tx-FXg" firstAttribute="leading" secondItem="QbN-9W-4XT" secondAttribute="leading" id="lLR-lx-azL"/>
+                                        <constraint firstAttribute="bottom" secondItem="K5O-0f-MYO" secondAttribute="bottom" constant="7.5" id="pYd-aB-kkd"/>
+                                        <constraint firstItem="6yl-fy-Swn" firstAttribute="height" secondItem="K5O-0f-MYO" secondAttribute="height" id="upg-jT-7AC"/>
+                                        <constraint firstItem="K5O-0f-MYO" firstAttribute="centerY" secondItem="VdW-aR-IBv" secondAttribute="centerY" id="xOG-CR-Br8"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="commentsLabel" destination="bj9-lb-dFv" id="OlL-Nv-tY9"/>
-                                    <outlet property="timeLabel" destination="m8s-Gf-Waj" id="ne9-w6-bBK"/>
+                                    <outlet property="commentsLabel" destination="VdW-aR-IBv" id="jmw-g8-Kvb"/>
+                                    <outlet property="timeLabel" destination="6yl-fy-Swn" id="k7M-gn-qxe"/>
                                     <outlet property="titleLabel" destination="QbN-9W-4XT" id="FzQ-Ct-PCz"/>
                                     <outlet property="urlLabel" destination="fkD-tx-FXg" id="FbE-1t-Dmy"/>
-                                    <outlet property="voteLabel" destination="Oql-gG-HOf" id="Nzw-5h-cZz"/>
+                                    <outlet property="voteLabel" destination="K5O-0f-MYO" id="gU9-vs-vV9"/>
                                     <segue destination="AL4-Kb-Vww" kind="show" identifier="toWebview" id="1bu-Rk-B1Q"/>
                                 </connections>
                             </tableViewCell>
@@ -127,7 +142,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxS-zm-oKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3593" y="558"/>
+            <point key="canvasLocation" x="3593" y="579"/>
         </scene>
         <!--Webview Controller-->
         <scene sceneID="7Oa-iN-FB2">

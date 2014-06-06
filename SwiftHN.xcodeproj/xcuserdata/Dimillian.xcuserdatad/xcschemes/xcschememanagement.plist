@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SwiftHNLiveViews.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>SwiftHNShared.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +22,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>9F1AAFE91941F13000E68F41</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F1AAFF31941F13000E68F41</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9F1EE915194105C30061B4B6</key>
 		<dict>
 			<key>primary</key>
