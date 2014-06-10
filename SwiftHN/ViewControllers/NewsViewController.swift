@@ -11,7 +11,11 @@ import UIKit
 class NewsViewController: UITableViewController, NewsCellDelegate {
     
     let hnManager = HNManager.sharedManager()
-    var posts: NSArray!
+    var posts: NSArray! {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +23,10 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
         self.title = "HN:News"
         self.navigationController.condensesBarsOnSwipe = true
         
+        //self.posts = Cache.decacheObject("news") as? NSArray
         self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
+            //Cache.cacheObjects(posts, key: "news")
             self.posts = posts
-            self.tableView.reloadData()
         })
     }
     
