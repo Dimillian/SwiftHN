@@ -38,12 +38,12 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as NewsCell
-        if cell == nil {
+        var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
+        if !cell {
             cell = NewsCell(style: UITableViewCellStyle.Default, reuseIdentifier: NewsCellsId)
         }
-        cell.post = self.posts[indexPath.row] as HNPost
-        cell.cellDelegate = self
+        cell!.post = self.posts[indexPath.row] as HNPost
+        cell!.cellDelegate = self
         return cell
     }
     
@@ -56,8 +56,8 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     
     // Mark: NewsCellDelegate
     
-    func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType) {
-        println(actionType)
+    func newsCellDidSelectButton(cell: NewsCell,  actionType: NewsCellActionType) {
+        print(actionType)
     }
     
     
