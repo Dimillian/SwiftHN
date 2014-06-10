@@ -25,8 +25,8 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
         
         //self.posts = Cache.decacheObject("news") as? NSArray
         self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
-            //Cache.cacheObjects(posts, key: "news")
             self.posts = posts
+            //Cache.cacheObjects(self.posts, key: "news")
         })
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-/*
+
 struct CacheHelper {
      static var filePath: String {
         get {
@@ -22,20 +22,20 @@ struct CacheHelper {
         }
     }
 }
+
 class Cache {
     
     class func cacheObjects(object: AnyObject, key: String) {
-        if let conformingObject = object as? NSCoding {
+        if (object.respondsToSelector("encodeWithCoder:")) {
             NSKeyedArchiver.archiveRootObject(object, toFile: CacheHelper.filePath + key)
         }
     }
     
     class func decacheObject(key: String) -> AnyObject! {
-        var object : AnyObject? = NSKeyedUnarchiver.unarchiveObjectWithFile(CacheHelper.filePath + key) as? AnyObject
-        if let realObject : AnyObject = object as? AnyObject {
-            return realObject
+        var object : AnyObject? = NSKeyedUnarchiver.unarchiveObjectWithFile(CacheHelper.filePath + key)
+        if object {
+            return object
         }
         return nil
     }
 }
-*/
