@@ -33,7 +33,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="newsCellId" rowHeight="102" id="Prp-Mc-YSz" customClass="NewsCell" customModule="SwiftHN" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="newsCellId" rowHeight="102" id="Prp-Mc-YSz" customClass="NewsCell" customModule="SwiftHN" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Prp-Mc-YSz" id="qo4-uO-pvA">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -45,7 +45,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-tx-FXg">
-                                            <rect key="frame" x="20" y="44.5" width="440" height="16"/>
+                                            <rect key="frame" x="20" y="36.5" width="440" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="Tzp-P5-tIC"/>
                                             </constraints>
@@ -103,7 +103,7 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="fkD-tx-FXg" firstAttribute="top" secondItem="QbN-9W-4XT" secondAttribute="bottom" constant="11" id="0gS-rk-doH"/>
+                                        <constraint firstItem="fkD-tx-FXg" firstAttribute="top" secondItem="QbN-9W-4XT" secondAttribute="bottom" constant="3" id="0gS-rk-doH"/>
                                         <constraint firstItem="6yl-fy-Swn" firstAttribute="leading" secondItem="VdW-aR-IBv" secondAttribute="trailing" constant="17" id="1Za-gz-qcE"/>
                                         <constraint firstItem="QbN-9W-4XT" firstAttribute="width" secondItem="fkD-tx-FXg" secondAttribute="width" id="46Z-dQ-6FG"/>
                                         <constraint firstItem="K5O-0f-MYO" firstAttribute="height" secondItem="VdW-aR-IBv" secondAttribute="height" id="GD4-MX-XWT"/>
@@ -115,7 +115,7 @@
                                         <constraint firstItem="QbN-9W-4XT" firstAttribute="top" secondItem="qo4-uO-pvA" secondAttribute="top" constant="16" id="cQs-eq-hUZ"/>
                                         <constraint firstItem="VdW-aR-IBv" firstAttribute="leading" secondItem="K5O-0f-MYO" secondAttribute="trailing" constant="17" id="d7h-6K-5gF"/>
                                         <constraint firstItem="QbN-9W-4XT" firstAttribute="leading" secondItem="qo4-uO-pvA" secondAttribute="leading" constant="20" id="eay-a1-mYf"/>
-                                        <constraint firstItem="K5O-0f-MYO" firstAttribute="top" secondItem="fkD-tx-FXg" secondAttribute="bottom" constant="7" id="elu-k0-gaC"/>
+                                        <constraint firstItem="K5O-0f-MYO" firstAttribute="top" secondItem="fkD-tx-FXg" secondAttribute="bottom" constant="15" id="elu-k0-gaC"/>
                                         <constraint firstItem="6yl-fy-Swn" firstAttribute="centerY" secondItem="K5O-0f-MYO" secondAttribute="centerY" id="gsy-Fg-flh"/>
                                         <constraint firstItem="fkD-tx-FXg" firstAttribute="leading" secondItem="QbN-9W-4XT" secondAttribute="leading" id="lLR-lx-azL"/>
                                         <constraint firstAttribute="bottom" secondItem="K5O-0f-MYO" secondAttribute="bottom" constant="7.5" id="pYd-aB-kkd"/>
