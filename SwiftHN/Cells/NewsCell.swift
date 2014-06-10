@@ -17,7 +17,7 @@ enum NewsCellActionType: Int {
     case Time
 }
 
-protocol NewsCellDelegate {
+@class_protocol protocol NewsCellDelegate {
     func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType)
 }
 
@@ -29,7 +29,7 @@ class NewsCell: UITableViewCell {
     @IBOutlet var commentsLabel : BorderedButton = nil
     @IBOutlet var timeLabel : BorderedButton = nil
     
-    var cellDelegate: NewsCellDelegate?
+    weak var cellDelegate: NewsCellDelegate?
     
     var post: HNPost! {
         didSet{
