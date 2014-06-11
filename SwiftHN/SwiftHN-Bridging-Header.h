@@ -3,3 +3,4 @@
 //
 
 #import <libHN/libHN.h>
+#import "NewsCellOC.h"

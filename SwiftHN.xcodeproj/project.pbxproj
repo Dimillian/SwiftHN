@@ -100,6 +100,7 @@
 
 /* Begin PBXFileReference section */
 		68B886A0A1BB43F48711738A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		9F1A1FE61948D73400946000 /* NewsCellOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NewsCellOC.h; path = Cells/NewsCellOC.h; sourceTree = "<group>"; };
 		9F1AAFEA1941F13000E68F41 /* SwiftHNLiveViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftHNLiveViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1AAFED1941F13000E68F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1AAFEE1941F13000E68F41 /* SwiftHNLiveViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftHNLiveViews.h; sourceTree = "<group>"; };
@@ -369,6 +370,7 @@
 		9FEB20C61940E09A007EB9CF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9F1A1FE61948D73400946000 /* NewsCellOC.h */,
 				9FEB20C71940E0AE007EB9CF /* NewsCell.swift */,
 			);
 			name = Cells;
@@ -1013,11 +1015,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftHN/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHN/SwiftHN-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1032,10 +1036,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftHN/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHN/SwiftHN-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

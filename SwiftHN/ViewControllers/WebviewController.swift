@@ -22,7 +22,9 @@ class WebviewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         self.webView.delegate = self
-        self.webView.loadRequest(NSURLRequest(URL: NSURL(string: self.post.UrlString)))
+        if let realpost = self.post {
+            self.webView.loadRequest(NSURLRequest(URL: NSURL(string: realpost.UrlString)))
+        }
     }
     
     func webViewDidFinishLoad(webView: UIWebView!) {
