@@ -11,13 +11,7 @@ import SwiftHNLiveViews
 
 let NewsCellsId = "newsCellId"
 
-enum NewsCellActionType: Int {
-    case Vote = 0
-    case Comments
-    case Time
-}
-
-@class_protocol protocol NewsCellDelegate {
+@objc protocol NewsCellDelegate {
     func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType)
 }
 
@@ -40,15 +34,15 @@ class NewsCell: UITableViewCell {
             self.timeLabel.labelText = self.post.TimeCreatedString
             
             self.voteLabel.onButtonTouch = {
-                self.selectedAction(.Vote)
+                self.selectedAction(NewsCellActionType.Vote)
             }
             
             self.commentsLabel.onButtonTouch = {
-                self.selectedAction(.Comments)
+                self.selectedAction(NewsCellActionType.Comment)
             }
             
             self.timeLabel.onButtonTouch = {
-                self.selectedAction(.Time)
+                self.selectedAction(NewsCellActionType.Time)
             }
         }
     }
