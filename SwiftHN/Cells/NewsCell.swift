@@ -34,15 +34,15 @@ class NewsCell: UITableViewCell {
             self.timeLabel.labelText = self.post.TimeCreatedString
             
             self.voteLabel.onButtonTouch = {
-                self.selectedAction(NewsCellActionType.Vote)
+                self.selectedAction(.Vote)
             }
             
             self.commentsLabel.onButtonTouch = {
-                self.selectedAction(NewsCellActionType.Comment)
+                self.selectedAction(.Comment)
             }
             
             self.timeLabel.onButtonTouch = {
-                self.selectedAction(NewsCellActionType.Time)
+                self.selectedAction(.Time)
             }
         }
     }

@@ -60,9 +60,9 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     }
     
     // Mark: NewsCellDelegate
-    
     func newsCellDidSelectButton(cell: NewsCell,  actionType: NewsCellActionType) {
-        print(actionType)
+        var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+        self.showDetailViewController(detailVC, sender: self)
     }
     
     

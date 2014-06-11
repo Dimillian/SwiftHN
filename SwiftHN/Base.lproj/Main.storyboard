@@ -189,5 +189,32 @@
             </objects>
             <point key="canvasLocation" x="5040" y="775"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="TBb-3E-cY5">
+            <objects>
+                <tableViewController storyboardIdentifier="DetailViewController" id="6Ks-BI-3Ob" customClass="DetailViewController" customModule="SwiftHN" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" id="OZ6-BK-KsS">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" rowHeight="89" id="0DY-Eb-W1Q">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0DY-Eb-W1Q" id="xGY-U6-INT">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6Ks-BI-3Ob" id="HDf-PN-ptC"/>
+                            <outlet property="delegate" destination="6Ks-BI-3Ob" id="TTi-XK-hgP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X43-s7-vcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5040" y="1379"/>
+        </scene>
     </scenes>
 </document>
