@@ -14,7 +14,6 @@
 		9F1AB0001941F13000E68F41 /* SwiftHNLiveViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1AAFEA1941F13000E68F41 /* SwiftHNLiveViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9F1AB00B1941F16700E68F41 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1AB00A1941F16700E68F41 /* BorderedButton.swift */; };
 		9F1AB00D1941F49800E68F41 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1AB00C1941F49800E68F41 /* UIColorExt.swift */; };
-		9F1EE910194105700061B4B6 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1EE90F194105700061B4B6 /* TabbarController.swift */; };
 		9F1EE91B194105C30061B4B6 /* SwiftHNShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F1EE91A194105C30061B4B6 /* SwiftHNShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9F1EE921194105C30061B4B6 /* SwiftHNShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */; };
 		9F1EE928194105C30061B4B6 /* SwiftHNSharedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1EE927194105C30061B4B6 /* SwiftHNSharedTests.swift */; };
@@ -25,6 +24,8 @@
 		9F21AA721940A45700CF4E63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F21AA711940A45700CF4E63 /* Images.xcassets */; };
 		9F21AA7E1940A45700CF4E63 /* SwiftHNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21AA7D1940A45700CF4E63 /* SwiftHNTests.swift */; };
 		9F3ED6201948D91F0072E02D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3ED61F1948D91F0072E02D /* DetailViewController.swift */; };
+		9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D41949BAC50003B7AD /* SplitViewController.swift */; };
+		9F45C8D81949BE6F0003B7AD /* SplitViewControllerEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */; };
 		9F5DE8CC1947673300021EF5 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DE8CB1947673300021EF5 /* Cache.swift */; };
 		9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBC8B661940E57B0052AF48 /* WebviewController.swift */; };
 		9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB20C31940DE08007EB9CF /* NewsViewController.swift */; };
@@ -110,7 +111,6 @@
 		9F1AAFFB1941F13000E68F41 /* SwiftHNLiveViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHNLiveViewsTests.swift; sourceTree = "<group>"; };
 		9F1AB00A1941F16700E68F41 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderedButton.swift; path = Views/BorderedButton.swift; sourceTree = "<group>"; };
 		9F1AB00C1941F49800E68F41 /* UIColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExt.swift; path = Extension/UIColorExt.swift; sourceTree = "<group>"; };
-		9F1EE90F194105700061B4B6 /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabbarController.swift; path = ViewControllers/TabbarController.swift; sourceTree = "<group>"; };
 		9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftHNShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1EE919194105C30061B4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1EE91A194105C30061B4B6 /* SwiftHNShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftHNShared.h; sourceTree = "<group>"; };
@@ -127,6 +127,8 @@
 		9F21AA7D1940A45700CF4E63 /* SwiftHNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHNTests.swift; sourceTree = "<group>"; };
 		9F21AA871940B5F300CF4E63 /* SwiftHN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SwiftHN.entitlements; sourceTree = "<group>"; };
 		9F3ED61F1948D91F0072E02D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ViewControllers/DetailViewController.swift; sourceTree = "<group>"; };
+		9F45C8D41949BAC50003B7AD /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewController.swift; path = ViewControllers/SplitViewController.swift; sourceTree = "<group>"; };
+		9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewControllerEXT.swift; path = Extensions/SplitViewControllerEXT.swift; sourceTree = "<group>"; };
 		9F5DE8CB1947673300021EF5 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = Utils/Cache.swift; sourceTree = "<group>"; };
 		9F6CA16D1945BB5A003A26D4 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		9FBC8B661940E57B0052AF48 /* WebviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebviewController.swift; path = ViewControllers/WebviewController.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				9F21AA871940B5F300CF4E63 /* SwiftHN.entitlements */,
 				9F21AA681940A45700CF4E63 /* AppDelegate.swift */,
 				9F21AA6E1940A45700CF4E63 /* Main.storyboard */,
+				9F45C8D61949BE580003B7AD /* Extensions */,
 				9F5DE8CA1947671C00021EF5 /* Utils */,
 				9FEB20C61940E09A007EB9CF /* Cells */,
 				9FEB20C51940DE0D007EB9CF /* ViewController */,
@@ -351,6 +354,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9F45C8D61949BE580003B7AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		9F5DE8CA1947671C00021EF5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,9 +373,9 @@
 		9FEB20C51940DE0D007EB9CF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9F45C8D41949BAC50003B7AD /* SplitViewController.swift */,
 				9FEB20C31940DE08007EB9CF /* NewsViewController.swift */,
 				9FBC8B661940E57B0052AF48 /* WebviewController.swift */,
-				9F1EE90F194105700061B4B6 /* TabbarController.swift */,
 				9F3ED61F1948D91F0072E02D /* DetailViewController.swift */,
 			);
 			name = ViewController;
@@ -696,9 +707,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F21AA691940A45700CF4E63 /* AppDelegate.swift in Sources */,
+				9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */,
 				9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */,
+				9F45C8D81949BE6F0003B7AD /* SplitViewControllerEXT.swift in Sources */,
 				9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */,
-				9F1EE910194105700061B4B6 /* TabbarController.swift in Sources */,
 				9F5DE8CC1947673300021EF5 /* Cache.swift in Sources */,
 				9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */,
 				9F3ED6201948D91F0072E02D /* DetailViewController.swift in Sources */,

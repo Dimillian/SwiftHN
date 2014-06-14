@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="fg5-yN-Dyr">
             <objects>
-                <navigationController id="V8M-bQ-z3H" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="rootNavigationController" id="V8M-bQ-z3H" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4bM-k0-cbJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -144,10 +144,11 @@
         <!--Split View Controller - Item-->
         <scene sceneID="hqs-Ff-t8z">
             <objects>
-                <splitViewController id="99j-UD-Bv5" sceneMemberID="viewController">
+                <splitViewController id="99j-UD-Bv5" customClass="SplitViewController" customModule="SwiftHN" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="uyG-zd-3hm"/>
                     <connections>
                         <segue destination="V8M-bQ-z3H" kind="relationship" relationship="masterViewController" id="Rrh-4o-4xI"/>
+                        <segue destination="AL4-Kb-Vww" kind="relationship" relationship="detailViewController" id="2Tw-2Y-eYk"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Huc-9W-JDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -187,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVR-Y9-ssb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5040" y="775"/>
+            <point key="canvasLocation" x="5044" y="775"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="TBb-3E-cY5">
@@ -214,7 +215,10 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X43-s7-vcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5040" y="1379"/>
+            <point key="canvasLocation" x="5044" y="1424"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2Tw-2Y-eYk"/>
+    </inferredMetricsTieBreakers>
 </document>

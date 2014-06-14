@@ -19,7 +19,7 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.title = "HN:News"
         self.navigationController.condensesBarsOnSwipe = true
         
@@ -65,5 +65,5 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
         self.showDetailViewController(detailVC, sender: self)
     }
     
-    
+
 }
