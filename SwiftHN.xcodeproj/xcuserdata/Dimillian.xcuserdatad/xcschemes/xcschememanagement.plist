@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>SwiftHNTodayWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>latestPostWidget.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -58,6 +63,16 @@
 			<true/>
 		</dict>
 		<key>9F21AA761940A45700CF4E63</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F50704519517E0D005B9914</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F50705B19517FFB005B9914</key>
 		<dict>
 			<key>primary</key>
 			<true/>
