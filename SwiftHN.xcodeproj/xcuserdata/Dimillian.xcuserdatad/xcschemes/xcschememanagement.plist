@@ -27,12 +27,17 @@
 		<key>SwiftHNTodayWidget.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>3</integer>
 		</dict>
 		<key>latestPostWidget.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
+		</dict>
+		<key>test2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -78,6 +83,11 @@
 			<true/>
 		</dict>
 		<key>9F6CA16B1945BB5A003A26D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F7D73AE1951F560006DA9BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,13 +9,26 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController {
+class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let cellId = "widgetCellId"
     let hnManager = HNManager.sharedManager()
-    var posts: NSArray!
+    var posts: NSArray! {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
+    let tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.preferredContentSize = CGSizeMake(0, 250.0)
+        self.tableView.frame = self.view.bounds
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.addSubview(self.tableView)
         
         self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
             self.posts = posts
@@ -28,13 +41,28 @@ class TodayViewController: UIViewController {
     }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
-        // Perform any setup necessary in order to update the view.
-
-        // If an error is encoutered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-
         completionHandler(NCUpdateResult.NewData)
     }
     
+    // Mark: TableView Management
+    func numberOfSectionsInTableView(tableView: UITableView!) -> Int  {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(self.cellId) as? UITableViewCell
+        if !cell {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: self.cellId)
+        }
+        
+        var post = self.posts[indexPath.row] as HNPost
+        cell!.textLabel.text = post.Title
+        cell!.detailTextLabel.text = post.UrlString
+        
+        return cell
+    }
 }
