@@ -11,12 +11,13 @@ import SwiftHNShared
 
 class BorderedButton: UIView {
 
+    typealias buttonTouchInsideEvent = (sender: UIButton) -> ()
     // MARK: Internals views
     var button : UIButton = UIButton(frame: CGRectZero)
     let animationDuration = 0.15
     
     // MARK: Callback
-    var onButtonTouch = {() -> () in}
+    var onButtonTouch: buttonTouchInsideEvent!
     
     // MARK: IBSpec
     @IBInspectable var borderColor: UIColor = UIColorEXT.HNColor() {
@@ -109,7 +110,7 @@ class BorderedButton: UIView {
     }
     
     func onRealPress(sender: AnyObject) {
-        self.onButtonTouch()
+        self.onButtonTouch(sender: sender as UIButton)
     }
     
 }

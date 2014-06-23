@@ -18,18 +18,16 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.tableView.reloadData()
         }
     }
-    
-    let tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
+        
+    @IBOutlet var tableView: UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         self.preferredContentSize = CGSizeMake(0, 250.0)
-        self.tableView.frame = self.view.bounds
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
         
+        print("Hello world")
         self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
             self.posts = posts
         })

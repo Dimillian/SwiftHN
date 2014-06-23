@@ -16,18 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDc-Ly-XAh">
-                                <rect key="frame" x="139" y="115" width="40" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mhm-Nn-5sU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Vtt-pR-aga"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="M4Y-Lb-cyx" id="mXl-VG-cyT"/>
+                                    <outlet property="delegate" destination="M4Y-Lb-cyx" id="TBN-b8-SRM"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="uDc-Ly-XAh" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="139" id="6OY-H5-RWc"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="uDc-Ly-XAh" secondAttribute="bottom" constant="115" id="ACS-W0-2Ja"/>
-                            <constraint firstItem="uDc-Ly-XAh" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="115" id="NIQ-VP-seQ"/>
-                            <constraint firstAttribute="trailing" secondItem="uDc-Ly-XAh" secondAttribute="trailing" constant="141" id="XjU-Zx-zs6"/>
+                            <constraint firstItem="Mhm-Nn-5sU" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="JcK-HM-5Gw"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="Mhm-Nn-5sU" secondAttribute="bottom" id="N3E-xU-8dl"/>
+                            <constraint firstItem="Mhm-Nn-5sU" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="To2-P7-amn"/>
+                            <constraint firstAttribute="trailing" secondItem="Mhm-Nn-5sU" secondAttribute="trailing" id="mLM-7F-FpL"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -36,6 +41,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="250"/>
+                    <connections>
+                        <outlet property="tableView" destination="Mhm-Nn-5sU" id="2ka-RJ-6BJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
