@@ -19,7 +19,7 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         self.title = "HN:News"
         self.navigationController.condensesBarsOnSwipe = true
         
@@ -44,9 +44,6 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
-        if !cell {
-            cell = NewsCell(style: UITableViewCellStyle.Default, reuseIdentifier: NewsCellsId)
-        }
         cell!.post = self.posts[indexPath.row] as HNPost
         cell!.cellDelegate = self
         return cell
@@ -58,6 +55,24 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
             destination.post = self.posts[self.tableView.indexPathsForSelectedRows()[0].row] as HNPost
         }
     }
+    
+    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) -> AnyObject[]!
+    {
+        var readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
+            title: "Read Later",
+            handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
+                
+        })
+        readingList.backgroundColor = UIColor.blueColor()
+        
+        return [readingList]
+    }
+    
     
     // Mark: NewsCellDelegate
     func newsCellDidSelectButton(cell: NewsCell,  actionType: NewsCellActionType) {

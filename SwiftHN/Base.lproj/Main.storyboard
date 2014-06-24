@@ -24,13 +24,13 @@
         <scene sceneID="RQR-ow-X2e">
             <objects>
                 <tableViewController title="News" id="bxT-4H-0CN" customClass="NewsViewController" customModule="SwiftHN" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" id="agD-K6-Llu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" id="agD-K6-Llu">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="newsCellId" rowHeight="102" id="Prp-Mc-YSz" customClass="NewsCell" customModule="SwiftHN" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="newsCellId" rowHeight="102" id="Prp-Mc-YSz" customClass="NewsCell" customModule="SwiftHN" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Prp-Mc-YSz" id="qo4-uO-pvA">
                                     <autoresizingMask key="autoresizingMask"/>
