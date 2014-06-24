@@ -49,7 +49,7 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
             options: NSStringDrawingOptions.UsesLineFragmentOrigin,
             attributes: [NSFontAttributeName: UIFont.systemFontOfSize(NewsCellTitleFontSize)],
             context: nil)
-        return size.height > 20.0 ?  NewsCellHeight + size.height - 20.0 : NewsCellHeight
+        return size.height > NewsCellTitleDefaultHeight ?  NewsCellHeight + size.height - NewsCellTitleDefaultHeight : NewsCellHeight
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {

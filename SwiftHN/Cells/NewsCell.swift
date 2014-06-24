@@ -13,6 +13,7 @@ let NewsCellsId = "newsCellId"
 let NewsCellHeight: CGFloat = 110.0
 let NewsCellTitleMarginConstant: CGFloat = 16.0
 let NewsCellTitleFontSize: CGFloat = 16.0
+let NewsCellTitleDefaultHeight: CGFloat = 20.0
 
 @objc protocol NewsCellDelegate {
     func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType)
