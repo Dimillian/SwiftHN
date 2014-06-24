@@ -42,6 +42,11 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
         return 0
     }
     
+    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
+    {
+        return 110.0
+    }
+    
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
         cell!.post = self.posts[indexPath.row] as HNPost

@@ -21,17 +21,17 @@ class NewsCell: UITableViewCell {
     @IBOutlet var urlLabel : UILabel = nil
     @IBOutlet var voteLabel : BorderedButton = nil
     @IBOutlet var commentsLabel : BorderedButton = nil
-    @IBOutlet var timeLabel : BorderedButton = nil
-    
+    @IBOutlet var usernameLabel: BorderedButton = nil
+
     weak var cellDelegate: NewsCellDelegate?
     
     var post: HNPost! {
         didSet{
             self.titleLabel.text = self.post.Title
-            self.urlLabel.text = self.post.UrlString
+            self.urlLabel.text = self.post.UrlString + " - " + self.post.TimeCreatedString
             self.voteLabel.labelText = "\(self.post.Points) votes"
             self.commentsLabel.labelText = "\(self.post.CommentCount) comments"
-            self.timeLabel.labelText = self.post.TimeCreatedString
+            self.usernameLabel.labelText = self.post.Username
             
             self.voteLabel.onButtonTouch = {(sender: UIButton) in
                 self.selectedAction(.Vote)
@@ -41,8 +41,8 @@ class NewsCell: UITableViewCell {
                 self.selectedAction(.Comment)
             }
             
-            self.timeLabel.onButtonTouch = {(sender: UIButton) in
-                self.selectedAction(.Time)
+            self.usernameLabel.onButtonTouch = {(sender: UIButton) in
+                self.selectedAction(.Username)
             }
         }
     }

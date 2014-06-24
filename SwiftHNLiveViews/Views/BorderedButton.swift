@@ -83,7 +83,7 @@ class BorderedButton: UIView {
         
         self.borderColor = UIColorEXT.HNColor()
         self.labelColor = UIColorEXT.HNColor()
-        self.borderWidth = 1.0
+        self.borderWidth = 0.5
         self.borderCornerRadius = 5.0
         self.labelFontSize = 11.0
         

@@ -9,5 +9,5 @@
 typedef NS_ENUM(NSInteger, NewsCellActionType) {
     NewsCellActionTypeVote,
     NewsCellActionTypeComment,
-    NewsCellActionTypeTime
+    NewsCellActionTypeUsername
 };
