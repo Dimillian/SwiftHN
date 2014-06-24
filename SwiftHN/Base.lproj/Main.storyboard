@@ -35,20 +35,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Prp-Mc-YSz" id="qo4-uO-pvA">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbN-9W-4XT">
-                                            <rect key="frame" x="16" y="11" width="440" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="17" id="Gnq-lM-g3q"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-tx-FXg">
-                                            <rect key="frame" x="16" y="32" width="440" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="16" id="Tzp-P5-tIC"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Domain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-tx-FXg">
+                                            <rect key="frame" x="16" y="29" width="440" height="16"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -56,6 +44,10 @@
                                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-0f-MYO" customClass="BorderedButton" customModule="SwiftHNLiveViews">
                                             <rect key="frame" x="16" y="63" width="80" height="31"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="bn2-fz-YpR"/>
+                                                <constraint firstAttribute="width" constant="80" id="nzB-h0-YmY"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                     <real key="value" value="1"/>
@@ -69,7 +61,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-aR-IBv" customClass="BorderedButton" customModule="SwiftHNLiveViews">
+                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-aR-IBv" customClass="BorderedButton" customModule="SwiftHNLiveViews">
                                             <rect key="frame" x="113" y="63" width="90" height="31"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
@@ -85,7 +77,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yl-fy-Swn" customClass="BorderedButton" customModule="SwiftHNLiveViews">
+                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yl-fy-Swn" customClass="BorderedButton" customModule="SwiftHNLiveViews">
                                             <rect key="frame" x="220" y="63" width="90" height="31"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
@@ -101,15 +93,23 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbN-9W-4XT">
+                                            <rect key="frame" x="16" y="9" width="440" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="fkD-tx-FXg" firstAttribute="top" secondItem="QbN-9W-4XT" secondAttribute="bottom" constant="4" id="EAm-wA-buf"/>
-                                        <constraint firstItem="fkD-tx-FXg" firstAttribute="leading" secondItem="qo4-uO-pvA" secondAttribute="leading" constant="16" id="IcK-OE-5br"/>
-                                        <constraint firstItem="QbN-9W-4XT" firstAttribute="top" secondItem="qo4-uO-pvA" secondAttribute="top" constant="11" id="Kv0-xi-f6S"/>
-                                        <constraint firstAttribute="trailing" secondItem="fkD-tx-FXg" secondAttribute="trailing" constant="24" id="TPN-F0-EoK"/>
-                                        <constraint firstItem="QbN-9W-4XT" firstAttribute="leading" secondItem="qo4-uO-pvA" secondAttribute="leading" constant="16" id="gAn-cR-wPd"/>
-                                        <constraint firstAttribute="trailing" secondItem="QbN-9W-4XT" secondAttribute="trailing" constant="24" id="nt3-Ch-Fom"/>
-                                        <constraint firstItem="QbN-9W-4XT" firstAttribute="leading" secondItem="K5O-0f-MYO" secondAttribute="leading" id="tuc-6B-ejC"/>
+                                        <constraint firstItem="K5O-0f-MYO" firstAttribute="centerY" secondItem="VdW-aR-IBv" secondAttribute="centerY" id="ENr-sk-sWO"/>
+                                        <constraint firstItem="fkD-tx-FXg" firstAttribute="leading" secondItem="qo4-uO-pvA" secondAttribute="leading" constant="16" id="OGW-7L-jWU"/>
+                                        <constraint firstItem="fkD-tx-FXg" firstAttribute="top" secondItem="QbN-9W-4XT" secondAttribute="bottom" constant="3" id="bbc-b9-Luw"/>
+                                        <constraint firstItem="QbN-9W-4XT" firstAttribute="leading" secondItem="qo4-uO-pvA" secondAttribute="leading" constant="16" id="gXD-MT-6ut"/>
+                                        <constraint firstItem="K5O-0f-MYO" firstAttribute="top" secondItem="fkD-tx-FXg" secondAttribute="bottom" constant="18" id="kv0-1a-1D8"/>
+                                        <constraint firstAttribute="trailing" secondItem="fkD-tx-FXg" secondAttribute="trailing" constant="24" id="lce-sq-Nh9"/>
+                                        <constraint firstItem="VdW-aR-IBv" firstAttribute="centerY" secondItem="6yl-fy-Swn" secondAttribute="centerY" id="oRe-i7-noi"/>
+                                        <constraint firstAttribute="trailing" secondItem="QbN-9W-4XT" secondAttribute="trailing" constant="24" id="q8U-N3-Pti"/>
+                                        <constraint firstItem="QbN-9W-4XT" firstAttribute="top" secondItem="qo4-uO-pvA" secondAttribute="top" constant="9" id="qrK-0g-wgs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

@@ -44,7 +44,7 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
     {
-        return 110.0
+        return NewsCellHeight
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
@@ -77,8 +77,7 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
         
         return [readingList]
     }
-    
-    
+
     // Mark: NewsCellDelegate
     func newsCellDidSelectButton(cell: NewsCell,  actionType: NewsCellActionType) {
         var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController

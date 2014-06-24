@@ -10,6 +10,7 @@ import UIKit
 import SwiftHNLiveViews
 
 let NewsCellsId = "newsCellId"
+let NewsCellHeight: CGFloat = 110.0
 
 @objc protocol NewsCellDelegate {
     func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType)
