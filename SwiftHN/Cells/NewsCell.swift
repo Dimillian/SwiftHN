@@ -11,6 +11,8 @@ import SwiftHNLiveViews
 
 let NewsCellsId = "newsCellId"
 let NewsCellHeight: CGFloat = 110.0
+let NewsCellTitleMarginConstant: CGFloat = 16.0
+let NewsCellTitleFontSize: CGFloat = 16.0
 
 @objc protocol NewsCellDelegate {
     func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType)
@@ -24,6 +26,8 @@ class NewsCell: UITableViewCell {
     @IBOutlet var commentsLabel : BorderedButton = nil
     @IBOutlet var usernameLabel: BorderedButton = nil
 
+    @IBOutlet var titleMarginConstrain: NSLayoutConstraint = nil
+    
     weak var cellDelegate: NewsCellDelegate?
     
     var post: HNPost! {
@@ -55,4 +59,11 @@ class NewsCell: UITableViewCell {
     func selectedAction(action: NewsCellActionType) {
         self.cellDelegate?.newsCellDidSelectButton(self, actionType: action)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.titleLabel.preferredMaxLayoutWidth = self.contentView.bounds.width - (self.titleMarginConstrain.constant * 2)
+    }
+    
 }

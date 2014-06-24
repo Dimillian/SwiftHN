@@ -44,7 +44,12 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
     {
-        return NewsCellHeight
+        var title: NSString = (self.posts[indexPath.row] as HNPost).Title
+        var size = title.boundingRectWithSize(CGSizeMake(CGRectGetWidth(self.tableView.bounds) - (NewsCellTitleMarginConstant * 2), CGFLOAT_MAX),
+            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+            attributes: [NSFontAttributeName: UIFont.systemFontOfSize(NewsCellTitleFontSize)],
+            context: nil)
+        return size.height > 20.0 ?  NewsCellHeight + size.height - 20.0 : NewsCellHeight
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
