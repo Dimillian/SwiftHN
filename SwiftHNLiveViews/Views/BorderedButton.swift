@@ -26,13 +26,13 @@ class BorderedButton: UIView {
         }
     }
     
-    @IBInspectable var borderWidth: Float = 1.0 {
+    @IBInspectable var borderWidth: CGFloat = 1.0 {
         didSet {
             self.layer.borderWidth = borderWidth
         }
     }
     
-    @IBInspectable var borderCornerRadius: Float = 5.0 {
+    @IBInspectable var borderCornerRadius: CGFloat = 5.0 {
         didSet {
             self.layer.cornerRadius = borderCornerRadius
         }
@@ -50,7 +50,7 @@ class BorderedButton: UIView {
         }
     }
     
-    @IBInspectable var labelFontSize: Float = 11.0 {
+    @IBInspectable var labelFontSize: CGFloat = 11.0 {
         didSet {
             self.button.titleLabel.font = UIFont.systemFontOfSize(labelFontSize)
         }
