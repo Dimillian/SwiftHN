@@ -153,8 +153,9 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     }
 
     // Mark: NewsCellDelegate
-    func newsCellDidSelectButton(cell: NewsCell,  actionType: NewsCellActionType) {
+    func newsCellDidSelectButton(cell: NewsCell,  actionType: NewsCellActionType, post: HNPost) {
         var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+        detailVC.post = post
         self.showDetailViewController(detailVC, sender: self)
     }
     

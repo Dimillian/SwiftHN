@@ -16,7 +16,7 @@ let NewsCellTitleFontSize: CGFloat = 16.0
 let NewsCellTitleDefaultHeight: CGFloat = 20.0
 
 @objc protocol NewsCellDelegate {
-    func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType)
+    func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType, post: HNPost)
 }
 
 class NewsCell: UITableViewCell {
@@ -58,7 +58,7 @@ class NewsCell: UITableViewCell {
     }
     
     func selectedAction(action: NewsCellActionType) {
-        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action)
+        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action, post: self.post)
     }
     
     override func layoutSubviews() {
