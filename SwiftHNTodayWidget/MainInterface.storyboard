@@ -19,9 +19,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mhm-Nn-5sU">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="Vtt-pR-aga"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="M4Y-Lb-cyx" id="mXl-VG-cyT"/>
                                     <outlet property="delegate" destination="M4Y-Lb-cyx" id="TBN-b8-SRM"/>
@@ -33,6 +30,7 @@
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="Mhm-Nn-5sU" secondAttribute="bottom" id="N3E-xU-8dl"/>
                             <constraint firstItem="Mhm-Nn-5sU" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="To2-P7-amn"/>
                             <constraint firstAttribute="trailing" secondItem="Mhm-Nn-5sU" secondAttribute="trailing" id="mLM-7F-FpL"/>
+                            <constraint firstItem="Mhm-Nn-5sU" firstAttribute="height" secondItem="S3S-Oj-5AN" secondAttribute="height" id="oII-fY-u5O"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>

@@ -25,9 +25,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
     
         self.preferredContentSize = CGSizeMake(0, 250.0)
-        self.view.addSubview(self.tableView)
-        
-        print("Hello world")
+    
         self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
             self.posts = posts
         })
