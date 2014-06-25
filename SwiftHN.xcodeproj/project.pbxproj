@@ -32,6 +32,8 @@
 		9F50706419517FFC005B9914 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F50706319517FFC005B9914 /* MainInterface.storyboard */; };
 		9F50706719517FFC005B9914 /* com.thomasricouard.SwiftHN.SwiftHNTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9F50705C19517FFB005B9914 /* com.thomasricouard.SwiftHN.SwiftHNTodayWidget.appex */; };
 		9F5DE8CC1947673300021EF5 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DE8CB1947673300021EF5 /* Cache.swift */; };
+		9F807F1A195ACF3800C80B04 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F19195ACF3800C80B04 /* Helpers.swift */; };
+		9F807F1C195AD40F00C80B04 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F1B195AD40F00C80B04 /* Preferences.swift */; };
 		9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBC8B661940E57B0052AF48 /* WebviewController.swift */; };
 		9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB20C31940DE08007EB9CF /* NewsViewController.swift */; };
 		9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB20C71940E0AE007EB9CF /* NewsCell.swift */; };
@@ -166,6 +168,8 @@
 		9F50706D19518029005B9914 /* com.thomasricouard.SwiftHN.SwiftHNTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = com.thomasricouard.SwiftHN.SwiftHNTodayWidget.entitlements; sourceTree = "<group>"; };
 		9F5DE8CB1947673300021EF5 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = Utils/Cache.swift; sourceTree = "<group>"; };
 		9F6CA16D1945BB5A003A26D4 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		9F807F19195ACF3800C80B04 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Utils/Helpers.swift; sourceTree = "<group>"; };
+		9F807F1B195AD40F00C80B04 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = Utils/Preferences.swift; sourceTree = "<group>"; };
 		9FB4410F1951E1A500860963 /* SwiftHNWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftHNWidget-Bridging-Header.h"; sourceTree = "<group>"; };
 		9FBC8B661940E57B0052AF48 /* WebviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebviewController.swift; path = ViewControllers/WebviewController.swift; sourceTree = "<group>"; };
 		9FEB20C01940DDB0007EB9CF /* SwiftHN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftHN-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -432,7 +436,9 @@
 		9F5DE8CA1947671C00021EF5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9F807F19195ACF3800C80B04 /* Helpers.swift */,
 				9F5DE8CB1947673300021EF5 /* Cache.swift */,
+				9F807F1B195AD40F00C80B04 /* Preferences.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -845,8 +851,10 @@
 			files = (
 				9F21AA691940A45700CF4E63 /* AppDelegate.swift in Sources */,
 				9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */,
+				9F807F1C195AD40F00C80B04 /* Preferences.swift in Sources */,
 				9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */,
 				9F45C8D81949BE6F0003B7AD /* SplitViewControllerEXT.swift in Sources */,
+				9F807F1A195ACF3800C80B04 /* Helpers.swift in Sources */,
 				9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */,
 				9F5DE8CC1947673300021EF5 /* Cache.swift in Sources */,
 				9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */,
@@ -953,6 +961,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -977,6 +986,7 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1036,6 +1046,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1060,6 +1071,7 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1183,13 +1195,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SwiftHN/SwiftHN.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
 				INFOPLIST_FILE = SwiftHN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4A96B1A9-DEE9-49C7-8605-9F0E909298D3";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHN/SwiftHN-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1204,13 +1216,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SwiftHN/SwiftHN.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
 				INFOPLIST_FILE = SwiftHN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4A96B1A9-DEE9-49C7-8605-9F0E909298D3";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHN/SwiftHN-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1257,7 +1269,7 @@
 			baseConfigurationReference = 68B886A0A1BB43F48711738A /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SwiftHNTodayWidget/com.thomasricouard.SwiftHN.SwiftHNTodayWidget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (UJ62XQEVPN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (E2WCCMS7Q8)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1267,7 +1279,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "com.thomasricouard.SwiftHN.$(TARGET_NAME:rfc1034identifier)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "876AAF5E-9046-42E1-9280-285C1B1B83A2";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHNTodayWidget/SwiftHNWidget-Bridging-Header.h";
 			};
@@ -1278,13 +1290,13 @@
 			baseConfigurationReference = 68B886A0A1BB43F48711738A /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SwiftHNTodayWidget/com.thomasricouard.SwiftHN.SwiftHNTodayWidget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (UJ62XQEVPN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (E2WCCMS7Q8)";
 				INFOPLIST_FILE = SwiftHNTodayWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "com.thomasricouard.SwiftHN.$(TARGET_NAME:rfc1034identifier)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "876AAF5E-9046-42E1-9280-285C1B1B83A2";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHNTodayWidget/SwiftHNWidget-Bridging-Header.h";
 			};

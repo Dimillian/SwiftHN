@@ -34,7 +34,7 @@ class NewsCell: UITableViewCell {
     var post: HNPost! {
         didSet{
             self.titleLabel.text = self.post.Title
-            self.urlLabel.text = self.post.UrlString + " - " + self.post.TimeCreatedString
+            self.urlLabel.text = self.post.UrlDomain + " - " + self.post.TimeCreatedString
             self.voteLabel.labelText = "\(self.post.Points) votes"
             self.commentsLabel.labelText = "\(self.post.CommentCount) comments"
             self.usernameLabel.labelText = self.post.Username
