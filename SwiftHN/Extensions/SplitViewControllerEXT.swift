@@ -9,14 +9,5 @@
 import UIKit
 
 extension UISplitViewController {
-    var rootViewController: UIViewController {
-        get {
-            let masterVC = self.viewControllers[0] as UIViewController
-            if (masterVC is UINavigationController) {
-                let navVC = masterVC as UINavigationController
-                return navVC.viewControllers[0] as UIViewController
-            }
-            return masterVC
-        }
-    }
+
 }
