@@ -9,38 +9,27 @@
 import UIKit
 import SwiftHNShared
 
-class NewsViewController: UITableViewController, NewsCellDelegate {
+class NewsViewController: HNTableViewController, NewsCellDelegate {
     
     let hnManager = HNManager.sharedManager()
-    var posts: NSArray! {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "HN:News"
-        self.navigationController.condensesBarsOnSwipe = true
         
-        self.refreshControl = UIRefreshControl()
-        
-        self.onRefreshControl()
-        
-        self.refreshControl.addTarget(self, action: "onRefreshControl", forControlEvents: UIControlEvents.ValueChanged)
+        self.onPullToFresh()
     }
     
-    func onRefreshControl() {
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Loading...")
-        self.refreshControl.beginRefreshing()
+    override func onPullToFresh() {
+        super.onPullToFresh()
+        
         self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
-            self.posts = posts
-            self.refreshControl.endRefreshing()
-            self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+            self.datasource = posts
+            self.refreshing = false
         })
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -97,21 +86,21 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     }
     
     override func tableView(tableView: UITableView!,numberOfRowsInSection section: Int) -> Int {
-        if self.posts {
-            return self.posts.count
+        if self.datasource {
+            return self.datasource.count
         }
         return 0
     }
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
     {
-        var title: NSString = (self.posts[indexPath.row] as HNPost).Title
+        var title: NSString = (self.datasource[indexPath.row] as HNPost).Title
         return NewsCell.heightForText(title, bounds: self.tableView.bounds)
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
-        cell!.post = self.posts[indexPath.row] as HNPost
+        cell!.post = self.datasource[indexPath.row] as HNPost
         cell!.cellDelegate = self
         return cell
     }
@@ -119,7 +108,7 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
             var destination = segue.destinationViewController as WebviewController
-            destination.post = self.posts[self.tableView.indexPathsForSelectedRows()[0].row] as HNPost
+            destination.post = self.datasource[self.tableView.indexPathsForSelectedRows()[0].row] as HNPost
         }
     }
 
@@ -136,7 +125,7 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
         var readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "Read\nLater",
             handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
-                if (Helper.addPostToReadingList(self.posts[indexPath.row] as HNPost)) {
+                if (Helper.addPostToReadingList(self.datasource[indexPath.row] as HNPost)) {
            
                 }
                 self.tableView.setEditing(false, animated: true)
@@ -146,7 +135,7 @@ class NewsViewController: UITableViewController, NewsCellDelegate {
         var more = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "More",
             handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
-                self.showActionSheetForPost(self.posts[indexPath.row] as HNPost)
+                self.showActionSheetForPost(self.datasource[indexPath.row] as HNPost)
         })
         
         return [readingList, more]

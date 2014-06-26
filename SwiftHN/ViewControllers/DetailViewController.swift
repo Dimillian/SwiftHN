@@ -7,41 +7,41 @@
 //
 
 import UIKit
+import SwiftHNShared
 
-class DetailViewController: UITableViewController {
+class DetailViewController: HNTableViewController {
 
     let commentCellId = "commentCellid"
     
     let hnManager = HNManager.sharedManager()
     var post: HNPost!
     
-    var comments: NSArray! {
-        didSet{
-            self.tableView.reloadData()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "HN:Post"
-        self.navigationController.condensesBarsOnSwipe = true
         
-        self.refreshControl = UIRefreshControl()
-        self.onRefreshControl()
-        self.refreshControl.addTarget(self, action: "onRefreshControl", forControlEvents: UIControlEvents.ValueChanged)
+        self.setupBarButtonItems()
+        self.onPullToFresh()
+    }
+    
+    override func onPullToFresh() {
+        super.onPullToFresh()
         
+        self.hnManager.loadCommentsFromPost(self.post, completion:  { (NSArray comments) in
+            self.datasource = comments
+            self.refreshing = false
+        })
     }
     
     
-    func onRefreshControl() {
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Loading...")
-        self.refreshControl.beginRefreshing()
-        self.hnManager.loadCommentsFromPost(self.post, completion:  { (NSArray comments) in
-            self.comments = comments
-            self.refreshControl.endRefreshing()
-            self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
-        })
+    func setupBarButtonItems() {
+        var shareItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "onShareButton")
+        self.navigationItem.rightBarButtonItem = shareItem
+    }
+    
+    func onShareButton() {
+        
     }
 
     
@@ -60,8 +60,8 @@ class DetailViewController: UITableViewController {
             return 1
         }
         
-        if self.comments {
-            return self.comments.count
+        if self.datasource {
+            return self.datasource.count
         }
         
         return 0
@@ -79,7 +79,7 @@ class DetailViewController: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: commentCellId)
         }
         
-        var comment = self.comments[indexPath.row] as HNComment
+        var comment = self.datasource[indexPath.row] as HNComment
         cell.textLabel.text = comment.Text
         
         return cell

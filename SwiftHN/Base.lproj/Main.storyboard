@@ -137,6 +137,9 @@
                         <variation key="widthClass=compact" ambiguous="YES">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="640"/>
+                        </variation>
                         <connections>
                             <outlet property="dataSource" destination="bxT-4H-0CN" id="urC-tk-2gD"/>
                             <outlet property="delegate" destination="bxT-4H-0CN" id="Ysi-ke-L8A"/>
@@ -320,6 +323,9 @@
                         </prototypes>
                         <variation key="widthClass=compact" ambiguous="YES">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                            <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
                         </variation>
                         <connections>
                             <outlet property="dataSource" destination="6Ks-BI-3Ob" id="HDf-PN-ptC"/>

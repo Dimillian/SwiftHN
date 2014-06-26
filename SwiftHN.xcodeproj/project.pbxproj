@@ -35,6 +35,7 @@
 		9F807F1A195ACF3800C80B04 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F19195ACF3800C80B04 /* Helpers.swift */; };
 		9F807F1C195AD40F00C80B04 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F1B195AD40F00C80B04 /* Preferences.swift */; };
 		9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBC8B661940E57B0052AF48 /* WebviewController.swift */; };
+		9FC8BA6E195C706D0084A0E0 /* HNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8BA6D195C706D0084A0E0 /* HNTableViewController.swift */; };
 		9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB20C31940DE08007EB9CF /* NewsViewController.swift */; };
 		9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB20C71940E0AE007EB9CF /* NewsCell.swift */; };
 		C0034F0671414B9E83D56DDF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F34153C464E446BB9A8AE8D8 /* libPods.a */; };
@@ -104,6 +105,34 @@
 			remoteGlobalIDString = 9F50705B19517FFB005B9914;
 			remoteInfo = SwiftHNTodayWidget;
 		};
+		9FC8BA65195C702E0084A0E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F21AA5B1940A45700CF4E63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F1EE915194105C30061B4B6;
+			remoteInfo = SwiftHNShared;
+		};
+		9FC8BA67195C702E0084A0E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F21AA5B1940A45700CF4E63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F1EE915194105C30061B4B6;
+			remoteInfo = SwiftHNShared;
+		};
+		9FC8BA69195C702F0084A0E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F21AA5B1940A45700CF4E63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F1AAFE91941F13000E68F41;
+			remoteInfo = SwiftHNLiveViews;
+		};
+		9FC8BA6B195C70310084A0E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F21AA5B1940A45700CF4E63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F21AA621940A45700CF4E63;
+			remoteInfo = SwiftHN;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -172,6 +201,7 @@
 		9F807F1B195AD40F00C80B04 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = Utils/Preferences.swift; sourceTree = "<group>"; };
 		9FB4410F1951E1A500860963 /* SwiftHNWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftHNWidget-Bridging-Header.h"; sourceTree = "<group>"; };
 		9FBC8B661940E57B0052AF48 /* WebviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebviewController.swift; path = ViewControllers/WebviewController.swift; sourceTree = "<group>"; };
+		9FC8BA6D195C706D0084A0E0 /* HNTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HNTableViewController.swift; path = HNKit/HNTableViewController.swift; sourceTree = "<group>"; };
 		9FEB20C01940DDB0007EB9CF /* SwiftHN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftHN-Bridging-Header.h"; sourceTree = "<group>"; };
 		9FEB20C31940DE08007EB9CF /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsViewController.swift; path = ViewControllers/NewsViewController.swift; sourceTree = "<group>"; };
 		9FEB20C71940E0AE007EB9CF /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsCell.swift; path = Cells/NewsCell.swift; sourceTree = "<group>"; };
@@ -293,6 +323,7 @@
 		9F1EE917194105C30061B4B6 /* SwiftHNShared */ = {
 			isa = PBXGroup;
 			children = (
+				9FC8BA62195C6E060084A0E0 /* HNKit */,
 				9F1EE93B194106C90061B4B6 /* Extensions */,
 				9F1EE91A194105C30061B4B6 /* SwiftHNShared.h */,
 				9F1EE918194105C30061B4B6 /* Supporting Files */,
@@ -443,6 +474,14 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		9FC8BA62195C6E060084A0E0 /* HNKit */ = {
+			isa = PBXGroup;
+			children = (
+				9FC8BA6D195C706D0084A0E0 /* HNTableViewController.swift */,
+			);
+			name = HNKit;
+			sourceTree = "<group>";
+		};
 		9FEB20C51940DE0D007EB9CF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +554,7 @@
 			);
 			dependencies = (
 				9F1AAFF71941F13000E68F41 /* PBXTargetDependency */,
+				9FC8BA6A195C702F0084A0E0 /* PBXTargetDependency */,
 			);
 			name = SwiftHNLiveViewsTests;
 			productName = SwiftHNLiveViewsTests;
@@ -551,6 +591,8 @@
 			);
 			dependencies = (
 				9F1EE923194105C30061B4B6 /* PBXTargetDependency */,
+				9FC8BA66195C702E0084A0E0 /* PBXTargetDependency */,
+				9FC8BA68195C702E0084A0E0 /* PBXTargetDependency */,
 			);
 			name = SwiftHNSharedTests;
 			productName = SwiftHNSharedTests;
@@ -596,6 +638,7 @@
 			);
 			dependencies = (
 				9F21AA791940A45700CF4E63 /* PBXTargetDependency */,
+				9FC8BA6C195C70310084A0E0 /* PBXTargetDependency */,
 			);
 			name = SwiftHNTests;
 			productName = SwiftHNTests;
@@ -834,6 +877,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1AB00D1941F49800E68F41 /* UIColorExt.swift in Sources */,
+				9FC8BA6E195C706D0084A0E0 /* HNTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,6 +969,26 @@
 			isa = PBXTargetDependency;
 			target = 9F50705B19517FFB005B9914 /* SwiftHNTodayWidget */;
 			targetProxy = 9F50706819517FFC005B9914 /* PBXContainerItemProxy */;
+		};
+		9FC8BA66195C702E0084A0E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F1EE915194105C30061B4B6 /* SwiftHNShared */;
+			targetProxy = 9FC8BA65195C702E0084A0E0 /* PBXContainerItemProxy */;
+		};
+		9FC8BA68195C702E0084A0E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F1EE915194105C30061B4B6 /* SwiftHNShared */;
+			targetProxy = 9FC8BA67195C702E0084A0E0 /* PBXContainerItemProxy */;
+		};
+		9FC8BA6A195C702F0084A0E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F1AAFE91941F13000E68F41 /* SwiftHNLiveViews */;
+			targetProxy = 9FC8BA69195C702F0084A0E0 /* PBXContainerItemProxy */;
+		};
+		9FC8BA6C195C70310084A0E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F21AA621940A45700CF4E63 /* SwiftHN */;
+			targetProxy = 9FC8BA6B195C70310084A0E0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
