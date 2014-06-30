@@ -26,7 +26,7 @@ class BorderedButton: UIView {
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 1.0 {
+    @IBInspectable var borderWidth: CGFloat = 0.5 {
         didSet {
             self.layer.borderWidth = borderWidth
         }

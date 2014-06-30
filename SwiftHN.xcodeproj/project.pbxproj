@@ -24,6 +24,7 @@
 		9F21AA701940A45700CF4E63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F21AA6E1940A45700CF4E63 /* Main.storyboard */; };
 		9F21AA721940A45700CF4E63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F21AA711940A45700CF4E63 /* Images.xcassets */; };
 		9F21AA7E1940A45700CF4E63 /* SwiftHNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21AA7D1940A45700CF4E63 /* SwiftHNTests.swift */; };
+		9F3779A019617BC200DCEF99 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F37799F19617BC200DCEF99 /* CommentsCell.swift */; };
 		9F3ED6201948D91F0072E02D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3ED61F1948D91F0072E02D /* DetailViewController.swift */; };
 		9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D41949BAC50003B7AD /* SplitViewController.swift */; };
 		9F45C8D81949BE6F0003B7AD /* SplitViewControllerEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */; };
@@ -187,6 +188,7 @@
 		9F21AA7C1940A45700CF4E63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F21AA7D1940A45700CF4E63 /* SwiftHNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHNTests.swift; sourceTree = "<group>"; };
 		9F21AA871940B5F300CF4E63 /* SwiftHN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SwiftHN.entitlements; sourceTree = "<group>"; };
+		9F37799F19617BC200DCEF99 /* CommentsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsCell.swift; path = Cells/CommentsCell.swift; sourceTree = "<group>"; };
 		9F3ED61F1948D91F0072E02D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ViewControllers/DetailViewController.swift; sourceTree = "<group>"; };
 		9F45C8D41949BAC50003B7AD /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewController.swift; path = ViewControllers/SplitViewController.swift; sourceTree = "<group>"; };
 		9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewControllerEXT.swift; path = Extensions/SplitViewControllerEXT.swift; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 			children = (
 				9F1A1FE61948D73400946000 /* NewsCellOC.h */,
 				9FEB20C71940E0AE007EB9CF /* NewsCell.swift */,
+				9F37799F19617BC200DCEF99 /* CommentsCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -899,6 +902,7 @@
 				9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */,
 				9F45C8D81949BE6F0003B7AD /* SplitViewControllerEXT.swift in Sources */,
 				9F807F1A195ACF3800C80B04 /* Helpers.swift in Sources */,
+				9F3779A019617BC200DCEF99 /* CommentsCell.swift in Sources */,
 				9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */,
 				9F5DE8CC1947673300021EF5 /* Cache.swift in Sources */,
 				9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */,

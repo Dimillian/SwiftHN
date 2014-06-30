@@ -1,0 +1,80 @@
+//
+//  CommentsCell.swift
+//  SwiftHN
+//
+//  Created by Thomas Ricouard on 30/06/14.
+//  Copyright (c) 2014 Thomas Ricouard. All rights reserved.
+//
+
+import UIKit
+import SwiftHNShared
+
+let CommentsCellId = "commentCellId"
+let CommentCellMarginConstant: CGFloat = 16.0
+let CommentCellTopMargin: CGFloat = 10.0
+let CommentCellFontSize: CGFloat = 12.0
+
+class CommentsCell: UITableViewCell {
+
+    var comment: HNComment! {
+        didSet {
+            var username = comment.Username
+            var date = " - " + comment.TimeCreatedString
+            
+            var usernameAttributed = NSAttributedString(string: username,
+                attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(CommentCellFontSize),
+                    NSForegroundColorAttributeName: UIColorEXT.HNColor()])
+            var dateAttribute = NSAttributedString(string: date,
+                attributes: [NSFontAttributeName: UIFont.systemFontOfSize(CommentCellFontSize),
+                    NSForegroundColorAttributeName: UIColorEXT.DateLightGrayColor()])
+            var fullAttributed = NSMutableAttributedString(attributedString: usernameAttributed)
+            fullAttributed.appendAttributedString(dateAttribute)
+            
+            self.usernameLabel.attributedText = fullAttributed
+            self.commentLabel.text = comment.Text
+        }
+    }
+    
+    var indentation: CGFloat {
+        didSet {
+            self.commentLeftMarginConstraint.constant = indentation
+            self.usernameLeftMarginConstrain.constant = indentation
+            self.contentView.setNeedsUpdateConstraints()
+        }
+    }
+    
+    @IBOutlet var usernameLabel: UILabel = nil
+    @IBOutlet var commentLabel: UILabel = nil
+    @IBOutlet var commentLeftMarginConstraint: NSLayoutConstraint = nil
+    @IBOutlet var usernameLeftMarginConstrain: NSLayoutConstraint = nil
+    
+    init(style: UITableViewCellStyle, reuseIdentifier: String) {
+        self.indentation = CommentCellMarginConstant
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.commentLabel.font = UIFont.systemFontOfSize(CommentCellFontSize)
+        self.commentLabel.textColor = UIColorEXT.CommentLightGrayColor()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if self.comment {
+            self.commentLabel.preferredMaxLayoutWidth = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.Level))
+            self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.Level))
+        }
+    }
+    
+    class func heightForText(text: NSString, bounds: CGRect, level: CInt) -> CGFloat {
+        var size = text.boundingRectWithSize(CGSizeMake(CGRectGetWidth(bounds) - (CommentCellMarginConstant * 2) -
+            (CommentCellMarginConstant * CGFloat(level)), CGFLOAT_MAX),
+            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+            attributes: [NSFontAttributeName: UIFont.systemFontOfSize(CommentCellFontSize)],
+            context: nil)
+        return CommentCellMarginConstant + 25.0 + CommentCellTopMargin + size.height
+    }
+}

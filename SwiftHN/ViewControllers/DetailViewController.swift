@@ -10,8 +10,6 @@ import UIKit
 import SwiftHNShared
 
 class DetailViewController: HNTableViewController {
-
-    let commentCellId = "commentCellid"
     
     let hnManager = HNManager.sharedManager()
     var post: HNPost!
@@ -47,8 +45,12 @@ class DetailViewController: HNTableViewController {
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
     {
-        var title: NSString = self.post.Title
-        return NewsCell.heightForText(title, bounds: self.tableView.bounds)
+        if (indexPath.section == 0) {
+            var title: NSString = self.post.Title
+            return NewsCell.heightForText(title, bounds: self.tableView.bounds)
+        }
+        var comment = self.datasource[indexPath.row] as HNComment
+        return CommentsCell.heightForText(comment.Text, bounds: self.tableView.bounds, level: comment.Level)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
@@ -66,7 +68,7 @@ class DetailViewController: HNTableViewController {
         
         return 0
     }
-    
+        
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         if (indexPath.section == 0) {
             var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
@@ -74,13 +76,9 @@ class DetailViewController: HNTableViewController {
             return cell
         }
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(commentCellId) as UITableViewCell!
-        if !cell {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: commentCellId)
-        }
-        
+        var cell = tableView.dequeueReusableCellWithIdentifier(CommentsCellId) as CommentsCell!
         var comment = self.datasource[indexPath.row] as HNComment
-        cell.textLabel.text = comment.Text
+        cell.comment = comment
         
         return cell
     }

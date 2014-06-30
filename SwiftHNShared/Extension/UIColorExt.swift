@@ -21,6 +21,14 @@ extension UIColor {
     class func ReadingListColor() -> UIColor {
         return UIColor.RGBColor(74, green: 144, blue: 226)
     }
+    
+    class func DateLighGrayColor() -> UIColor {
+        return UIColor.RGBColor(170, green: 170, blue: 170)
+    }
+    
+    class func CommentLightGrayColor() -> UIColor {
+        return UIColor.RGBColor(111, green: 111, blue: 111)
+    }
 }
 
 class UIColorEXT {
@@ -30,5 +38,13 @@ class UIColorEXT {
     
     class func ReadtListColor() -> UIColor {
         return UIColor.ReadingListColor()
+    }
+    
+    class func DateLightGrayColor() -> UIColor {
+        return UIColor.DateLighGrayColor()
+    }
+    
+    class func CommentLightGrayColor() -> UIColor {
+        return UIColor.CommentLightGrayColor()
     }
 }

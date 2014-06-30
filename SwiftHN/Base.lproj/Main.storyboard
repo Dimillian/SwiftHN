@@ -41,32 +41,12 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-aR-IBv" customClass="BorderedButton" customModule="SwiftHNLiveViews">
-                                            <rect key="frame" x="113" y="63" width="90" height="31"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="31" id="f1i-kY-hSa"/>
-                                                <constraint firstAttribute="width" constant="90" id="wlb-CV-ubx"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
-                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yl-fy-Swn" customClass="BorderedButton" customModule="SwiftHNLiveViews">
-                                            <rect key="frame" x="220" y="63" width="90" height="31"/>
+                                            <rect key="frame" x="220" y="63" width="90" height="30"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="90" id="LCG-Tv-2VC"/>
-                                                <constraint firstAttribute="height" constant="31" id="Tye-C0-U31"/>
+                                                <constraint firstAttribute="height" constant="30" id="Tye-C0-U31"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -88,11 +68,31 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-0f-MYO" customClass="BorderedButton" customModule="SwiftHNLiveViews">
-                                            <rect key="frame" x="16" y="63" width="80" height="31"/>
+                                            <rect key="frame" x="16" y="63" width="80" height="30"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="31" id="bn2-fz-YpR"/>
+                                                <constraint firstAttribute="height" constant="30" id="bn2-fz-YpR"/>
                                                 <constraint firstAttribute="width" constant="80" id="nzB-h0-YmY"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-aR-IBv" customClass="BorderedButton" customModule="SwiftHNLiveViews">
+                                            <rect key="frame" x="113" y="63" width="90" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="f1i-kY-hSa"/>
+                                                <constraint firstAttribute="width" constant="90" id="wlb-CV-ubx"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -318,6 +318,40 @@
                                     <outlet property="urlLabel" destination="8KS-Kk-bTD" id="b00-N0-Vhd"/>
                                     <outlet property="usernameLabel" destination="aK8-Q9-dOg" id="0rz-1h-4ki"/>
                                     <outlet property="voteLabel" destination="DPa-C9-S6A" id="ZwP-z7-tqk"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="commentCellId" rowHeight="93" id="m7S-hN-TiP" customClass="CommentsCell" customModule="SwiftHN" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m7S-hN-TiP" id="N1c-79-ZNY">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzU-Gc-Cqv">
+                                            <rect key="frame" x="16" y="16" width="448" height="25"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="448" translatesAutoresizingMaskIntoConstraints="NO" id="Pd7-Jg-UzR">
+                                            <rect key="frame" x="16" y="51" width="448" height="25"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Pd7-Jg-UzR" secondAttribute="trailing" constant="16" id="41Q-pf-Csj"/>
+                                        <constraint firstItem="Pd7-Jg-UzR" firstAttribute="top" secondItem="TzU-Gc-Cqv" secondAttribute="bottom" constant="10" id="4kc-OV-AOi"/>
+                                        <constraint firstItem="Pd7-Jg-UzR" firstAttribute="leading" secondItem="N1c-79-ZNY" secondAttribute="leading" constant="16" id="DXZ-kJ-lpQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="TzU-Gc-Cqv" secondAttribute="trailing" constant="16" id="Izi-xU-tIZ"/>
+                                        <constraint firstItem="TzU-Gc-Cqv" firstAttribute="leading" secondItem="N1c-79-ZNY" secondAttribute="leading" constant="16" id="U4R-p6-w0y"/>
+                                        <constraint firstItem="TzU-Gc-Cqv" firstAttribute="top" secondItem="N1c-79-ZNY" secondAttribute="top" constant="16" id="bad-zZ-iml"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commentLabel" destination="Pd7-Jg-UzR" id="WwD-xR-CPI"/>
+                                    <outlet property="commentLeftMarginConstraint" destination="DXZ-kJ-lpQ" id="Zac-7F-btd"/>
+                                    <outlet property="usernameLabel" destination="TzU-Gc-Cqv" id="RiC-fr-c3g"/>
+                                    <outlet property="usernameLeftMarginConstrain" destination="U4R-p6-w0y" id="joU-hR-y4p"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
