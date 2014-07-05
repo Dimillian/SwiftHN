@@ -11,8 +11,10 @@ import SwiftHNShared
 
 let CommentsCellId = "commentCellId"
 let CommentCellMarginConstant: CGFloat = 16.0
-let CommentCellTopMargin: CGFloat = 10.0
-let CommentCellFontSize: CGFloat = 12.0
+let CommentCellTopMargin: CGFloat = 5.0
+let CommentCellFontSize: CGFloat = 13.0
+let CommentCellUsernameHeight: CGFloat = 25.0
+let CommentCellBottomMargin: CGFloat = 16.0
 
 class CommentsCell: UITableViewCell {
 
@@ -30,6 +32,8 @@ class CommentsCell: UITableViewCell {
             var fullAttributed = NSMutableAttributedString(attributedString: usernameAttributed)
             fullAttributed.appendAttributedString(dateAttribute)
             
+            self.commentLabel.font = UIFont.systemFontOfSize(CommentCellFontSize)
+            
             self.usernameLabel.attributedText = fullAttributed
             self.commentLabel.text = comment.Text
         }
@@ -39,6 +43,8 @@ class CommentsCell: UITableViewCell {
         didSet {
             self.commentLeftMarginConstraint.constant = indentation
             self.usernameLeftMarginConstrain.constant = indentation
+            self.commentHeightConstrain.constant =
+                self.contentView.frame.size.height - CommentCellUsernameHeight - CommentCellTopMargin - CommentCellMarginConstant + 5.0
             self.contentView.setNeedsUpdateConstraints()
         }
     }
@@ -46,6 +52,7 @@ class CommentsCell: UITableViewCell {
     @IBOutlet var usernameLabel: UILabel = nil
     @IBOutlet var commentLabel: UILabel = nil
     @IBOutlet var commentLeftMarginConstraint: NSLayoutConstraint = nil
+    @IBOutlet var commentHeightConstrain: NSLayoutConstraint = nil
     @IBOutlet var usernameLeftMarginConstrain: NSLayoutConstraint = nil
     
     init(style: UITableViewCellStyle, reuseIdentifier: String) {
@@ -63,10 +70,8 @@ class CommentsCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if self.comment {
-            self.commentLabel.preferredMaxLayoutWidth = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.Level))
-            self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.Level))
-        }
+        self.commentLabel.preferredMaxLayoutWidth = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.Level))
+        self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.Level))
     }
     
     class func heightForText(text: NSString, bounds: CGRect, level: CInt) -> CGFloat {
@@ -75,6 +80,6 @@ class CommentsCell: UITableViewCell {
             options: NSStringDrawingOptions.UsesLineFragmentOrigin,
             attributes: [NSFontAttributeName: UIFont.systemFontOfSize(CommentCellFontSize)],
             context: nil)
-        return CommentCellMarginConstant + 25.0 + CommentCellTopMargin + size.height
+        return CommentCellMarginConstant + CommentCellUsernameHeight + CommentCellTopMargin + size.height + CommentCellBottomMargin
     }
 }

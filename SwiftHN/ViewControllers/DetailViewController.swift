@@ -13,6 +13,7 @@ class DetailViewController: HNTableViewController {
     
     let hnManager = HNManager.sharedManager()
     var post: HNPost!
+    var cellHeightCache: CGFloat[] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +28,20 @@ class DetailViewController: HNTableViewController {
         super.onPullToFresh()
         
         self.hnManager.loadCommentsFromPost(self.post, completion:  { (NSArray comments) in
+            self.cacheHeight(comments)
             self.datasource = comments
             self.refreshing = false
         })
+    }
+    
+    func cacheHeight(comments: NSArray) {
+        cellHeightCache = []
+        for comment : AnyObject in comments {
+            if let realComment = comment as? HNComment {
+                var height = CommentsCell.heightForText(realComment.Text, bounds: self.tableView.bounds, level: realComment.Level)
+                cellHeightCache.append(height)
+            }
+        }
     }
     
     
@@ -49,8 +61,7 @@ class DetailViewController: HNTableViewController {
             var title: NSString = self.post.Title
             return NewsCell.heightForText(title, bounds: self.tableView.bounds)
         }
-        var comment = self.datasource[indexPath.row] as HNComment
-        return CommentsCell.heightForText(comment.Text, bounds: self.tableView.bounds, level: comment.Level)
+        return self.cellHeightCache[indexPath.row] as CGFloat
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {

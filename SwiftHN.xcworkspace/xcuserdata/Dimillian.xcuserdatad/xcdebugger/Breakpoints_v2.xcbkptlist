@@ -26,12 +26,74 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftHN/ViewControllers/DetailViewController.swift"
-            timestampString = "425822111.779839"
+            timestampString = "426158310.122661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftHN/ViewControllers/DetailViewController.swift"
+            timestampString = "426158310.122661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "onPullToFresh()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftHN.DetailViewController.onPullToFresh (SwiftHN.DetailViewController)() -&gt; ()"
+                  moduleName = "SwiftHN"
+                  urlString = "file:///Users/Dimillian/Documents/DEV/Dev_iphone/Swift/SwiftHN/SwiftHN/ViewControllers/DetailViewController.swift"
+                  timestampString = "426103575.37021"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "98">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftHN.DetailViewController.(onPullToFresh (SwiftHN.DetailViewController) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "SwiftHN"
+                  urlString = "file:///Users/Dimillian/Documents/DEV/Dev_iphone/Swift/SwiftHN/SwiftHN/ViewControllers/DetailViewController.swift"
+                  timestampString = "426103575.372007"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftHN/ViewControllers/DetailViewController.swift"
+            timestampString = "426158310.122661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "onPullToFresh()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
