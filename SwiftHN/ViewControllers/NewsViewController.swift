@@ -9,9 +9,10 @@
 import UIKit
 import SwiftHNShared
 
-class NewsViewController: HNTableViewController, NewsCellDelegate {
+class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesViewControllerDelegate {
     
     let hnManager = HNManager.sharedManager()
+    var filer: PostFilterType = .Top
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +20,13 @@ class NewsViewController: HNTableViewController, NewsCellDelegate {
         self.title = "HN:News"
         
         self.onPullToFresh()
+        self.setupNavigationItems()
     }
     
     override func onPullToFresh() {
         super.onPullToFresh()
         
-        self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
+        self.hnManager.loadPostsWithFilter(self.filer, completion: { (NSArray posts) in
             self.datasource = posts
             self.refreshing = false
         })
@@ -34,6 +36,22 @@ class NewsViewController: HNTableViewController, NewsCellDelegate {
         super.viewDidAppear(animated)
         
         self.showFirstTimeEditingCellAlert()
+    }
+    
+    func setupNavigationItems() {
+        var rightButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Organize, target: self, action: "onRightButton")
+        self.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    func onRightButton() {
+        var navCategories = self.storyboard.instantiateViewControllerWithIdentifier("categoriesNavigationController") as UINavigationController
+        var categoriesVC = navCategories.visibleViewController as CategoriesViewController
+        categoriesVC.delegate = self
+        var popController = UIPopoverController(contentViewController: navCategories)
+        popController.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItem,
+            permittedArrowDirections: UIPopoverArrowDirection.Any,
+            animated: true)
+        
     }
     
     // Mark: Alert management
@@ -146,6 +164,14 @@ class NewsViewController: HNTableViewController, NewsCellDelegate {
         var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
         detailVC.post = post
         self.showDetailViewController(detailVC, sender: self)
+    }
+    
+    //Mark: CategoriesDelegate
+    func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: PostFilterType, title: String) {
+        self.filer = filer
+        self.datasource = nil
+        self.onPullToFresh()
+        self.title = title
     }
     
 

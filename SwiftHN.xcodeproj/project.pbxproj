@@ -39,6 +39,7 @@
 		9FC8BA6E195C706D0084A0E0 /* HNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8BA6D195C706D0084A0E0 /* HNTableViewController.swift */; };
 		9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB20C31940DE08007EB9CF /* NewsViewController.swift */; };
 		9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB20C71940E0AE007EB9CF /* NewsCell.swift */; };
+		9FF131971969641D00533630 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF131961969641D00533630 /* CategoriesViewController.swift */; };
 		C0034F0671414B9E83D56DDF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F34153C464E446BB9A8AE8D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -207,6 +208,7 @@
 		9FEB20C01940DDB0007EB9CF /* SwiftHN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftHN-Bridging-Header.h"; sourceTree = "<group>"; };
 		9FEB20C31940DE08007EB9CF /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsViewController.swift; path = ViewControllers/NewsViewController.swift; sourceTree = "<group>"; };
 		9FEB20C71940E0AE007EB9CF /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsCell.swift; path = Cells/NewsCell.swift; sourceTree = "<group>"; };
+		9FF131961969641D00533630 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesViewController.swift; path = ViewControllers/CategoriesViewController.swift; sourceTree = "<group>"; };
 		F34153C464E446BB9A8AE8D8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -491,6 +493,7 @@
 				9FEB20C31940DE08007EB9CF /* NewsViewController.swift */,
 				9FBC8B661940E57B0052AF48 /* WebviewController.swift */,
 				9F3ED61F1948D91F0072E02D /* DetailViewController.swift */,
+				9FF131961969641D00533630 /* CategoriesViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 			files = (
 				9F21AA691940A45700CF4E63 /* AppDelegate.swift in Sources */,
 				9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */,
+				9FF131971969641D00533630 /* CategoriesViewController.swift in Sources */,
 				9F807F1C195AD40F00C80B04 /* Preferences.swift in Sources */,
 				9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */,
 				9F45C8D81949BE6F0003B7AD /* SplitViewControllerEXT.swift in Sources */,
