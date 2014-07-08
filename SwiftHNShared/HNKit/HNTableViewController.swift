@@ -31,9 +31,7 @@ class HNTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController.condensesBarsOnSwipe = true
-        
+                
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "onPullToFresh", forControlEvents: UIControlEvents.ValueChanged)
     }

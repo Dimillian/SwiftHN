@@ -10,22 +10,22 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     let cellId = "widgetCellId"
     let hnManager = HNManager.sharedManager()
     var posts: NSArray! {
         didSet {
-            self.tableView.reloadData()
+            //self.tableView.reloadData()
         }
     }
-        
+    
     @IBOutlet var tableView: UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.preferredContentSize = CGSizeMake(0, 250.0)
-    
+        
         self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
             self.posts = posts
         })

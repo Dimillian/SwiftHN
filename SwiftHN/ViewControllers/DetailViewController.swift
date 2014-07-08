@@ -13,7 +13,7 @@ class DetailViewController: HNTableViewController {
     
     let hnManager = HNManager.sharedManager()
     var post: HNPost!
-    var cellHeightCache: CGFloat[] = []
+    var cellHeightCache: [CGFloat] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

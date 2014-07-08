@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0600"
+   wasCreatedForAppExtension = "YES"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9F7D73AE1951F560006DA9BC"
-               BuildableName = "com.thomasricouard.SwiftHN.test2.appex"
-               BlueprintName = "test2"
+               BlueprintIdentifier = "9F7E9F54196BE6AB008B2F35"
+               BuildableName = "SwiftHNToday.appex"
+               BlueprintName = "SwiftHNToday"
                ReferencedContainer = "container:SwiftHN.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,6 +44,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9F7E9F54196BE6AB008B2F35"
+            BuildableName = "SwiftHNToday.appex"
+            BlueprintName = "SwiftHNToday"
+            ReferencedContainer = "container:SwiftHN.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = ""
@@ -71,7 +81,8 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
-      debugDocumentVersioning = "YES">
+      debugDocumentVersioning = "YES"
+      askForAppToLaunch = "Yes">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"

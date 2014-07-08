@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9F50704519517E0D005B9914"
-               BuildableName = "com.thomasricouard.SwiftHN.SwiftHNTodayWidget.appex"
+               BlueprintIdentifier = "9F4C4091196BE2A100E84AAD"
+               BuildableName = "SwiftHNTodayWidget.appex"
                BlueprintName = "SwiftHNTodayWidget"
                ReferencedContainer = "container:SwiftHN.xcodeproj">
             </BuildableReference>
@@ -54,7 +54,10 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <PathRunnable
+         FilePath = "/Users/Dimillian/Library/Developer/CoreSimulator/Devices/274C692D-3E8E-408C-8082-F99B234D84FE/data/Containers/Bundle/Application/2C389842-04FE-4981-AA07-CA358A639F61/SwiftHN.app">
+      </PathRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9F21AA621940A45700CF4E63"
@@ -62,7 +65,7 @@
             BlueprintName = "SwiftHN"
             ReferencedContainer = "container:SwiftHN.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

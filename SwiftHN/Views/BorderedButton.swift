@@ -1,3 +1,4 @@
+
 //
 //  BorderedButton.swift
 //  SwiftHN
@@ -9,7 +10,7 @@
 import UIKit
 import SwiftHNShared
 
-class BorderedButton: UIView {
+@IBDesignable class BorderedButton: UIView {
 
     typealias buttonTouchInsideEvent = (sender: UIButton) -> ()
     // MARK: Internals views

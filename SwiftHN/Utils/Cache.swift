@@ -16,7 +16,7 @@ struct CacheHelper {
             var paths = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
             var cachePath = paths[0] as String + "/caches/"
             if (!fileManager.fileExistsAtPath(cachePath)) {
-                fileManager.createDirectoryAtPath(cachePath, attributes: nil)
+                fileManager.createDirectoryAtPath(cachePath, withIntermediateDirectories: true, attributes: nil, error: nil)
             }
             return cachePath
         }
