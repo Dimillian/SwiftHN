@@ -16,16 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbZ-dY-sdJ">
-                                <rect key="frame" x="49" y="42" width="222" height="166"/>
-                                <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.1843137255" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bMr-Ps-8p5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="M4Y-Lb-cyx" id="fvg-ba-qsX"/>
+                                    <outlet property="delegate" destination="M4Y-Lb-cyx" id="nvF-3e-0xt"/>
+                                </connections>
+                            </tableView>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dbZ-dY-sdJ" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="42" id="5xR-Ue-kSr"/>
-                            <constraint firstItem="dbZ-dY-sdJ" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="b6n-Xd-21H"/>
-                            <constraint firstItem="dbZ-dY-sdJ" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="dkm-v1-0QA"/>
-                            <constraint firstItem="dbZ-dY-sdJ" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="49" id="mT4-Bu-4rE"/>
+                            <constraint firstAttribute="trailing" secondItem="bMr-Ps-8p5" secondAttribute="trailing" id="990-G7-Mw8"/>
+                            <constraint firstItem="bMr-Ps-8p5" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="av0-Dq-HoE"/>
+                            <constraint firstItem="bMr-Ps-8p5" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="eZm-mx-2nf"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="bMr-Ps-8p5" secondAttribute="bottom" id="l1b-8S-FLn"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -34,6 +40,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="250"/>
+                    <connections>
+                        <outlet property="tableView" destination="bMr-Ps-8p5" id="iSB-ah-Xdi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

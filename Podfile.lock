@@ -1,10 +1,14 @@
 PODS:
-  - libHN (1.1.1)
+  - libHN (1.1.2)
 
 DEPENDENCIES:
-  - libHN
+  - libHN (from `https://github.com/Dimillian/libHN`)
+
+EXTERNAL SOURCES:
+  libHN:
+    :git: https://github.com/Dimillian/libHN
 
 SPEC CHECKSUMS:
-  libHN: d29d1e67be4ff186c4441e0a6b5f0af0c6c15b97
+  libHN: dfc7ca25c4de32f80d7dd5299ff2c81e01bc1930
 
 COCOAPODS: 0.33.1
