@@ -29,12 +29,14 @@ class WebviewController: UIViewController, UIWebViewDelegate {
     }
     
     func setupLoadingButton() {
+        self.navigationItem.rightBarButtonItem = nil
         var loadingItem = UIBarButtonItem(customView: self.activityIndicator)
         self.activityIndicator.startAnimating()
         self.navigationItem.rightBarButtonItem = loadingItem
     }
     
     func setupShareButton() {
+        self.navigationItem.rightBarButtonItem = nil
         var shareItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "onShareButton")
         self.navigationItem.rightBarButtonItem = shareItem
     }
