@@ -11,6 +11,7 @@ import UIKit
 class WebviewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet var webView : UIWebView = nil
+    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
     
     var post: HNPost!
     
@@ -27,7 +28,27 @@ class WebviewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    func setupLoadingButton() {
+        var loadingItem = UIBarButtonItem(customView: self.activityIndicator)
+        self.activityIndicator.startAnimating()
+        self.navigationItem.rightBarButtonItem = loadingItem
+    }
+    
+    func setupShareButton() {
+        var shareItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "onShareButton")
+        self.navigationItem.rightBarButtonItem = shareItem
+    }
+    
+    func onShareButton() {
+        Helper.showShareSheet(self.post, controller: self)
+    }
+
+    func webViewDidStartLoad(webView: UIWebView!) {
+        self.setupLoadingButton()
+    }
+    
     func webViewDidFinishLoad(webView: UIWebView!) {
+        self.setupShareButton()
         self.title = webView.stringByEvaluatingJavaScriptFromString("document.title")
     }
 }
