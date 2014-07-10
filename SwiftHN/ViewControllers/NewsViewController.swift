@@ -68,7 +68,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     }
     
     func showActionSheetForPost(post: HNPost) {
-        var titles = ["Share", "Add to Reading List", "Upvote", "Cancel"]
+        var titles = ["Share", "Upvote", "Cancel"]
         
         var sheet = UIAlertController(title: post.Title, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
@@ -76,13 +76,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             self.tableView.setEditing(false, animated: true)
             if let realAction = action {
                 if (action!.title == titles[0]) {
-                    
-                }
-                else if (action!.title == titles[1]) {
-                    Helper.addPostToReadingList(post)
-                }
-                else if (action!.title == titles[2]) {
-                    
+                    Helper.showShareSheet(post, controller: self)
                 }
             }
         }

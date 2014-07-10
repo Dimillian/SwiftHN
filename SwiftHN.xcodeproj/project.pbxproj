@@ -22,6 +22,7 @@
 		9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D41949BAC50003B7AD /* SplitViewController.swift */; };
 		9F45C8D81949BE6F0003B7AD /* SplitViewControllerEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */; };
 		9F5DE8CC1947673300021EF5 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DE8CB1947673300021EF5 /* Cache.swift */; };
+		9F75D490196F23150061D908 /* OpenSafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F75D48F196F23150061D908 /* OpenSafariActivity.swift */; };
 		9F773639196BF5A900A6C5EC /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F773638196BF5A900A6C5EC /* BorderedButton.swift */; };
 		9F7E9F56196BE6AB008B2F35 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6CA16D1945BB5A003A26D4 /* NotificationCenter.framework */; };
 		9F7E9F5B196BE6AB008B2F35 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E9F5A196BE6AB008B2F35 /* TodayViewController.swift */; };
@@ -187,6 +188,7 @@
 		9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewControllerEXT.swift; path = Extensions/SplitViewControllerEXT.swift; sourceTree = "<group>"; };
 		9F5DE8CB1947673300021EF5 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = Utils/Cache.swift; sourceTree = "<group>"; };
 		9F6CA16D1945BB5A003A26D4 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		9F75D48F196F23150061D908 /* OpenSafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenSafariActivity.swift; path = Activities/OpenSafariActivity.swift; sourceTree = "<group>"; };
 		9F773638196BF5A900A6C5EC /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderedButton.swift; path = Views/BorderedButton.swift; sourceTree = "<group>"; };
 		9F7E9F55196BE6AB008B2F35 /* SwiftHNToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SwiftHNToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7E9F59196BE6AB008B2F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				9F21AA871940B5F300CF4E63 /* SwiftHN.entitlements */,
 				9F21AA681940A45700CF4E63 /* AppDelegate.swift */,
 				9F21AA6E1940A45700CF4E63 /* Main.storyboard */,
+				9F75D48E196F22F20061D908 /* Activities */,
 				9F773637196BF54700A6C5EC /* Views */,
 				9F45C8D61949BE580003B7AD /* Extensions */,
 				9F5DE8CA1947671C00021EF5 /* Utils */,
@@ -431,6 +434,14 @@
 				9F807F1B195AD40F00C80B04 /* Preferences.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		9F75D48E196F22F20061D908 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				9F75D48F196F23150061D908 /* OpenSafariActivity.swift */,
+			);
+			name = Activities;
 			sourceTree = "<group>";
 		};
 		9F773637196BF54700A6C5EC /* Views */ = {
@@ -795,6 +806,7 @@
 			files = (
 				9F21AA691940A45700CF4E63 /* AppDelegate.swift in Sources */,
 				9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */,
+				9F75D490196F23150061D908 /* OpenSafariActivity.swift in Sources */,
 				9FF131971969641D00533630 /* CategoriesViewController.swift in Sources */,
 				9F807F1C195AD40F00C80B04 /* Preferences.swift in Sources */,
 				9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */,
