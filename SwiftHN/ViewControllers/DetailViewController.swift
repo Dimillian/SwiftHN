@@ -94,4 +94,11 @@ class DetailViewController: HNTableViewController {
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!)  {
+        if (segue.identifier == "toWebview") {
+            var destination = segue.destinationViewController as WebviewController
+            destination.post = self.post
+        }
+    }
+    
 }

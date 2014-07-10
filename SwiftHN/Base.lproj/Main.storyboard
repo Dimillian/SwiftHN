@@ -432,6 +432,7 @@
                                     <outlet property="urlLabel" destination="8KS-Kk-bTD" id="b00-N0-Vhd"/>
                                     <outlet property="usernameLabel" destination="aK8-Q9-dOg" id="0rz-1h-4ki"/>
                                     <outlet property="voteLabel" destination="DPa-C9-S6A" id="ZwP-z7-tqk"/>
+                                    <segue destination="AL4-Kb-Vww" kind="show" identifier="toWebview" id="489-mj-T44"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="commentCellId" rowHeight="80" id="m7S-hN-TiP" customClass="CommentsCell" customModule="SwiftHN" customModuleProvider="target">
@@ -492,6 +493,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bwb-vD-4ui"/>
+        <segue reference="489-mj-T44"/>
     </inferredMetricsTieBreakers>
 </document>
