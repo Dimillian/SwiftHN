@@ -5,41 +5,6 @@
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
-        <scene sceneID="TjH-4W-JIm">
-            <objects>
-                <navigationController id="3QL-eJ-eKx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5VC-7o-wcg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Mxu-w7-NSn" kind="relationship" relationship="rootViewController" id="kDK-Uq-0O6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XGI-7z-Egy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2938" y="104"/>
-        </scene>
-        <!--User-->
-        <scene sceneID="Nby-o2-wrK">
-            <objects>
-                <viewController id="Mxu-w7-NSn" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bor-8s-TMf"/>
-                        <viewControllerLayoutGuide type="bottom" id="bSw-9k-kUW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zdo-mw-Qjx">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="User" id="pwh-Dz-rgA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MEr-YR-RLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3644" y="100"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="fg5-yN-Dyr">
             <objects>
                 <navigationController storyboardIdentifier="rootNavigationController" id="V8M-bQ-z3H" sceneMemberID="viewController">
@@ -523,11 +488,250 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X43-s7-vcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="newsCellId" rowHeight="110" id="zHb-Cq-IAb" customClass="NewsCell" customModule="SwiftHN" customModuleProvider="target">
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zHb-Cq-IAb" id="AFh-Xt-6ox">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Domain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IB-oa-rNd">
+                                <rect key="frame" x="16" y="32.5" width="448" height="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="33" width="288" height="16"/>
+                                </variation>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXW-O0-QAQ" customClass="BorderedButton" customModule="SwiftHN" customModuleProvider="target">
+                                <rect key="frame" x="16" y="63" width="80" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="AhG-WW-t42"/>
+                                    <constraint firstAttribute="width" constant="80" id="Xqn-vs-xum"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Wk-1t-Mnb" customClass="BorderedButton" customModule="SwiftHN" customModuleProvider="target">
+                                <rect key="frame" x="220" y="63" width="90" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="ePI-AD-Nc4"/>
+                                    <constraint firstAttribute="width" constant="90" id="nBm-2K-nmb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="448" translatesAutoresizingMaskIntoConstraints="NO" id="2og-gn-kOa">
+                                <rect key="frame" x="16" y="10" width="448" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="10.5" width="288" height="20"/>
+                                </variation>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSm-nb-LA6" customClass="BorderedButton" customModule="SwiftHN" customModuleProvider="target">
+                                <rect key="frame" x="113" y="63" width="90" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="BNS-jB-Q3y"/>
+                                    <constraint firstAttribute="height" constant="31" id="RVH-g8-gFg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="5Wk-1t-Mnb" firstAttribute="leading" secondItem="GSm-nb-LA6" secondAttribute="trailing" constant="17" id="4iW-ut-xAb"/>
+                            <constraint firstAttribute="trailing" secondItem="6IB-oa-rNd" secondAttribute="trailing" constant="16" id="7YZ-Di-ho6"/>
+                            <constraint firstItem="2og-gn-kOa" firstAttribute="leading" secondItem="AFh-Xt-6ox" secondAttribute="leading" constant="16" id="XfB-ws-cA4"/>
+                            <constraint firstItem="6IB-oa-rNd" firstAttribute="leading" secondItem="AFh-Xt-6ox" secondAttribute="leading" constant="16" id="Yl0-Mi-lYP"/>
+                            <constraint firstItem="6IB-oa-rNd" firstAttribute="top" secondItem="2og-gn-kOa" secondAttribute="bottom" constant="2" id="cmS-s7-6jR"/>
+                            <constraint firstItem="GSm-nb-LA6" firstAttribute="leading" secondItem="JXW-O0-QAQ" secondAttribute="trailing" constant="17" id="euT-ko-1ca"/>
+                            <constraint firstItem="JXW-O0-QAQ" firstAttribute="leading" secondItem="AFh-Xt-6ox" secondAttribute="leading" constant="16" id="hsI-dJ-ujT"/>
+                            <constraint firstItem="2og-gn-kOa" firstAttribute="top" secondItem="AFh-Xt-6ox" secondAttribute="top" constant="10" id="pbg-wy-ibE"/>
+                            <constraint firstItem="JXW-O0-QAQ" firstAttribute="centerY" secondItem="GSm-nb-LA6" secondAttribute="centerY" id="xM3-p3-tOq"/>
+                            <constraint firstItem="GSm-nb-LA6" firstAttribute="centerY" secondItem="5Wk-1t-Mnb" secondAttribute="centerY" id="ykm-ef-Xdg"/>
+                            <constraint firstAttribute="trailing" secondItem="2og-gn-kOa" secondAttribute="trailing" constant="16" id="yq5-FZ-DMo"/>
+                            <constraint firstItem="JXW-O0-QAQ" firstAttribute="top" secondItem="6IB-oa-rNd" secondAttribute="bottom" constant="14.5" id="zqH-AI-wsf"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <connections>
+                        <outlet property="commentsLabel" destination="GSm-nb-LA6" id="jsu-XX-lP0"/>
+                        <outlet property="titleLabel" destination="2og-gn-kOa" id="1g2-Fo-Wsp"/>
+                        <outlet property="titleMarginConstrain" destination="XfB-ws-cA4" id="nug-P5-d5B"/>
+                        <outlet property="urlLabel" destination="6IB-oa-rNd" id="h8w-Ru-cM4"/>
+                        <outlet property="usernameLabel" destination="5Wk-1t-Mnb" id="TCJ-96-bzC"/>
+                        <outlet property="voteLabel" destination="JXW-O0-QAQ" id="1az-mg-zR6"/>
+                    </connections>
+                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="4396" y="1394"/>
         </scene>
+        <!--News-->
+        <scene sceneID="Sez-ES-LrY">
+            <objects>
+                <tableViewController storyboardIdentifier="UserViewController" title="News" id="NfB-xQ-9jc" customClass="UserViewController" customModule="SwiftHN" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" id="Oen-qL-Kf3">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="newsCellId" rowHeight="110" id="mYg-E3-yih" customClass="NewsCell" customModule="SwiftHN" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mYg-E3-yih" id="RSl-JL-C8X">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uam-4Z-57d">
+                                            <rect key="frame" x="16" y="32.5" width="448" height="16"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DfG-OR-1O1" customClass="BorderedButton" customModule="SwiftHN" customModuleProvider="target">
+                                            <rect key="frame" x="220" y="63" width="90" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="9Zx-iQ-r0A"/>
+                                                <constraint firstAttribute="width" constant="90" id="JnJ-dF-laF"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="448" translatesAutoresizingMaskIntoConstraints="NO" id="hR0-CL-4ui">
+                                            <rect key="frame" x="16" y="10" width="448" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2N-43-bEp" customClass="BorderedButton" customModule="SwiftHN" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="63" width="80" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="3Js-rt-Hh1"/>
+                                                <constraint firstAttribute="width" constant="80" id="LKB-EK-cJ0"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hb-UO-RcW" customClass="BorderedButton" customModule="SwiftHN" customModuleProvider="target">
+                                            <rect key="frame" x="113" y="63" width="90" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="KCX-UU-SlC"/>
+                                                <constraint firstAttribute="height" constant="30" id="nUA-tn-oiO"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                                    <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hR0-CL-4ui" firstAttribute="leading" secondItem="RSl-JL-C8X" secondAttribute="leading" constant="16" id="5F4-eY-0mB"/>
+                                        <constraint firstItem="f2N-43-bEp" firstAttribute="centerY" secondItem="DfG-OR-1O1" secondAttribute="centerY" id="66s-F4-Lhr"/>
+                                        <constraint firstItem="f2N-43-bEp" firstAttribute="top" secondItem="uam-4Z-57d" secondAttribute="bottom" constant="14.5" id="Bsd-dC-edU"/>
+                                        <constraint firstItem="hR0-CL-4ui" firstAttribute="top" secondItem="RSl-JL-C8X" secondAttribute="top" constant="10" id="D6t-6C-phb"/>
+                                        <constraint firstItem="1hb-UO-RcW" firstAttribute="leading" secondItem="f2N-43-bEp" secondAttribute="trailing" constant="17" id="DMm-Ma-Sj1"/>
+                                        <constraint firstAttribute="trailing" secondItem="uam-4Z-57d" secondAttribute="trailing" constant="16" id="Gno-5B-v47"/>
+                                        <constraint firstItem="uam-4Z-57d" firstAttribute="top" secondItem="hR0-CL-4ui" secondAttribute="bottom" constant="2" id="gcf-jd-Mef"/>
+                                        <constraint firstItem="DfG-OR-1O1" firstAttribute="leading" secondItem="1hb-UO-RcW" secondAttribute="trailing" constant="17" id="hKz-77-IaY"/>
+                                        <constraint firstItem="uam-4Z-57d" firstAttribute="leading" secondItem="RSl-JL-C8X" secondAttribute="leading" constant="16" id="lbu-8b-FRh"/>
+                                        <constraint firstItem="f2N-43-bEp" firstAttribute="centerY" secondItem="1hb-UO-RcW" secondAttribute="centerY" id="miP-Bz-ado"/>
+                                        <constraint firstAttribute="trailing" secondItem="hR0-CL-4ui" secondAttribute="trailing" constant="16" id="sH1-EO-FIU"/>
+                                        <constraint firstItem="f2N-43-bEp" firstAttribute="leading" secondItem="RSl-JL-C8X" secondAttribute="leading" constant="16" id="sKD-pJ-AHE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commentsLabel" destination="1hb-UO-RcW" id="0me-BI-PoC"/>
+                                    <outlet property="titleLabel" destination="hR0-CL-4ui" id="H4O-b1-Nec"/>
+                                    <outlet property="titleMarginConstrain" destination="5F4-eY-0mB" id="nM0-ey-Csv"/>
+                                    <outlet property="urlLabel" destination="uam-4Z-57d" id="ipW-dI-m2D"/>
+                                    <outlet property="usernameLabel" destination="DfG-OR-1O1" id="AYE-T5-RFg"/>
+                                    <outlet property="voteLabel" destination="f2N-43-bEp" id="cdd-wD-go9"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <variation key="widthClass=compact" ambiguous="YES">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="640"/>
+                        </variation>
+                        <connections>
+                            <outlet property="dataSource" destination="NfB-xQ-9jc" id="rgl-Ic-9CO"/>
+                            <outlet property="delegate" destination="NfB-xQ-9jc" id="29R-5v-j48"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Px1-rB-N1g"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="95W-4u-Wym" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4402" y="187"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="489-mj-T44"/>
+        <segue reference="bwb-vD-4ui"/>
     </inferredMetricsTieBreakers>
 </document>

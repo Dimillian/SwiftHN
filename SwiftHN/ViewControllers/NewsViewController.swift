@@ -12,7 +12,8 @@ import SwiftHNShared
 class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesViewControllerDelegate {
     
     let hnManager = HNManager.sharedManager()
-    var filer: PostFilterType = .Top
+    var filter: PostFilterType = .Top
+    var loadPost = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,12 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     override func onPullToFresh() {
         super.onPullToFresh()
         
-        self.hnManager.loadPostsWithFilter(self.filer, completion: { (NSArray posts) in
-            self.datasource = posts
-            self.refreshing = false
-        })
+        if (self.loadPost) {
+            self.hnManager.loadPostsWithFilter(self.filter, completion: { (NSArray posts) in
+                self.datasource = posts
+                self.refreshing = false
+            })
+        }
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -155,14 +158,23 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
 
     // Mark: NewsCellDelegate
     func newsCellDidSelectButton(cell: NewsCell,  actionType: NewsCellActionType, post: HNPost) {
-        var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
-        detailVC.post = post
-        self.showDetailViewController(detailVC, sender: self)
+        if (actionType == NewsCellActionType.Comment) {
+            var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+            detailVC.post = post
+            self.showDetailViewController(detailVC, sender: self)
+        }
+        else if (actionType == NewsCellActionType.Username) {
+            var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
+            var user = HNUser()
+            user.Username = post.Username
+            detailVC.user = user
+            self.showDetailViewController(detailVC, sender: self)
+        }
     }
     
     //Mark: CategoriesDelegate
     func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: PostFilterType, title: String) {
-        self.filer = filer
+        self.filter = filer
         self.datasource = nil
         self.onPullToFresh()
         self.title = title

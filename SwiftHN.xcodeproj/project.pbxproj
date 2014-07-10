@@ -32,6 +32,7 @@
 		9F807F1C195AD40F00C80B04 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F1B195AD40F00C80B04 /* Preferences.swift */; };
 		9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBC8B661940E57B0052AF48 /* WebviewController.swift */; };
 		9FC8BA6E195C706D0084A0E0 /* HNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8BA6D195C706D0084A0E0 /* HNTableViewController.swift */; };
+		9FC99671196F2BB100EDB403 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC99670196F2BB100EDB403 /* UserViewController.swift */; };
 		9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB20C31940DE08007EB9CF /* NewsViewController.swift */; };
 		9FEB20C81940E0AE007EB9CF /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB20C71940E0AE007EB9CF /* NewsCell.swift */; };
 		9FF131971969641D00533630 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF131961969641D00533630 /* CategoriesViewController.swift */; };
@@ -199,6 +200,7 @@
 		9F807F1B195AD40F00C80B04 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = Utils/Preferences.swift; sourceTree = "<group>"; };
 		9FBC8B661940E57B0052AF48 /* WebviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebviewController.swift; path = ViewControllers/WebviewController.swift; sourceTree = "<group>"; };
 		9FC8BA6D195C706D0084A0E0 /* HNTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HNTableViewController.swift; path = HNKit/HNTableViewController.swift; sourceTree = "<group>"; };
+		9FC99670196F2BB100EDB403 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = ViewControllers/UserViewController.swift; sourceTree = "<group>"; };
 		9FEB20C01940DDB0007EB9CF /* SwiftHN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftHN-Bridging-Header.h"; sourceTree = "<group>"; };
 		9FEB20C31940DE08007EB9CF /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsViewController.swift; path = ViewControllers/NewsViewController.swift; sourceTree = "<group>"; };
 		9FEB20C71940E0AE007EB9CF /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsCell.swift; path = Cells/NewsCell.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				9FBC8B661940E57B0052AF48 /* WebviewController.swift */,
 				9F3ED61F1948D91F0072E02D /* DetailViewController.swift */,
 				9FF131961969641D00533630 /* CategoriesViewController.swift */,
+				9FC99670196F2BB100EDB403 /* UserViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F21AA691940A45700CF4E63 /* AppDelegate.swift in Sources */,
+				9FC99671196F2BB100EDB403 /* UserViewController.swift in Sources */,
 				9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */,
 				9F75D490196F23150061D908 /* OpenSafariActivity.swift in Sources */,
 				9FF131971969641D00533630 /* CategoriesViewController.swift in Sources */,
