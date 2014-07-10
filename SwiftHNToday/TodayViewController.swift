@@ -13,9 +13,10 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let cellId = "widgetCellId"
     let hnManager = HNManager.sharedManager()
+    var completionHandler: ((NCUpdateResult) -> Void)?
     var posts: NSArray! {
         didSet {
-            //self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
@@ -24,11 +25,17 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.backgroundColor = UIColor.clearColor()
         self.preferredContentSize = CGSizeMake(0, 250.0)
         
+        
+        /*
         self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
             self.posts = posts
         })
+        */
+
+        self.posts = ["TestTT", "Test2", "Test3"]
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,7 +44,8 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
-        completionHandler(NCUpdateResult.NewData)
+        self.completionHandler = completionHandler
+        self.completionHandler?(NCUpdateResult.NewData)
     }
     
     // Mark: TableView Management
@@ -52,12 +60,12 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell = self.tableView.dequeueReusableCellWithIdentifier(self.cellId) as? UITableViewCell
         if !cell {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: self.cellId)
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: self.cellId)
         }
         
         var post = self.posts[indexPath.row] as HNPost
         cell!.textLabel.text = post.Title
-        cell!.detailTextLabel.text = post.UrlString
+        cell!.textLabel.textColor = UIColor.whiteColor()
         
         return cell
     }
