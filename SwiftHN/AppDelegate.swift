@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func setupStyle() {        
+    func setupStyle() {
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
         UINavigationBar.appearance().barTintColor = UIColorEXT.HNColor()
         UINavigationBar.appearance().translucent = true
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
