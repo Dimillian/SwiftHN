@@ -15,7 +15,7 @@ extension UIColor {
     }
     
     class func HNColor() -> UIColor {
-        return UIColor.RGBColor(252, green: 102, blue: 33)
+        return UIColor.RGBColor(253, green: 84, blue: 4)
     }
     
     class func ReadingListColor() -> UIColor {
