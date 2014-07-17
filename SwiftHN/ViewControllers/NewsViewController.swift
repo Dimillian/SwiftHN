@@ -168,13 +168,11 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             self.showDetailViewController(detailVC, sender: self)
         }
         else if (actionType == NewsCellActionType.Username.toRaw()) {
-            /*
-            var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
-            var user = HNUser()
-            user.Username = post.username
-            detailVC.user = user
-            self.showDetailViewController(detailVC, sender: self)
-            */
+            if let realUsername = post.username {
+                var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
+                detailVC.user = realUsername
+                self.showDetailViewController(detailVC, sender: self)
+            }
         }
     }
     

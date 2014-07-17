@@ -8,10 +8,11 @@
 
 import UIKit
 import SwiftHNShared
+import HackerSwifter
 
 class UserViewController: NewsViewController {
 
-    //var user: HNUser!
+    var user: String!
     
     override func viewDidLoad() {
         self.loadPost = false
@@ -25,12 +26,14 @@ class UserViewController: NewsViewController {
     override func onPullToFresh() {
         super.onPullToFresh()
         
-        /*
-        self.hnManager.fetchSubmissionsForUser(user.Username, completion: { (NSArray comments) in
-            self.datasource = comments
-            self.refreshing = false
+        Post.fetch(self.user, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
+            if let realPosts = posts {
+                self.datasource = realPosts
+            }
+            if (!local) {
+                self.refreshing = false   
+            }
         })
-        */
     }
 
 }
