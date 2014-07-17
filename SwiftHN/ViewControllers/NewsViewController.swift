@@ -8,11 +8,11 @@
 
 import UIKit
 import SwiftHNShared
+import HackerSwifter
 
 class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesViewControllerDelegate {
     
-    let hnManager = HNManager.sharedManager()
-    var filter: PostFilterType = .Top
+    var filter: Post.PostFilter = .Top
     var loadPost = true
     
     override func viewDidLoad() {
@@ -28,9 +28,13 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         super.onPullToFresh()
         
         if (self.loadPost) {
-            self.hnManager.loadPostsWithFilter(self.filter, completion: { (NSArray posts) in
-                self.datasource = posts
-                self.refreshing = false
+            Post.fetch(self.filter, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
+                if let realDatasource = posts {
+                    self.datasource = realDatasource
+                }
+                if (!local) {
+                    self.refreshing = false
+                }
             })
         }
     }
@@ -70,10 +74,10 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         }
     }
     
-    func showActionSheetForPost(post: HNPost) {
+    func showActionSheetForPost(post: Post) {
         var titles = ["Share", "Upvote", "Cancel"]
         
-        var sheet = UIAlertController(title: post.Title, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        var sheet = UIAlertController(title: post.title, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         var handler = {(action: UIAlertAction?) -> () in
             self.tableView.setEditing(false, animated: true)
@@ -109,13 +113,13 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
     {
-        var title: NSString = (self.datasource[indexPath.row] as HNPost).Title
+        var title: NSString = (self.datasource[indexPath.row] as Post).title!
         return NewsCell.heightForText(title, bounds: self.tableView.bounds)
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
-        cell!.post = self.datasource[indexPath.row] as HNPost
+        cell!.post = self.datasource[indexPath.row] as Post
         cell!.cellDelegate = self
         return cell
     }
@@ -123,7 +127,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
             var destination = segue.destinationViewController as WebviewController
-            destination.post = self.datasource[self.tableView.indexPathsForSelectedRows()[0].row] as HNPost
+            destination.post = self.datasource[self.tableView.indexPathsForSelectedRows()[0].row] as Post
         }
     }
 
@@ -140,7 +144,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         var readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "Read\nLater",
             handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
-                if (Helper.addPostToReadingList(self.datasource[indexPath.row] as HNPost)) {
+                if (Helper.addPostToReadingList(self.datasource[indexPath.row] as Post)) {
            
                 }
                 self.tableView.setEditing(false, animated: true)
@@ -150,30 +154,32 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         var more = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "More",
             handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
-                self.showActionSheetForPost(self.datasource[indexPath.row] as HNPost)
+                self.showActionSheetForPost(self.datasource[indexPath.row] as Post)
         })
         
         return [readingList, more]
     }
 
     // Mark: NewsCellDelegate
-    func newsCellDidSelectButton(cell: NewsCell,  actionType: NewsCellActionType, post: HNPost) {
-        if (actionType == NewsCellActionType.Comment) {
+    func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post) {
+        if (actionType == NewsCellActionType.Comment.toRaw()) {
             var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
             detailVC.post = post
             self.showDetailViewController(detailVC, sender: self)
         }
-        else if (actionType == NewsCellActionType.Username) {
+        else if (actionType == NewsCellActionType.Username.toRaw()) {
+            /*
             var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
             var user = HNUser()
-            user.Username = post.Username
+            user.Username = post.username
             detailVC.user = user
             self.showDetailViewController(detailVC, sender: self)
+            */
         }
     }
     
     //Mark: CategoriesDelegate
-    func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: PostFilterType, title: String) {
+    func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: Post.PostFilter, title: String) {
         self.filter = filer
         self.datasource = nil
         self.onPullToFresh()

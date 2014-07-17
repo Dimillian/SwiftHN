@@ -1,0 +1,3 @@
+[submodule "SwiftHN/libs/submodules"]
+	path = SwiftHN/libs/submodules
+	url = https://github.com/Dimillian/HackerSwifter

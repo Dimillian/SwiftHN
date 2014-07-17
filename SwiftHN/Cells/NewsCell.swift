@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HackerSwifter
 
 let NewsCellsId = "newsCellId"
 let NewsCellHeight: CGFloat = 110.0
@@ -14,8 +15,14 @@ let NewsCellTitleMarginConstant: CGFloat = 16.0
 let NewsCellTitleFontSize: CGFloat = 16.0
 let NewsCellTitleDefaultHeight: CGFloat = 20.0
 
+enum NewsCellActionType: Int {
+    case Vote = 0
+    case Comment
+    case Username
+}
+
 @objc protocol NewsCellDelegate {
-    func newsCellDidSelectButton(cell: NewsCell, actionType: NewsCellActionType, post: HNPost)
+    func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post)
 }
 
 class NewsCell: UITableViewCell {
@@ -30,13 +37,13 @@ class NewsCell: UITableViewCell {
     
     weak var cellDelegate: NewsCellDelegate?
     
-    var post: HNPost! {
+    var post: Post! {
         didSet{
-            self.titleLabel.text = self.post.Title
-            self.urlLabel.text = (self.post.UrlDomain ? self.post.UrlDomain : "") + " - " + self.post.TimeCreatedString
-            self.voteLabel.labelText = "\(self.post.Points) votes"
-            self.commentsLabel.labelText = "\(self.post.CommentCount) comments"
-            self.usernameLabel.labelText = self.post.Username
+            self.titleLabel.text = self.post.title!
+            self.urlLabel.text = self.post.domain! + " - " + self.post.prettyTime!
+            self.voteLabel.labelText = "\(self.post.points) votes"
+            self.commentsLabel.labelText = "\(self.post.commentsCount) comments"
+            self.usernameLabel.labelText = self.post.username!
             
             self.voteLabel.onButtonTouch = {(sender: UIButton) in
                 self.selectedAction(.Vote)
@@ -57,7 +64,7 @@ class NewsCell: UITableViewCell {
     }
     
     func selectedAction(action: NewsCellActionType) {
-        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action, post: self.post)
+        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action.toRaw(), post: self.post)
     }
     
     override func layoutSubviews() {

@@ -8,11 +8,11 @@
 
 import UIKit
 import NotificationCenter
+import HackerSwifter
 
 class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let cellId = "widgetCellId"
-    let hnManager = HNManager.sharedManager()
     var completionHandler: ((NCUpdateResult) -> Void)?
     var posts: NSArray! {
         didSet {
@@ -63,8 +63,8 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: self.cellId)
         }
         
-        var post = self.posts[indexPath.row] as HNPost
-        cell!.textLabel.text = post.Title
+        var post = self.posts[indexPath.row] as Post
+        cell!.textLabel.text = post.title
         cell!.textLabel.textColor = UIColor.whiteColor()
         
         return cell

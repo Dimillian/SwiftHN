@@ -18,6 +18,7 @@ let CommentCellBottomMargin: CGFloat = 16.0
 
 class CommentsCell: UITableViewCell {
 
+    /*
     var comment: HNComment! {
         didSet {
             var username = comment.Username
@@ -38,6 +39,7 @@ class CommentsCell: UITableViewCell {
             self.commentLabel.text = comment.Text
         }
     }
+    */
     
     var indentation: CGFloat {
         didSet {
@@ -70,8 +72,10 @@ class CommentsCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        /*
         self.commentLabel.preferredMaxLayoutWidth = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.Level))
         self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.Level))
+        */
     }
     
     class func heightForText(text: NSString, bounds: CGRect, level: CInt) -> CGFloat {

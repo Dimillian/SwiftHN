@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import HackerSwifter
 
 class WebviewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet var webView : UIWebView = nil
     var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
     
-    var post: HNPost!
+    var post: Post!
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -24,7 +25,9 @@ class WebviewController: UIViewController, UIWebViewDelegate {
         
         self.webView.delegate = self
         if let realpost = self.post {
-            self.webView.loadRequest(NSURLRequest(URL: NSURL(string: realpost.UrlString)))
+            if let realUrl = self.post.url {
+                self.webView.loadRequest(NSURLRequest(URL: realUrl))
+            }
         }
     }
     
