@@ -8,7 +8,7 @@ SwiftHN
 
 ##### ETA
 
-* Now link with its own Hacker News Swift scrapping library, [HackerSwifter](https://github.com/Dimillian/HackerSwifter). This is still a work in progress but it support the most basic features. This is linked a a submodule, so be sure to clone it too (I'm looking at you Github for Mac)
+* Now link with its own Hacker News Swift scrapping library, [HackerSwifter](https://github.com/Dimillian/HackerSwifter). This is still a work in progress but it support the most basic features. This is linked as a submodule, so be sure to clone it too (I'm looking at you Github for Mac)
 * The podfile is now useless, you may still run pod install to setup the project.
 * A basic UI which respect latest Apple guidelines
 * Use Swift features such as extension, framework, etc...
