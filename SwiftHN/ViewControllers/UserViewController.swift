@@ -19,7 +19,7 @@ class UserViewController: NewsViewController {
     
         super.viewDidLoad()
         
-        //self.title = "HN:" + self.user.Username
+        self.title = "HN:" + user
         self.navigationItem.rightBarButtonItem = nil
     }
     
