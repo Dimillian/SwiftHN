@@ -8,11 +8,11 @@
 
 import UIKit
 import SwiftHNShared
+import HackerSwifter
 
 class DetailViewController: HNTableViewController {
     
-    let hnManager = HNManager.sharedManager()
-    var post: HNPost!
+    var post: Post!
     var cellHeightCache: [CGFloat] = []
     
     override func viewDidLoad() {
@@ -27,18 +27,22 @@ class DetailViewController: HNTableViewController {
     override func onPullToFresh() {
         super.onPullToFresh()
         
-        self.hnManager.loadCommentsFromPost(self.post, completion:  { (NSArray comments) in
-            self.cacheHeight(comments)
-            self.datasource = comments
-            self.refreshing = false
-        })
+        Comment.fetch(forPost: self.post, completion: {(comments: [Comment]!, error: Fetcher.ResponseError!, local: Bool) in
+            if let realDatasource = comments {
+                self.cacheHeight(realDatasource)
+                self.datasource = realDatasource
+            }
+            if (!local) {
+                self.refreshing = false
+            }
+            })
     }
     
     func cacheHeight(comments: NSArray) {
         cellHeightCache = []
         for comment : AnyObject in comments {
-            if let realComment = comment as? HNComment {
-                var height = CommentsCell.heightForText(realComment.Text, bounds: self.tableView.bounds, level: realComment.Level)
+            if let realComment = comment as? Comment {
+                var height = CommentsCell.heightForText(realComment.text!, bounds: self.tableView.bounds, level: realComment.depth!)
                 cellHeightCache.append(height)
             }
         }
@@ -58,7 +62,7 @@ class DetailViewController: HNTableViewController {
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
     {
         if (indexPath.section == 0) {
-            var title: NSString = self.post.Title
+            var title: NSString = self.post.title!
             return NewsCell.heightForText(title, bounds: self.tableView.bounds)
         }
         return self.cellHeightCache[indexPath.row] as CGFloat
@@ -88,7 +92,7 @@ class DetailViewController: HNTableViewController {
         }
         
         var cell = tableView.dequeueReusableCellWithIdentifier(CommentsCellId) as CommentsCell!
-        var comment = self.datasource[indexPath.row] as HNComment
+        var comment = self.datasource[indexPath.row] as Comment
         cell.comment = comment
         
         return cell

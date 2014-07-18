@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F116DEB197804FD002D297E /* HackerSwifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; };
+		9F116DEC197804FD002D297E /* HackerSwifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		9F116DF219780643002D297E /* HackerSwifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; };
 		9F1AB00D1941F49800E68F41 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1AB00C1941F49800E68F41 /* UIColorExt.swift */; };
 		9F1EE91B194105C30061B4B6 /* SwiftHNShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F1EE91A194105C30061B4B6 /* SwiftHNShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9F1EE921194105C30061B4B6 /* SwiftHNShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */; };
@@ -41,6 +44,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9F116DE5197804EC002D297E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9FD4A196196F3007003608F6;
+			remoteInfo = HackerSwifter;
+		};
+		9F116DE7197804EC002D297E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9FD4A1A1196F3008003608F6;
+			remoteInfo = HackerSwifterTests;
+		};
+		9F116DE9197804F7002D297E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FD4A195196F3007003608F6;
+			remoteInfo = HackerSwifter;
+		};
+		9F116DED197804FD002D297E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FD4A195196F3007003608F6;
+			remoteInfo = HackerSwifter;
+		};
 		9F1EE922194105C30061B4B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9F21AA5B1940A45700CF4E63 /* Project object */;
@@ -142,6 +173,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				9F1EE92C194105C30061B4B6 /* SwiftHNShared.framework in Embed Frameworks */,
+				9F116DEC197804FD002D297E /* HackerSwifter.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,7 +193,7 @@
 
 /* Begin PBXFileReference section */
 		68B886A0A1BB43F48711738A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		9F1A1FE61948D73400946000 /* NewsCellOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NewsCellOC.h; path = Cells/NewsCellOC.h; sourceTree = "<group>"; };
+		9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HackerSwifter.xcodeproj; path = "SwiftHN/libs/submodules/Hacker Swifter/HackerSwifter.xcodeproj"; sourceTree = "<group>"; };
 		9F1AAFED1941F13000E68F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1AAFEE1941F13000E68F41 /* SwiftHNLiveViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftHNLiveViews.h; sourceTree = "<group>"; };
 		9F1AAFFA1941F13000E68F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,7 +233,6 @@
 		9FBC8B661940E57B0052AF48 /* WebviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebviewController.swift; path = ViewControllers/WebviewController.swift; sourceTree = "<group>"; };
 		9FC8BA6D195C706D0084A0E0 /* HNTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HNTableViewController.swift; path = HNKit/HNTableViewController.swift; sourceTree = "<group>"; };
 		9FC99670196F2BB100EDB403 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = ViewControllers/UserViewController.swift; sourceTree = "<group>"; };
-		9FEB20C01940DDB0007EB9CF /* SwiftHN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftHN-Bridging-Header.h"; sourceTree = "<group>"; };
 		9FEB20C31940DE08007EB9CF /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsViewController.swift; path = ViewControllers/NewsViewController.swift; sourceTree = "<group>"; };
 		9FEB20C71940E0AE007EB9CF /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsCell.swift; path = Cells/NewsCell.swift; sourceTree = "<group>"; };
 		9FF131961969641D00533630 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesViewController.swift; path = ViewControllers/CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0034F0671414B9E83D56DDF /* libPods.a in Frameworks */,
+				9F116DEB197804FD002D297E /* HackerSwifter.framework in Frameworks */,
 				9F1EE92B194105C30061B4B6 /* SwiftHNShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +276,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F116DF219780643002D297E /* HackerSwifter.framework in Frameworks */,
 				9F7E9F56196BE6AB008B2F35 /* NotificationCenter.framework in Frameworks */,
 				D8B90CA3AC654414B5FF2FB8 /* libPods.a in Frameworks */,
 			);
@@ -259,6 +292,15 @@
 				9F6CA16D1945BB5A003A26D4 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F116DE1197804EC002D297E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F116DE6197804EC002D297E /* HackerSwifter.framework */,
+				9F116DE8197804EC002D297E /* HackerSwifterTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9F1AAFEB1941F13000E68F41 /* SwiftHNLiveViews */ = {
@@ -351,6 +393,7 @@
 		9F21AA5A1940A45700CF4E63 = {
 			isa = PBXGroup;
 			children = (
+				9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */,
 				9F21AA651940A45700CF4E63 /* SwiftHN */,
 				9F1EE917194105C30061B4B6 /* SwiftHNShared */,
 				9F1AAFEB1941F13000E68F41 /* SwiftHNLiveViews */,
@@ -390,7 +433,6 @@
 				9FEB20C51940DE0D007EB9CF /* ViewController */,
 				9F21AA711940A45700CF4E63 /* Images.xcassets */,
 				9F21AA661940A45700CF4E63 /* Supporting Files */,
-				9FEB20C01940DDB0007EB9CF /* SwiftHN-Bridging-Header.h */,
 			);
 			path = SwiftHN;
 			sourceTree = "<group>";
@@ -497,7 +539,6 @@
 		9FEB20C61940E09A007EB9CF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				9F1A1FE61948D73400946000 /* NewsCellOC.h */,
 				9FEB20C71940E0AE007EB9CF /* NewsCell.swift */,
 				9F37799F19617BC200DCEF99 /* CommentsCell.swift */,
 			);
@@ -573,10 +614,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				9F116DEA197804F7002D297E /* PBXTargetDependency */,
 				9F1EE92A194105C30061B4B6 /* PBXTargetDependency */,
 				9F1EE92E194105C30061B4B6 /* PBXTargetDependency */,
 				9F7E9F5F196BE6AB008B2F35 /* PBXTargetDependency */,
 				9F7E9F62196BE6AB008B2F35 /* PBXTargetDependency */,
+				9F116DEE197804FD002D297E /* PBXTargetDependency */,
 			);
 			name = SwiftHN;
 			productName = SwiftHN;
@@ -670,6 +713,12 @@
 			mainGroup = 9F21AA5A1940A45700CF4E63;
 			productRefGroup = 9F21AA641940A45700CF4E63 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9F116DE1197804EC002D297E /* Products */;
+					ProjectRef = 9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9F21AA621940A45700CF4E63 /* SwiftHN */,
@@ -680,6 +729,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9F116DE6197804EC002D297E /* HackerSwifter.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HackerSwifter.framework;
+			remoteRef = 9F116DE5197804EC002D297E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9F116DE8197804EC002D297E /* HackerSwifterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = HackerSwifterTests.xctest;
+			remoteRef = 9F116DE7197804EC002D297E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9F1EE914194105C30061B4B6 /* Resources */ = {
@@ -844,6 +910,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9F116DEA197804F7002D297E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HackerSwifter;
+			targetProxy = 9F116DE9197804F7002D297E /* PBXContainerItemProxy */;
+		};
+		9F116DEE197804FD002D297E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HackerSwifter;
+			targetProxy = 9F116DED197804FD002D297E /* PBXContainerItemProxy */;
+		};
 		9F1EE923194105C30061B4B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9F1EE915194105C30061B4B6 /* SwiftHNShared */;
@@ -1100,7 +1176,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4A96B1A9-DEE9-49C7-8605-9F0E909298D3";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHN/SwiftHN-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1121,7 +1197,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4A96B1A9-DEE9-49C7-8605-9F0E909298D3";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHN/SwiftHN-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -1,14 +1,1 @@
-PODS:
-  - libHN (2.0.0)
-
-DEPENDENCIES:
-  - libHN (from `https://github.com/bennyguitar/libHN.git`)
-
-EXTERNAL SOURCES:
-  libHN:
-    :git: https://github.com/bennyguitar/libHN.git
-
-SPEC CHECKSUMS:
-  libHN: ec660254facd50bd1cbc7a9a537526fa992feff1
-
 COCOAPODS: 0.33.1

@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftHNShared
+import HackerSwifter
 
 let CommentsCellId = "commentCellId"
 let CommentCellMarginConstant: CGFloat = 16.0
@@ -18,10 +19,10 @@ let CommentCellBottomMargin: CGFloat = 16.0
 
 class CommentsCell: UITableViewCell {
 
-    var comment: HNComment! {
+    var comment: Comment! {
         didSet {
-            var username = comment.Username
-            var date = " - " + comment.TimeCreatedString
+            var username = comment.username
+            var date = " - " + comment.prettyTime!
             
             var usernameAttributed = NSAttributedString(string: username,
                 attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(CommentCellFontSize),
@@ -35,7 +36,7 @@ class CommentsCell: UITableViewCell {
             self.commentLabel.font = UIFont.systemFontOfSize(CommentCellFontSize)
             
             self.usernameLabel.attributedText = fullAttributed
-            self.commentLabel.text = comment.Text
+            self.commentLabel.text = comment.text
         }
     }
     
@@ -70,11 +71,11 @@ class CommentsCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.commentLabel.preferredMaxLayoutWidth = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.Level))
-        self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.Level))
+        self.commentLabel.preferredMaxLayoutWidth = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.depth!))
+        self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.depth!))
     }
     
-    class func heightForText(text: NSString, bounds: CGRect, level: CInt) -> CGFloat {
+    class func heightForText(text: String, bounds: CGRect, level: Int) -> CGFloat {
         var size = text.boundingRectWithSize(CGSizeMake(CGRectGetWidth(bounds) - (CommentCellMarginConstant * 2) -
             (CommentCellMarginConstant * CGFloat(level)), CGFLOAT_MAX),
             options: NSStringDrawingOptions.UsesLineFragmentOrigin,

@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import HackerSwifter
 
-@objc protocol CategoriesViewControllerDelegate {
-    func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: PostFilterType, title: String)
+protocol CategoriesViewControllerDelegate {
+    func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: Post.PostFilter, title: String)
 }
 
 class CategoriesViewController: UITableViewController {
 
-    weak var delegate: CategoriesViewControllerDelegate?
+    var delegate: CategoriesViewControllerDelegate?
     
     init(style: UITableViewStyle) {
         super.init(style: style)
