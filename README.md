@@ -8,11 +8,15 @@ SwiftHN
 
 ##### ETA
 
-* Currently link with [libHN](https://github.com/bennyguitar/libHN)
-* I plan to write my own Swift HN library.
-* A basic UI which respect latest Apple guidelines.
+* Now link with its own Hacker News Swift scrapping library, [HackerSwifter](https://github.com/Dimillian/HackerSwifter). This is still a work in progress but it support the most basic features. This is linked a a submodule, so be sure to clone it too (I'm looking at you Github for Mac)
+* The podfile is now useless, you may still run pod install to setup the project.
+* A basic UI which respect latest Apple guidelines
 * Use Swift features such as extension, framework, etc...
-* Live view rendering
+* Display HN home categories (Top, Ask, Jobs..)
+* Load and display comments per posts.
+* Load and display posts per user
+* Share, Add to reading list, read in webview
+* Live view rendering in Interface Builder
 * Class Extensions
 * Today and share extensions
 * Clean design pattern
@@ -26,7 +30,6 @@ You can contribute to the app, just do a pull request. You can even contribute t
 
 * Login
 * Settings
-* Switch feed to Ask HN, Jobs, Latest etc...
 * Upvote post & comments
 * Post comments
 * Today extension which show 3 latest posts in notification center
