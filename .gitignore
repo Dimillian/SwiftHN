@@ -8,3 +8,11 @@ Pods/
 
 
 .DS_Store
+
+*.xcbkptlist
+
+SwiftHN.xcworkspace/xcuserdata/Dimillian.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+*.xcuserstate
+
+SwiftHN.xcworkspace/xcuserdata/Dimillian.xcuserdatad/UserInterfaceState.xcuserstate
