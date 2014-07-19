@@ -28,14 +28,12 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.backgroundColor = UIColor.clearColor()
         self.preferredContentSize = CGSizeMake(0, 250.0)
         
-        
-        /*
-        self.hnManager.loadPostsWithFilter(.Top, completion: { (NSArray posts) in
-            self.posts = posts
+        Post.fetch(Post.PostFilter.Top, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
+            if let realDatasource = posts {
+                self.posts = realDatasource
+            }
         })
-        */
 
-        self.posts = ["TestTT", "Test2", "Test3"]
     }
     
     override func didReceiveMemoryWarning() {
