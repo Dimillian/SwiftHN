@@ -20,7 +20,6 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         
         self.title = "HN:News"
         
-        self.onPullToFresh()
         self.setupNavigationItems()
     }
     
@@ -42,6 +41,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.onPullToFresh()
         self.showFirstTimeEditingCellAlert()
     }
     

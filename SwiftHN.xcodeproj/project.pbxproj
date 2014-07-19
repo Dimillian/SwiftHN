@@ -687,6 +687,9 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = Z6P74P6T99;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.iOS = {
 								enabled = 0;
 							};
