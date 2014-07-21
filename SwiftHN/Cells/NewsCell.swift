@@ -41,8 +41,12 @@ class NewsCell: UITableViewCell {
         didSet{
             self.titleLabel.text = self.post.title!
             self.urlLabel.text = self.post.domain! + " - " + self.post.prettyTime!
-            self.voteLabel.labelText = String(self.post.points!) + " votes"
-            self.commentsLabel.labelText = String(self.post.commentsCount!) + " comments"
+            if let points: Int = self.post.points {
+                self.voteLabel.labelText = String(points) + " votes"
+            }
+            if let count: Int = self.post.commentsCount {
+                self.commentsLabel.labelText = String(count) + " comments"
+            }
             self.usernameLabel.labelText = self.post.username!
             
             self.voteLabel.onButtonTouch = {(sender: UIButton) in
