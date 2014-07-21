@@ -50,11 +50,11 @@ class CommentsCell: UITableViewCell {
         }
     }
     
-    @IBOutlet var usernameLabel: UILabel = nil
-    @IBOutlet var commentLabel: UILabel = nil
-    @IBOutlet var commentLeftMarginConstraint: NSLayoutConstraint = nil
-    @IBOutlet var commentHeightConstrain: NSLayoutConstraint = nil
-    @IBOutlet var usernameLeftMarginConstrain: NSLayoutConstraint = nil
+    @IBOutlet var usernameLabel: UILabel! = nil
+    @IBOutlet var commentLabel: UILabel! = nil
+    @IBOutlet var commentLeftMarginConstraint: NSLayoutConstraint! = nil
+    @IBOutlet var commentHeightConstrain: NSLayoutConstraint! = nil
+    @IBOutlet var usernameLeftMarginConstrain: NSLayoutConstraint! = nil
     
     init(style: UITableViewCellStyle, reuseIdentifier: String) {
         self.indentation = CommentCellMarginConstant
@@ -77,7 +77,7 @@ class CommentsCell: UITableViewCell {
     
     class func heightForText(text: String, bounds: CGRect, level: Int) -> CGFloat {
         var size = text.boundingRectWithSize(CGSizeMake(CGRectGetWidth(bounds) - (CommentCellMarginConstant * 2) -
-            (CommentCellMarginConstant * CGFloat(level)), CGFLOAT_MAX),
+            (CommentCellMarginConstant * CGFloat(level)), CGFloat.max),
             options: NSStringDrawingOptions.UsesLineFragmentOrigin,
             attributes: [NSFontAttributeName: UIFont.systemFontOfSize(CommentCellFontSize)],
             context: nil)

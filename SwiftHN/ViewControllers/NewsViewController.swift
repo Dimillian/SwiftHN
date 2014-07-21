@@ -26,6 +26,8 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     override func onPullToFresh() {
         super.onPullToFresh()
         
+        self.loadPost = true
+        
         if (self.loadPost) {
             Post.fetch(self.filter, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
                 if let realDatasource = posts {

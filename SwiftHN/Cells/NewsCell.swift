@@ -27,13 +27,13 @@ enum NewsCellActionType: Int {
 
 class NewsCell: UITableViewCell {
     
-    @IBOutlet var titleLabel : UILabel = nil
-    @IBOutlet var urlLabel : UILabel = nil
-    @IBOutlet var voteLabel : BorderedButton = nil
-    @IBOutlet var commentsLabel : BorderedButton = nil
-    @IBOutlet var usernameLabel: BorderedButton = nil
+    @IBOutlet var titleLabel : UILabel! = nil
+    @IBOutlet var urlLabel : UILabel! = nil
+    @IBOutlet var voteLabel : BorderedButton! = nil
+    @IBOutlet var commentsLabel : BorderedButton! = nil
+    @IBOutlet var usernameLabel: BorderedButton! = nil
 
-    @IBOutlet var titleMarginConstrain: NSLayoutConstraint = nil
+    @IBOutlet var titleMarginConstrain: NSLayoutConstraint! = nil
     
     weak var cellDelegate: NewsCellDelegate?
     
@@ -41,8 +41,8 @@ class NewsCell: UITableViewCell {
         didSet{
             self.titleLabel.text = self.post.title!
             self.urlLabel.text = self.post.domain! + " - " + self.post.prettyTime!
-            self.voteLabel.labelText = "\(self.post.points) votes"
-            self.commentsLabel.labelText = "\(self.post.commentsCount) comments"
+            self.voteLabel.labelText = String(self.post.points!) + " votes"
+            self.commentsLabel.labelText = String(self.post.commentsCount!) + " comments"
             self.usernameLabel.labelText = self.post.username!
             
             self.voteLabel.onButtonTouch = {(sender: UIButton) in
@@ -74,7 +74,7 @@ class NewsCell: UITableViewCell {
     }
     
     class func heightForText(text: NSString, bounds: CGRect) -> CGFloat {
-        var size = text.boundingRectWithSize(CGSizeMake(CGRectGetWidth(bounds) - (NewsCellTitleMarginConstant * 2), CGFLOAT_MAX),
+        var size = text.boundingRectWithSize(CGSizeMake(CGRectGetWidth(bounds) - (NewsCellTitleMarginConstant * 2), CGFloat.max),
             options: NSStringDrawingOptions.UsesLineFragmentOrigin,
             attributes: [NSFontAttributeName: UIFont.systemFontOfSize(NewsCellTitleFontSize)],
             context: nil)

@@ -11,7 +11,7 @@ import HackerSwifter
 
 class WebviewController: UIViewController, UIWebViewDelegate {
     
-    @IBOutlet var webView : UIWebView = nil
+    @IBOutlet var webView : UIWebView! = nil
     var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
     
     var post: Post!

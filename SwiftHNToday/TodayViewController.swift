@@ -20,7 +20,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    @IBOutlet var tableView: UITableView
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class HNTableViewController: UITableViewController {
+public class HNTableViewController: UITableViewController {
 
-    var refreshing: Bool = false {
+    public var refreshing: Bool = false {
     didSet {
         if (self.refreshing) {
             self.refreshControl.beginRefreshing()
@@ -23,20 +23,20 @@ class HNTableViewController: UITableViewController {
     }
     }
     
-    var datasource: NSArray! {
+    public var datasource: NSArray! {
         didSet {
             self.tableView.reloadData()
         }
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
                 
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "onPullToFresh", forControlEvents: UIControlEvents.ValueChanged)
     }
     
-    func onPullToFresh() {
+    public func onPullToFresh() {
         self.refreshing = true
     }
     
