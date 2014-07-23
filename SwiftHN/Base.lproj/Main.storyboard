@@ -300,10 +300,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" secondItem="5kI-i2-UA9" secondAttribute="height" id="2uZ-Yn-tz5"/>
-                            <constraint firstItem="5kI-i2-UA9" firstAttribute="top" secondItem="vR9-TQ-GZd" secondAttribute="top" id="8Zy-CI-koL"/>
-                            <constraint firstAttribute="width" secondItem="5kI-i2-UA9" secondAttribute="width" id="dg6-LG-Mfs"/>
-                            <constraint firstItem="5kI-i2-UA9" firstAttribute="leading" secondItem="vR9-TQ-GZd" secondAttribute="leading" id="tKh-DQ-sLL"/>
+                            <constraint firstAttribute="trailing" secondItem="5kI-i2-UA9" secondAttribute="trailing" id="ItQ-Hv-rZr"/>
+                            <constraint firstItem="5kI-i2-UA9" firstAttribute="leading" secondItem="vR9-TQ-GZd" secondAttribute="leading" id="dZd-qo-6nP"/>
+                            <constraint firstItem="5kI-i2-UA9" firstAttribute="top" secondItem="RMv-Ss-V7x" secondAttribute="bottom" constant="-64" id="eue-hm-8fV"/>
+                            <constraint firstItem="x6j-ti-Fqp" firstAttribute="top" secondItem="5kI-i2-UA9" secondAttribute="bottom" id="y8V-6W-q3a"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
