@@ -5,20 +5,24 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>978B6158-8AAC-46B9-90C0-2464321E5B27</string>
+	<string>849892B6-533B-485B-AFD4-DEABF6ADE24D</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SwiftHN</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>30D6B429-ADB0-43EC-B05A-17306571B1CC</key>
+		<string>https://github.com/Dimillian/HackerSwifter</string>
 		<key>76E270B8-BB72-4AFB-995D-2E8F15319C80</key>
 		<string>https://github.com/Dimillian/SwiftHN.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SwiftHN.xcworkspace</string>
+	<string>SwiftHN.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>30D6B429-ADB0-43EC-B05A-17306571B1CC</key>
+		<string>../../SwiftHN/libs/submodules</string>
 		<key>76E270B8-BB72-4AFB-995D-2E8F15319C80</key>
-		<string>..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Dimillian/SwiftHN.git</string>
@@ -28,6 +32,14 @@
 	<string>76E270B8-BB72-4AFB-995D-2E8F15319C80</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>30D6B429-ADB0-43EC-B05A-17306571B1CC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>submodules</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
