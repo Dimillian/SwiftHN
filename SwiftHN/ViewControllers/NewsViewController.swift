@@ -77,7 +77,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     }
     
     func showActionSheetForPost(post: Post) {
-        var titles = ["Share", "Upvote", "Cancel"]
+        var titles = ["Share", "Upvote", "Open", "Open in Safari", "Cancel"]
         
         var sheet = UIAlertController(title: post.title, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
@@ -86,6 +86,14 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             if let realAction = action {
                 if (action!.title == titles[0]) {
                     Helper.showShareSheet(post, controller: self)
+                }
+                else if (action!.title == titles[2]) {
+                    var webview = self.storyboard.instantiateViewControllerWithIdentifier("WebviewController") as WebviewController
+                    webview.post = post
+                    self.showDetailViewController(webview, sender: nil)
+                }
+                else if (action!.title == titles[3]) {
+                    UIApplication.sharedApplication().openURL(post.url)
                 }
             }
         }
