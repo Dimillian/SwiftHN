@@ -460,9 +460,9 @@
                                         </textView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="TzU-Gc-Cqv" firstAttribute="centerX" secondItem="n0B-dt-d11" secondAttribute="centerX" constant="-0.5" id="0ks-ho-neS"/>
                                         <constraint firstAttribute="trailing" secondItem="TzU-Gc-Cqv" secondAttribute="trailing" constant="16" id="Izi-xU-tIZ"/>
                                         <constraint firstItem="TzU-Gc-Cqv" firstAttribute="leading" secondItem="N1c-79-ZNY" secondAttribute="leading" constant="16" id="U4R-p6-w0y"/>
-                                        <constraint firstItem="n0B-dt-d11" firstAttribute="centerX" secondItem="N1c-79-ZNY" secondAttribute="centerX" id="a1M-Hq-SJg"/>
                                         <constraint firstItem="TzU-Gc-Cqv" firstAttribute="top" secondItem="N1c-79-ZNY" secondAttribute="top" constant="16" id="bad-zZ-iml"/>
                                         <constraint firstItem="n0B-dt-d11" firstAttribute="leading" secondItem="N1c-79-ZNY" secondAttribute="leading" constant="16" id="oO4-g6-Qv1"/>
                                         <constraint firstItem="n0B-dt-d11" firstAttribute="top" secondItem="TzU-Gc-Cqv" secondAttribute="bottom" constant="10" id="x5m-Kf-g7n"/>

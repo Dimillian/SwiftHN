@@ -66,6 +66,8 @@ class CommentsCell: UITableViewCell {
         
         self.commentLabel.font = UIFont.systemFontOfSize(CommentCellFontSize)
         self.commentLabel.textColor = UIColorEXT.CommentLightGrayColor()
+        self.commentLabel.linkTextAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(CommentCellFontSize),
+            NSForegroundColorAttributeName: UIColorEXT.ReadtListColor()]
     }
     
     override func layoutSubviews() {
@@ -73,8 +75,9 @@ class CommentsCell: UITableViewCell {
         
         self.commentLabel.text = comment.text
         
-        self.commentLabel.textContainer.lineFragmentPadding = 0;
-        self.commentLabel.textContainerInset = UIEdgeInsetsZero;
+        self.commentLabel.textContainer.lineFragmentPadding = 0
+        self.commentLabel.textContainerInset = UIEdgeInsetsZero
+        self.commentLabel.contentInset = UIEdgeInsetsZero
         
         self.commentLabel.frame.size.width = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.depth!))
         self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.depth!))
