@@ -442,34 +442,36 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzU-Gc-Cqv">
-                                            <rect key="frame" x="16" y="16" width="448" height="25"/>
+                                            <rect key="frame" x="16" y="16" width="568" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="448" translatesAutoresizingMaskIntoConstraints="NO" id="Pd7-Jg-UzR">
-                                            <rect key="frame" x="16" y="42.5" width="448" height="25"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="n0B-dt-d11">
+                                            <rect key="frame" x="16" y="46.5" width="569" height="26"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="wMU-vs-AEX"/>
+                                                <constraint firstAttribute="height" constant="26" id="ULy-di-MWZ"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                        </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="Pd7-Jg-UzR" secondAttribute="trailing" constant="16" id="41Q-pf-Csj"/>
-                                        <constraint firstItem="Pd7-Jg-UzR" firstAttribute="top" secondItem="TzU-Gc-Cqv" secondAttribute="bottom" constant="1.5" id="4kc-OV-AOi"/>
-                                        <constraint firstItem="Pd7-Jg-UzR" firstAttribute="leading" secondItem="N1c-79-ZNY" secondAttribute="leading" constant="16" id="DXZ-kJ-lpQ"/>
                                         <constraint firstAttribute="trailing" secondItem="TzU-Gc-Cqv" secondAttribute="trailing" constant="16" id="Izi-xU-tIZ"/>
                                         <constraint firstItem="TzU-Gc-Cqv" firstAttribute="leading" secondItem="N1c-79-ZNY" secondAttribute="leading" constant="16" id="U4R-p6-w0y"/>
+                                        <constraint firstItem="n0B-dt-d11" firstAttribute="centerX" secondItem="N1c-79-ZNY" secondAttribute="centerX" id="a1M-Hq-SJg"/>
                                         <constraint firstItem="TzU-Gc-Cqv" firstAttribute="top" secondItem="N1c-79-ZNY" secondAttribute="top" constant="16" id="bad-zZ-iml"/>
+                                        <constraint firstItem="n0B-dt-d11" firstAttribute="leading" secondItem="N1c-79-ZNY" secondAttribute="leading" constant="16" id="oO4-g6-Qv1"/>
+                                        <constraint firstItem="n0B-dt-d11" firstAttribute="top" secondItem="TzU-Gc-Cqv" secondAttribute="bottom" constant="10" id="x5m-Kf-g7n"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="commentHeightConstrain" destination="wMU-vs-AEX" id="F2D-ea-Bjc"/>
-                                    <outlet property="commentLabel" destination="Pd7-Jg-UzR" id="WwD-xR-CPI"/>
-                                    <outlet property="commentLeftMarginConstraint" destination="DXZ-kJ-lpQ" id="Zac-7F-btd"/>
+                                    <outlet property="commentHeightConstrain" destination="ULy-di-MWZ" id="RXP-8c-ji1"/>
+                                    <outlet property="commentLabel" destination="n0B-dt-d11" id="r3R-1D-FUo"/>
+                                    <outlet property="commentLeftMarginConstraint" destination="oO4-g6-Qv1" id="ZpU-ng-htr"/>
                                     <outlet property="usernameLabel" destination="TzU-Gc-Cqv" id="RiC-fr-c3g"/>
                                     <outlet property="usernameLeftMarginConstrain" destination="U4R-p6-w0y" id="joU-hR-y4p"/>
                                 </connections>
@@ -489,115 +491,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X43-s7-vcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="newsCellId" rowHeight="110" id="zHb-Cq-IAb" customClass="NewsCell" customModule="SwiftHN" customModuleProvider="target">
-                    <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zHb-Cq-IAb" id="AFh-Xt-6ox">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Domain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IB-oa-rNd">
-                                <rect key="frame" x="16" y="32.5" width="448" height="16"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="33" width="288" height="16"/>
-                                </variation>
-                            </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXW-O0-QAQ" customClass="BorderedButton" customModule="SwiftHN" customModuleProvider="target">
-                                <rect key="frame" x="16" y="63" width="80" height="31"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="AhG-WW-t42"/>
-                                    <constraint firstAttribute="width" constant="80" id="Xqn-vs-xum"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
-                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Wk-1t-Mnb" customClass="BorderedButton" customModule="SwiftHN" customModuleProvider="target">
-                                <rect key="frame" x="220" y="63" width="90" height="31"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="ePI-AD-Nc4"/>
-                                    <constraint firstAttribute="width" constant="90" id="nBm-2K-nmb"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
-                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="448" translatesAutoresizingMaskIntoConstraints="NO" id="2og-gn-kOa">
-                                <rect key="frame" x="16" y="10" width="448" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="10.5" width="288" height="20"/>
-                                </variation>
-                            </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSm-nb-LA6" customClass="BorderedButton" customModule="SwiftHN" customModuleProvider="target">
-                                <rect key="frame" x="113" y="63" width="90" height="31"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="BNS-jB-Q3y"/>
-                                    <constraint firstAttribute="height" constant="31" id="RVH-g8-gFg"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
-                                        <color key="value" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="5Wk-1t-Mnb" firstAttribute="leading" secondItem="GSm-nb-LA6" secondAttribute="trailing" constant="17" id="4iW-ut-xAb"/>
-                            <constraint firstAttribute="trailing" secondItem="6IB-oa-rNd" secondAttribute="trailing" constant="16" id="7YZ-Di-ho6"/>
-                            <constraint firstItem="2og-gn-kOa" firstAttribute="leading" secondItem="AFh-Xt-6ox" secondAttribute="leading" constant="16" id="XfB-ws-cA4"/>
-                            <constraint firstItem="6IB-oa-rNd" firstAttribute="leading" secondItem="AFh-Xt-6ox" secondAttribute="leading" constant="16" id="Yl0-Mi-lYP"/>
-                            <constraint firstItem="6IB-oa-rNd" firstAttribute="top" secondItem="2og-gn-kOa" secondAttribute="bottom" constant="2" id="cmS-s7-6jR"/>
-                            <constraint firstItem="GSm-nb-LA6" firstAttribute="leading" secondItem="JXW-O0-QAQ" secondAttribute="trailing" constant="17" id="euT-ko-1ca"/>
-                            <constraint firstItem="JXW-O0-QAQ" firstAttribute="leading" secondItem="AFh-Xt-6ox" secondAttribute="leading" constant="16" id="hsI-dJ-ujT"/>
-                            <constraint firstItem="2og-gn-kOa" firstAttribute="top" secondItem="AFh-Xt-6ox" secondAttribute="top" constant="10" id="pbg-wy-ibE"/>
-                            <constraint firstItem="JXW-O0-QAQ" firstAttribute="centerY" secondItem="GSm-nb-LA6" secondAttribute="centerY" id="xM3-p3-tOq"/>
-                            <constraint firstItem="GSm-nb-LA6" firstAttribute="centerY" secondItem="5Wk-1t-Mnb" secondAttribute="centerY" id="ykm-ef-Xdg"/>
-                            <constraint firstAttribute="trailing" secondItem="2og-gn-kOa" secondAttribute="trailing" constant="16" id="yq5-FZ-DMo"/>
-                            <constraint firstItem="JXW-O0-QAQ" firstAttribute="top" secondItem="6IB-oa-rNd" secondAttribute="bottom" constant="14.5" id="zqH-AI-wsf"/>
-                        </constraints>
-                    </tableViewCellContentView>
-                    <connections>
-                        <outlet property="commentsLabel" destination="GSm-nb-LA6" id="jsu-XX-lP0"/>
-                        <outlet property="titleLabel" destination="2og-gn-kOa" id="1g2-Fo-Wsp"/>
-                        <outlet property="titleMarginConstrain" destination="XfB-ws-cA4" id="nug-P5-d5B"/>
-                        <outlet property="urlLabel" destination="6IB-oa-rNd" id="h8w-Ru-cM4"/>
-                        <outlet property="usernameLabel" destination="5Wk-1t-Mnb" id="TCJ-96-bzC"/>
-                        <outlet property="voteLabel" destination="JXW-O0-QAQ" id="1az-mg-zR6"/>
-                    </connections>
-                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="4396" y="1394"/>
         </scene>
@@ -733,6 +626,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bwb-vD-4ui"/>
+        <segue reference="489-mj-T44"/>
     </inferredMetricsTieBreakers>
 </document>

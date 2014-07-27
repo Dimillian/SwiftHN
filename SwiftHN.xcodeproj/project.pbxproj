@@ -24,7 +24,6 @@
 		9F3ED6201948D91F0072E02D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3ED61F1948D91F0072E02D /* DetailViewController.swift */; };
 		9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D41949BAC50003B7AD /* SplitViewController.swift */; };
 		9F45C8D81949BE6F0003B7AD /* SplitViewControllerEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */; };
-		9F5DE8CC1947673300021EF5 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DE8CB1947673300021EF5 /* Cache.swift */; };
 		9F75D490196F23150061D908 /* OpenSafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F75D48F196F23150061D908 /* OpenSafariActivity.swift */; };
 		9F773639196BF5A900A6C5EC /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F773638196BF5A900A6C5EC /* BorderedButton.swift */; };
 		9F7E9F56196BE6AB008B2F35 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6CA16D1945BB5A003A26D4 /* NotificationCenter.framework */; };
@@ -191,11 +190,8 @@
 
 /* Begin PBXFileReference section */
 		9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HackerSwifter.xcodeproj; path = "SwiftHN/libs/submodules/Hacker Swifter/HackerSwifter.xcodeproj"; sourceTree = "<group>"; };
-		9F1AAFED1941F13000E68F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F1AAFEE1941F13000E68F41 /* SwiftHNLiveViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftHNLiveViews.h; sourceTree = "<group>"; };
 		9F1AAFFA1941F13000E68F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1AAFFB1941F13000E68F41 /* SwiftHNLiveViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHNLiveViewsTests.swift; sourceTree = "<group>"; };
-		9F1AB00A1941F16700E68F41 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderedButton.swift; path = Views/BorderedButton.swift; sourceTree = "<group>"; };
 		9F1AB00C1941F49800E68F41 /* UIColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExt.swift; path = Extension/UIColorExt.swift; sourceTree = "<group>"; };
 		9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftHNShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1EE919194105C30061B4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -216,7 +212,6 @@
 		9F3ED61F1948D91F0072E02D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ViewControllers/DetailViewController.swift; sourceTree = "<group>"; };
 		9F45C8D41949BAC50003B7AD /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewController.swift; path = ViewControllers/SplitViewController.swift; sourceTree = "<group>"; };
 		9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewControllerEXT.swift; path = Extensions/SplitViewControllerEXT.swift; sourceTree = "<group>"; };
-		9F5DE8CB1947673300021EF5 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = Utils/Cache.swift; sourceTree = "<group>"; };
 		9F6CA16D1945BB5A003A26D4 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		9F75D48F196F23150061D908 /* OpenSafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenSafariActivity.swift; path = Activities/OpenSafariActivity.swift; sourceTree = "<group>"; };
 		9F773638196BF5A900A6C5EC /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderedButton.swift; path = Views/BorderedButton.swift; sourceTree = "<group>"; };
@@ -298,24 +293,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9F1AAFEB1941F13000E68F41 /* SwiftHNLiveViews */ = {
-			isa = PBXGroup;
-			children = (
-				9F1AB0091941F13700E68F41 /* Views */,
-				9F1AAFEE1941F13000E68F41 /* SwiftHNLiveViews.h */,
-				9F1AAFEC1941F13000E68F41 /* Supporting Files */,
-			);
-			path = SwiftHNLiveViews;
-			sourceTree = "<group>";
-		};
-		9F1AAFEC1941F13000E68F41 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9F1AAFED1941F13000E68F41 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		9F1AAFF81941F13000E68F41 /* SwiftHNLiveViewsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,14 +308,6 @@
 				9F1AAFFA1941F13000E68F41 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9F1AB0091941F13700E68F41 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9F1AB00A1941F16700E68F41 /* BorderedButton.swift */,
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		9F1EE917194105C30061B4B6 /* SwiftHNShared */ = {
@@ -391,7 +360,6 @@
 				9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */,
 				9F21AA651940A45700CF4E63 /* SwiftHN */,
 				9F1EE917194105C30061B4B6 /* SwiftHNShared */,
-				9F1AAFEB1941F13000E68F41 /* SwiftHNLiveViews */,
 				9F7E9F57196BE6AB008B2F35 /* SwiftHNToday */,
 				9F21AA641940A45700CF4E63 /* Products */,
 				4BF26A7604EA406E89BD9151 /* Frameworks */,
@@ -468,7 +436,6 @@
 			isa = PBXGroup;
 			children = (
 				9F807F19195ACF3800C80B04 /* Helpers.swift */,
-				9F5DE8CB1947673300021EF5 /* Cache.swift */,
 				9F807F1B195AD40F00C80B04 /* Preferences.swift */,
 			);
 			name = Utils;
@@ -815,7 +782,6 @@
 				9F3779A019617BC200DCEF99 /* CommentsCell.swift in Sources */,
 				9F773639196BF5A900A6C5EC /* BorderedButton.swift in Sources */,
 				9FEB20C41940DE08007EB9CF /* NewsViewController.swift in Sources */,
-				9F5DE8CC1947673300021EF5 /* Cache.swift in Sources */,
 				9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */,
 				9F3ED6201948D91F0072E02D /* DetailViewController.swift in Sources */,
 			);

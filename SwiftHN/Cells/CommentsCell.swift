@@ -51,7 +51,7 @@ class CommentsCell: UITableViewCell {
     }
     
     @IBOutlet var usernameLabel: UILabel! = nil
-    @IBOutlet var commentLabel: UILabel! = nil
+    @IBOutlet var commentLabel: UITextView! = nil
     @IBOutlet var commentLeftMarginConstraint: NSLayoutConstraint! = nil
     @IBOutlet var commentHeightConstrain: NSLayoutConstraint! = nil
     @IBOutlet var usernameLeftMarginConstrain: NSLayoutConstraint! = nil
@@ -71,7 +71,12 @@ class CommentsCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.commentLabel.preferredMaxLayoutWidth = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.depth!))
+        self.commentLabel.text = comment.text
+        
+        self.commentLabel.textContainer.lineFragmentPadding = 0;
+        self.commentLabel.textContainerInset = UIEdgeInsetsZero;
+        
+        self.commentLabel.frame.size.width = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.depth!))
         self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.depth!))
     }
     
