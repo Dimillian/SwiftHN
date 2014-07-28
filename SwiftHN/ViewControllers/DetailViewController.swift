@@ -29,13 +29,17 @@ class DetailViewController: HNTableViewController {
         
         Comment.fetch(forPost: self.post, completion: {(comments: [Comment]!, error: Fetcher.ResponseError!, local: Bool) in
             if let realDatasource = comments {
-                self.cacheHeight(realDatasource)
-                self.datasource = realDatasource
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, UInt(0)), { ()->() in
+                    self.cacheHeight(realDatasource)
+                    dispatch_async(dispatch_get_main_queue(), { ()->() in
+                        self.datasource = realDatasource
+                        })
+                    })
             }
             if (!local) {
                 self.refreshing = false
             }
-            })
+        })
     }
     
     func cacheHeight(comments: NSArray) {
@@ -57,7 +61,7 @@ class DetailViewController: HNTableViewController {
     func onShareButton() {
         Helper.showShareSheet(self.post, controller: self)
     }
-
+    
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
     {
@@ -83,7 +87,7 @@ class DetailViewController: HNTableViewController {
         
         return 0
     }
-        
+    
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         if (indexPath.section == 0) {
             var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
