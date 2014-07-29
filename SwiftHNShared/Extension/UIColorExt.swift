@@ -29,6 +29,10 @@ private extension UIColor {
     private class func CommentLightGrayColor() -> UIColor {
         return UIColor.RGBColor(111, green: 111, blue: 111)
     }
+  
+    private class func LoadMoreLightGrayColor() -> UIColor {
+        return UIColor.RGBColor(245, green: 245, blue: 245)
+    }
 }
 
 public class UIColorEXT {
@@ -46,5 +50,9 @@ public class UIColorEXT {
     
     public class func CommentLightGrayColor() -> UIColor {
         return UIColor.CommentLightGrayColor()
+    }
+  
+    public class func LoadMoreLightGrayColor() -> UIColor {
+        return UIColor.LoadMoreLightGrayColor()
     }
 }

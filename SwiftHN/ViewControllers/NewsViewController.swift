@@ -14,12 +14,22 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     
     var filter: Post.PostFilter = .Top
     var loadPost = true
-    
+    var loadMoreEnabled = false
+    var infiniteScrollingView:UIView?
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "HN:News"
-        
+        self.infiniteScrollingView = UIView(frame: CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, 60))
+        self.infiniteScrollingView!.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        self.infiniteScrollingView!.backgroundColor = UIColorEXT.LoadMoreLightGrayColor()
+        var activityViewIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        activityViewIndicator.color = UIColor.darkGrayColor()
+        activityViewIndicator.frame = CGRectMake(self.infiniteScrollingView!.frame.size.width/2-activityViewIndicator.frame.width/2, self.infiniteScrollingView!.frame.size.height/2-activityViewIndicator.frame.height/2, activityViewIndicator.frame.width, activityViewIndicator.frame.height)
+        activityViewIndicator.startAnimating()
+        self.infiniteScrollingView!.addSubview(activityViewIndicator)
+      
         self.setupNavigationItems()
     }
     
@@ -32,6 +42,11 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             Post.fetch(self.filter, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
                 if let realDatasource = posts {
                     self.datasource = realDatasource
+                    if (self.datasource.count % 30 == 0) {
+                        self.loadMoreEnabled = true
+                    } else {
+                        self.loadMoreEnabled = false
+                    }
                 }
                 if (!local) {
                     self.refreshing = false
@@ -39,10 +54,34 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             })
         }
     }
+  
+    func loadMore() {
+      let fetchPage = Int(ceil(Double(self.datasource.count)/30))+1
+      Post.fetch(self.filter, page:fetchPage, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
+          if let realDatasource = posts {
+              var tempDatasource:NSMutableArray = NSMutableArray(array: self.datasource, copyItems: false)
+              let postsNotFromNewPageCount = ((fetchPage-1)*30)
+              if (tempDatasource.count - postsNotFromNewPageCount > 0) {
+                  tempDatasource.removeObjectsInRange(NSMakeRange(postsNotFromNewPageCount, tempDatasource.count-postsNotFromNewPageCount))
+              }
+              tempDatasource.addObjectsFromArray(realDatasource)
+              self.datasource = tempDatasource
+              if (self.datasource.count % 30 == 0) {
+                  self.loadMoreEnabled = true
+              } else {
+                  self.loadMoreEnabled = false
+              }
+          }
+          if (!local) {
+              self.refreshing = false
+              self.tableView.tableFooterView = nil
+          }
+      })
+    }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+      
         self.onPullToFresh()
         self.showFirstTimeEditingCellAlert()
     }
@@ -131,6 +170,10 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
         cell!.post = self.datasource[indexPath.row] as Post
         cell!.cellDelegate = self
+        if (loadMoreEnabled && indexPath.row == self.datasource.count-3) {
+            self.tableView.tableFooterView = self.infiniteScrollingView
+            loadMore()
+        }
         return cell
     }
     
