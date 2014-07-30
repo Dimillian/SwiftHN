@@ -21,6 +21,12 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         super.viewDidLoad()
         
         self.title = "HN:News"
+      
+        self.setupInfiniteScrollingView()
+        self.setupNavigationItems()
+    }
+    
+    private func setupInfiniteScrollingView() {
         self.infiniteScrollingView = UIView(frame: CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, 60))
         self.infiniteScrollingView!.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         self.infiniteScrollingView!.backgroundColor = UIColorEXT.LoadMoreLightGrayColor()
@@ -29,8 +35,6 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         activityViewIndicator.frame = CGRectMake(self.infiniteScrollingView!.frame.size.width/2-activityViewIndicator.frame.width/2, self.infiniteScrollingView!.frame.size.height/2-activityViewIndicator.frame.height/2, activityViewIndicator.frame.width, activityViewIndicator.frame.height)
         activityViewIndicator.startAnimating()
         self.infiniteScrollingView!.addSubview(activityViewIndicator)
-      
-        self.setupNavigationItems()
     }
     
     override func onPullToFresh() {
@@ -102,7 +106,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         
     }
     
-    // Mark: Alert management
+    //MARK: Alert management
     func showFirstTimeEditingCellAlert() {
         if (!Preferences.sharedInstance.firstTimeLaunch) {
             var alert = UIAlertController(title: "Post quick actions",
@@ -148,7 +152,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         self.presentViewController(sheet, animated: true, completion: nil)
     }
     
-    // Mark: TableView Management
+    //MARK: TableView Management
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int  {
         return 1
     }
@@ -213,7 +217,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         return [readingList, more]
     }
 
-    // Mark: NewsCellDelegate
+    //MARK: NewsCellDelegate
     func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post) {
         if (actionType == NewsCellActionType.Comment.toRaw()) {
             var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
@@ -229,7 +233,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         }
     }
     
-    //Mark: CategoriesDelegate
+    //MARK: CategoriesDelegate
     func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: Post.PostFilter, title: String) {
         self.filter = filer
         self.datasource = nil
