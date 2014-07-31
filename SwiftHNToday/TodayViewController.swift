@@ -9,12 +9,22 @@
 import UIKit
 import NotificationCenter
 import HackerSwifter
+import SwiftHNShared
 
-class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
     
     let cellId = "widgetCellId"
+    let topBottomWidgetInset: CGFloat = 10.0
+    
     var completionHandler: ((NCUpdateResult) -> Void)?
     var posts: [Post] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
+    var expanded: Bool = false {
         didSet {
             self.tableView.reloadData()
         }
@@ -34,22 +44,38 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.completionHandler?(NCUpdateResult.NewData)
             }
         })
-
     }
     
+    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(self.topBottomWidgetInset, 0, self.topBottomWidgetInset, 0)
+    }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
         self.completionHandler = completionHandler
         self.completionHandler?(NCUpdateResult.NewData)
     }
     
-    // Mark: TableView Management
+    //MARK: Actions
+    
+    func onViewMoreButton() {
+        self.expanded = true
+    }
+    
+    //MARK: TableView Management
     func numberOfSectionsInTableView(tableView: UITableView!) -> Int  {
         return 1
     }
     
+    
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        if self.expanded {
+            return self.posts.count
+        }
         return self.posts.count > 5 ? 5 : self.posts.count
+    }
+    
+    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        return 55.0
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {

@@ -16,16 +16,16 @@ class TodayWidgetCell: UITableViewCell {
     
     @IBOutlet var postTitleLabel: UILabel!
     @IBOutlet var postSubtitleLabel: UILabel!
+    @IBOutlet var postVoteLabel: RoundedLabel!
+    @IBOutlet var subtitleWrapperView: UIView!
     
     var post: Post! {
         didSet {
             self.postTitleLabel.text = self.post.title!
             if let realPoint = self.post.points {
-                self.postSubtitleLabel.text = String(realPoint) + " votes - " + self.post.domain! + " - " + self.post.prettyTime!
+                self.postVoteLabel.text = String(realPoint)
             }
-            else {
-                self.postSubtitleLabel.text = self.post.domain! + " - " + self.post.prettyTime!
-            }
+            self.postSubtitleLabel.text = self.post.domain! + " - " + self.post.prettyTime!
         }
     }
     
@@ -34,6 +34,6 @@ class TodayWidgetCell: UITableViewCell {
         
         self.postTitleLabel.textColor = UIColor.whiteColor()
         self.postSubtitleLabel.textColor = UIColorEXT.DateLightGrayColor()
-        
     }
+    
 }

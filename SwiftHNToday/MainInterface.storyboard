@@ -19,7 +19,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bMr-Ps-8p5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="separatorInset" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="todayCell" rowHeight="55" id="c0k-fJ-Yux" customClass="TodayWidgetCell" customModule="SwiftHNToday" customModuleProvider="target">
@@ -29,31 +29,42 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amD-Vd-Cqn">
-                                                    <rect key="frame" x="0.0" y="7" width="315" height="17"/>
+                                                    <rect key="frame" x="50" y="10" width="265" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaf-XX-byi">
-                                                    <rect key="frame" x="0.0" y="32" width="315" height="16"/>
+                                                    <rect key="frame" x="50" y="30" width="265" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0Y-XG-l7h" customClass="RoundedLabel" customModule="SwiftHNToday" customModuleProvider="target">
+                                                    <rect key="frame" x="14" y="15" width="26" height="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="y0Y-XG-l7h" firstAttribute="leading" secondItem="vKc-ji-aBF" secondAttribute="leading" constant="14" id="1UE-Gf-XM6"/>
                                                 <constraint firstAttribute="trailing" secondItem="amD-Vd-Cqn" secondAttribute="trailing" constant="5" id="5RS-FH-4yB"/>
                                                 <constraint firstItem="kaf-XX-byi" firstAttribute="leading" secondItem="amD-Vd-Cqn" secondAttribute="leading" id="PDa-wN-bVg"/>
+                                                <constraint firstItem="y0Y-XG-l7h" firstAttribute="top" secondItem="vKc-ji-aBF" secondAttribute="top" constant="15" id="YDH-L0-0ww"/>
                                                 <constraint firstItem="kaf-XX-byi" firstAttribute="trailing" secondItem="amD-Vd-Cqn" secondAttribute="trailing" id="aV7-LV-G6Q"/>
-                                                <constraint firstItem="kaf-XX-byi" firstAttribute="top" secondItem="amD-Vd-Cqn" secondAttribute="bottom" constant="8" id="jpg-w4-wv7"/>
-                                                <constraint firstItem="amD-Vd-Cqn" firstAttribute="leading" secondItem="vKc-ji-aBF" secondAttribute="leading" id="mHh-W9-kmX"/>
-                                                <constraint firstItem="amD-Vd-Cqn" firstAttribute="top" secondItem="vKc-ji-aBF" secondAttribute="top" constant="7" id="mdo-W6-wrf"/>
+                                                <constraint firstItem="kaf-XX-byi" firstAttribute="leading" secondItem="y0Y-XG-l7h" secondAttribute="trailing" constant="10" id="bAU-mo-yer"/>
+                                                <constraint firstItem="kaf-XX-byi" firstAttribute="top" secondItem="amD-Vd-Cqn" secondAttribute="bottom" constant="3" id="jpg-w4-wv7"/>
+                                                <constraint firstItem="amD-Vd-Cqn" firstAttribute="leading" secondItem="vKc-ji-aBF" secondAttribute="leading" constant="50" id="mHh-W9-kmX"/>
+                                                <constraint firstItem="amD-Vd-Cqn" firstAttribute="top" secondItem="vKc-ji-aBF" secondAttribute="top" constant="10" id="mdo-W6-wrf"/>
                                                 <constraint firstItem="kaf-XX-byi" firstAttribute="width" secondItem="amD-Vd-Cqn" secondAttribute="width" id="rRc-HL-LcL"/>
+                                                <constraint firstAttribute="bottom" secondItem="y0Y-XG-l7h" secondAttribute="bottom" constant="13.5" id="rhb-UM-XGz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="postSubtitleLabel" destination="kaf-XX-byi" id="Grt-1H-blY"/>
                                             <outlet property="postTitleLabel" destination="amD-Vd-Cqn" id="lZZ-75-W7d"/>
+                                            <outlet property="postVoteLabel" destination="y0Y-XG-l7h" id="3DK-Ic-AvA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
