@@ -32,6 +32,7 @@
 		9F7E9F60196BE6AB008B2F35 /* SwiftHNToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9F7E9F55196BE6AB008B2F35 /* SwiftHNToday.appex */; };
 		9F807F1A195ACF3800C80B04 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F19195ACF3800C80B04 /* Helpers.swift */; };
 		9F807F1C195AD40F00C80B04 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F1B195AD40F00C80B04 /* Preferences.swift */; };
+		9FB65DAE198A3FF200F591D2 /* TodayWidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB65DAD198A3FF200F591D2 /* TodayWidgetCell.swift */; };
 		9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBC8B661940E57B0052AF48 /* WebviewController.swift */; };
 		9FC8BA6E195C706D0084A0E0 /* HNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8BA6D195C706D0084A0E0 /* HNTableViewController.swift */; };
 		9FC99671196F2BB100EDB403 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC99670196F2BB100EDB403 /* UserViewController.swift */; };
@@ -222,6 +223,7 @@
 		9F7E9F66196BE6D9008B2F35 /* SwiftHNToday-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftHNToday-Bridging-Header.h"; sourceTree = "<group>"; };
 		9F807F19195ACF3800C80B04 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Utils/Helpers.swift; sourceTree = "<group>"; };
 		9F807F1B195AD40F00C80B04 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = Utils/Preferences.swift; sourceTree = "<group>"; };
+		9FB65DAD198A3FF200F591D2 /* TodayWidgetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayWidgetCell.swift; sourceTree = "<group>"; };
 		9FBC8B661940E57B0052AF48 /* WebviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebviewController.swift; path = ViewControllers/WebviewController.swift; sourceTree = "<group>"; };
 		9FC8BA6D195C706D0084A0E0 /* HNTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HNTableViewController.swift; path = HNKit/HNTableViewController.swift; sourceTree = "<group>"; };
 		9FC99670196F2BB100EDB403 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = ViewControllers/UserViewController.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				9F7E9F5A196BE6AB008B2F35 /* TodayViewController.swift */,
+				9FB65DAD198A3FF200F591D2 /* TodayWidgetCell.swift */,
 				9F7E9F5C196BE6AB008B2F35 /* MainInterface.storyboard */,
 				9F7E9F58196BE6AB008B2F35 /* Supporting Files */,
 				9F7E9F66196BE6D9008B2F35 /* SwiftHNToday-Bridging-Header.h */,
@@ -800,6 +803,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F7E9F5B196BE6AB008B2F35 /* TodayViewController.swift in Sources */,
+				9FB65DAE198A3FF200F591D2 /* TodayWidgetCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

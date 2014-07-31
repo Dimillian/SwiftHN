@@ -14,7 +14,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let cellId = "widgetCellId"
     var completionHandler: ((NCUpdateResult) -> Void)?
-    var posts: NSArray! {
+    var posts: [Post] = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -26,20 +26,17 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         
         self.tableView.backgroundColor = UIColor.clearColor()
-        self.preferredContentSize = CGSizeMake(0, 250.0)
-        
+        self.preferredContentSize = CGSizeMake(0, 300.0)
+    
         Post.fetch(Post.PostFilter.Top, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
             if let realDatasource = posts {
                 self.posts = realDatasource
+                self.completionHandler?(NCUpdateResult.NewData)
             }
         })
 
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
         self.completionHandler = completionHandler
@@ -52,19 +49,18 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.posts.count > 5 ? 5 : self.posts.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var cell = self.tableView.dequeueReusableCellWithIdentifier(self.cellId) as? UITableViewCell
-        if !cell {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: self.cellId)
-        }
-        
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(todayCellId) as? TodayWidgetCell
         var post = self.posts[indexPath.row] as Post
-        cell!.textLabel.text = post.title
-        cell!.textLabel.textColor = UIColor.whiteColor()
-        
+        cell!.post = post
         return cell
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        var post = self.posts[indexPath.row] as Post
+        self.extensionContext.openURL(post.url, completionHandler: nil)
     }
 }
