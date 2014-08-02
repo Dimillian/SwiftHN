@@ -21,12 +21,14 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     var posts: [Post] = [] {
         didSet {
             self.tableView.reloadData()
+            self.preferredContentSize = CGSizeMake(0, self.tableView.contentSize.height)
         }
     }
     
     var expanded: Bool = false {
         didSet {
             self.tableView.reloadData()
+            self.preferredContentSize = CGSizeMake(0, self.tableView.contentSize.height)
         }
     }
     
@@ -36,7 +38,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         super.viewDidLoad()
         
         self.tableView.backgroundColor = UIColor.clearColor()
-        self.preferredContentSize = CGSizeMake(0, 300.0)
     
         Post.fetch(Post.PostFilter.Top, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
             if let realDatasource = posts {
@@ -44,6 +45,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
                 self.completionHandler?(NCUpdateResult.NewData)
             }
         })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.expanded = false
     }
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
@@ -61,6 +68,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         self.expanded = true
     }
     
+    func onOpenApp() {
+        self.extensionContext.openURL(NSURL(string:"swifthn://"), completionHandler: nil)
+    }
+    
     //MARK: TableView Management
     func numberOfSectionsInTableView(tableView: UITableView!) -> Int  {
         return 1
@@ -76,6 +87,39 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return 55.0
+    }
+    
+    func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
+        if self.expanded {
+            return 0
+        }
+        return 60.0
+    }
+    
+    func tableView(tableView: UITableView!, viewForFooterInSection section: Int) -> UIView! {
+        if self.expanded {
+            return nil
+        }
+        var view = UIVisualEffectView(effect: UIVibrancyEffect.notificationCenterVibrancyEffect())
+        view.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 30.0)
+        var label = UILabel(frame: CGRectMake(48.0, 0, self.tableView.frame.size.width - 48.0, 30.0))
+        view.contentView.addSubview(label)
+        label.numberOfLines = 0
+        label.textColor = UIColorEXT.DateLightGrayColor()
+        label.text = "See All..."
+        label.userInteractionEnabled = true
+        var tap = UITapGestureRecognizer(target: self, action: "onViewMoreButton")
+        label.addGestureRecognizer(tap)
+        
+        var openApp = UILabel(frame: CGRectMake(48.0, 30.0, self.tableView.frame.size.width - 48.0, 30.0))
+        view.contentView.addSubview(openApp)
+        openApp.numberOfLines = 0
+        openApp.textColor = UIColorEXT.DateLightGrayColor()
+        openApp.text = "Open SwiftHN"
+        openApp.userInteractionEnabled = true
+        var openAppTap = UITapGestureRecognizer(target: self, action: "onOpenApp")
+        openApp.addGestureRecognizer(openAppTap)
+        return view
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
