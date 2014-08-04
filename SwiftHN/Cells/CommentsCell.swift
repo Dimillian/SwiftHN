@@ -55,8 +55,13 @@ class CommentsCell: UITableViewCell {
     @IBOutlet var commentLeftMarginConstraint: NSLayoutConstraint! = nil
     @IBOutlet var commentHeightConstrain: NSLayoutConstraint! = nil
     @IBOutlet var usernameLeftMarginConstrain: NSLayoutConstraint! = nil
-    
-    init(style: UITableViewCellStyle, reuseIdentifier: String) {
+  
+    required init(coder aDecoder: NSCoder!) { // required for Xcode6-Beta5
+        self.indentation = CommentCellMarginConstant
+        super.init(coder: aDecoder)
+    }
+  
+    override init(style: UITableViewCellStyle, reuseIdentifier: String) {
         self.indentation = CommentCellMarginConstant
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
