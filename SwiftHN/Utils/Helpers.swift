@@ -18,7 +18,7 @@ class Helper {
         var error: NSError?
         if let url: String = post.url?.absoluteString {
             readingList.addReadingListItemWithURL(NSURL(string: url), title: post.title, previewText: nil, error: &error)
-            return !error
+            return error != nil
         }
         return false
     }

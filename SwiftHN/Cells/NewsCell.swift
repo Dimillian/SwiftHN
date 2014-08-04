@@ -62,8 +62,12 @@ class NewsCell: UITableViewCell {
             }
         }
     }
+  
+    required init(coder aDecoder: NSCoder!) { // required for Xcode6-Beta5
+        super.init(coder: aDecoder)
+    }
 
-    init(style: UITableViewCellStyle, reuseIdentifier: String!)  {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String!)  {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
