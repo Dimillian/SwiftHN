@@ -10,33 +10,33 @@
 	<string>SwiftHN</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>30D6B429-ADB0-43EC-B05A-17306571B1CC</key>
-		<string>https://github.com/Dimillian/HackerSwifter</string>
-		<key>76E270B8-BB72-4AFB-995D-2E8F15319C80</key>
+		<key>D96377ADF9561FDD25D6ADCCCC76790575BE5FB4</key>
 		<string>https://github.com/Dimillian/SwiftHN.git</string>
+		<key>E0D52B920DCA102ACF12EC644CE806103E82A316</key>
+		<string>https://github.com/Dimillian/HackerSwifter</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SwiftHN.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>30D6B429-ADB0-43EC-B05A-17306571B1CC</key>
-		<string>../../SwiftHN/libs/submodules</string>
-		<key>76E270B8-BB72-4AFB-995D-2E8F15319C80</key>
+		<key>D96377ADF9561FDD25D6ADCCCC76790575BE5FB4</key>
 		<string>../..</string>
+		<key>E0D52B920DCA102ACF12EC644CE806103E82A316</key>
+		<string>../../SwiftHN/libs/submodules</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Dimillian/SwiftHN.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>76E270B8-BB72-4AFB-995D-2E8F15319C80</string>
+	<string>D96377ADF9561FDD25D6ADCCCC76790575BE5FB4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>30D6B429-ADB0-43EC-B05A-17306571B1CC</string>
+			<string>E0D52B920DCA102ACF12EC644CE806103E82A316</string>
 			<key>IDESourceControlWCCName</key>
 			<string>submodules</string>
 		</dict>
@@ -44,7 +44,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>76E270B8-BB72-4AFB-995D-2E8F15319C80</string>
+			<string>D96377ADF9561FDD25D6ADCCCC76790575BE5FB4</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SwiftHN</string>
 		</dict>
