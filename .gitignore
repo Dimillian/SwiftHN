@@ -9,10 +9,21 @@ Pods/
 
 .DS_Store
 
-*.xcbkptlist
-
-SwiftHN.xcworkspace/xcuserdata/Dimillian.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
 *.xcuserstate
-
-SwiftHN.xcworkspace/xcuserdata/Dimillian.xcuserdatad/UserInterfaceState.xcuserstate
