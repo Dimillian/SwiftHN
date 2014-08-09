@@ -16,12 +16,12 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     var loadPost = true
     var loadMoreEnabled = false
     var infiniteScrollingView:UIView?
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "HN:News"
-      
+        
         self.setupInfiniteScrollingView()
         self.setupNavigationItems()
     }
@@ -58,34 +58,34 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             })
         }
     }
-  
+    
     func loadMore() {
-      let fetchPage = Int(ceil(Double(self.datasource.count)/30))+1
-      Post.fetch(self.filter, page:fetchPage, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
-          if let realDatasource = posts {
-              var tempDatasource:NSMutableArray = NSMutableArray(array: self.datasource, copyItems: false)
-              let postsNotFromNewPageCount = ((fetchPage-1)*30)
-              if (tempDatasource.count - postsNotFromNewPageCount > 0) {
-                  tempDatasource.removeObjectsInRange(NSMakeRange(postsNotFromNewPageCount, tempDatasource.count-postsNotFromNewPageCount))
-              }
-              tempDatasource.addObjectsFromArray(realDatasource)
-              self.datasource = tempDatasource
-              if (self.datasource.count % 30 == 0) {
-                  self.loadMoreEnabled = true
-              } else {
-                  self.loadMoreEnabled = false
-              }
-          }
-          if (!local) {
-              self.refreshing = false
-              self.tableView.tableFooterView = nil
-          }
-      })
+        let fetchPage = Int(ceil(Double(self.datasource.count)/30))+1
+        Post.fetch(self.filter, page:fetchPage, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
+            if let realDatasource = posts {
+                var tempDatasource:NSMutableArray = NSMutableArray(array: self.datasource, copyItems: false)
+                let postsNotFromNewPageCount = ((fetchPage-1)*30)
+                if (tempDatasource.count - postsNotFromNewPageCount > 0) {
+                    tempDatasource.removeObjectsInRange(NSMakeRange(postsNotFromNewPageCount, tempDatasource.count-postsNotFromNewPageCount))
+                }
+                tempDatasource.addObjectsFromArray(realDatasource)
+                self.datasource = tempDatasource
+                if (self.datasource.count % 30 == 0) {
+                    self.loadMoreEnabled = true
+                } else {
+                    self.loadMoreEnabled = false
+                }
+            }
+            if (!local) {
+                self.refreshing = false
+                self.tableView.tableFooterView = nil
+            }
+        })
     }
-
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-      
+        
         self.onPullToFresh()
         self.showFirstTimeEditingCellAlert()
     }
@@ -187,13 +187,13 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             destination.post = self.datasource[self.tableView.indexPathsForSelectedRows()[0].row] as Post
         }
     }
-
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-
+        
     }
     
     override func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) -> [AnyObject]!
@@ -202,7 +202,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             title: "Read\nLater",
             handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
                 if (Helper.addPostToReadingList(self.datasource[indexPath.row] as Post)) {
-           
+                    
                 }
                 self.tableView.setEditing(false, animated: true)
         })
@@ -216,7 +216,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         
         return [readingList, more]
     }
-
+    
     //MARK: NewsCellDelegate
     func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post) {
         if (actionType == NewsCellActionType.Comment.toRaw()) {
@@ -241,5 +241,5 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         self.title = title
     }
     
-
+    
 }
