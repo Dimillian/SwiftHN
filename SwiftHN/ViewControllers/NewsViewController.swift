@@ -13,7 +13,6 @@ import HackerSwifter
 class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesViewControllerDelegate {
     
     var filter: Post.PostFilter = .Top
-    var loadPost = true
     var loadMoreEnabled = false
     var infiniteScrollingView:UIView?
     
@@ -37,26 +36,23 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         self.infiniteScrollingView!.addSubview(activityViewIndicator)
     }
     
-    override func onPullToFresh() {
-        super.onPullToFresh()
+    func onPullToFresh() {
         
-        self.loadPost = true
+        self.refreshing = true
         
-        if (self.loadPost) {
-            Post.fetch(self.filter, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
-                if let realDatasource = posts {
-                    self.datasource = realDatasource
-                    if (self.datasource.count % 30 == 0) {
-                        self.loadMoreEnabled = true
-                    } else {
-                        self.loadMoreEnabled = false
-                    }
+        Post.fetch(self.filter, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
+            if let realDatasource = posts {
+                self.datasource = realDatasource
+                if (self.datasource.count % 30 == 0) {
+                    self.loadMoreEnabled = true
+                } else {
+                    self.loadMoreEnabled = false
                 }
-                if (!local) {
-                    self.refreshing = false
-                }
-            })
-        }
+            }
+            if (!local) {
+                self.refreshing = false
+            }
+        })
     }
     
     func loadMore() {

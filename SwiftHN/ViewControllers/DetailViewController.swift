@@ -24,8 +24,7 @@ class DetailViewController: HNTableViewController {
         self.onPullToFresh()
     }
     
-    override func onPullToFresh() {
-        super.onPullToFresh()
+    func onPullToFresh() {
         
         Comment.fetch(forPost: self.post, completion: {(comments: [Comment]!, error: Fetcher.ResponseError!, local: Bool) in
             if let realDatasource = comments {

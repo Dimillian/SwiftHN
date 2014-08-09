@@ -15,8 +15,6 @@ class UserViewController: NewsViewController {
     var user: String!
     
     override func viewDidLoad() {
-        self.loadPost = false
-    
         super.viewDidLoad()
         
         self.title = "HN:" + user
@@ -24,7 +22,8 @@ class UserViewController: NewsViewController {
     }
     
     override func onPullToFresh() {
-        super.onPullToFresh()
+        
+        self.refreshing = true
         
         Post.fetch(self.user, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
             if let realPosts = posts {

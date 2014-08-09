@@ -35,9 +35,4 @@ public class HNTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "onPullToFresh", forControlEvents: UIControlEvents.ValueChanged)
     }
-    
-    public func onPullToFresh() {
-        self.refreshing = true
-    }
-    
 }
