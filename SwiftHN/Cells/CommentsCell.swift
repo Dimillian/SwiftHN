@@ -26,10 +26,10 @@ class CommentsCell: UITableViewCell {
             
             var usernameAttributed = NSAttributedString(string: username,
                 attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(CommentCellFontSize),
-                    NSForegroundColorAttributeName: UIColorEXT.HNColor()])
+                    NSForegroundColorAttributeName: UIColor.HNColor()])
             var dateAttribute = NSAttributedString(string: date,
                 attributes: [NSFontAttributeName: UIFont.systemFontOfSize(CommentCellFontSize),
-                    NSForegroundColorAttributeName: UIColorEXT.DateLightGrayColor()])
+                    NSForegroundColorAttributeName: UIColor.DateLighGrayColor()])
             var fullAttributed = NSMutableAttributedString(attributedString: usernameAttributed)
             fullAttributed.appendAttributedString(dateAttribute)
             
@@ -70,9 +70,9 @@ class CommentsCell: UITableViewCell {
         super.awakeFromNib()
         
         self.commentLabel.font = UIFont.systemFontOfSize(CommentCellFontSize)
-        self.commentLabel.textColor = UIColorEXT.CommentLightGrayColor()
+        self.commentLabel.textColor = UIColor.CommentLightGrayColor()
         self.commentLabel.linkTextAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(CommentCellFontSize),
-            NSForegroundColorAttributeName: UIColorEXT.ReadtListColor()]
+            NSForegroundColorAttributeName: UIColor.ReadingListColor()]
     }
     
     override func layoutSubviews() {

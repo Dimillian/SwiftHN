@@ -22,12 +22,12 @@ import SwiftHNShared
     }
     
     private func setup() {
-        self.textColor = UIColorEXT.HNColor()
+        self.textColor = UIColor.HNColor()
         self.textAlignment = .Center
         self.text = "155"
         self.font = UIFont.systemFontOfSize(12.0)
         
-        self.layer.borderColor = UIColorEXT.HNColor().CGColor
+        self.layer.borderColor = UIColor.HNColor().CGColor
         self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 12.5
     }

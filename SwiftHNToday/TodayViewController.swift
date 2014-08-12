@@ -105,7 +105,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         var label = UILabel(frame: CGRectMake(48.0, 0, self.tableView.frame.size.width - 48.0, 30.0))
         view.contentView.addSubview(label)
         label.numberOfLines = 0
-        label.textColor = UIColorEXT.DateLightGrayColor()
+        label.textColor = UIColor.DateLighGrayColor()
         label.text = "See All..."
         label.userInteractionEnabled = true
         var tap = UITapGestureRecognizer(target: self, action: "onViewMoreButton")
@@ -114,7 +114,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         var openApp = UILabel(frame: CGRectMake(48.0, 30.0, self.tableView.frame.size.width - 48.0, 30.0))
         view.contentView.addSubview(openApp)
         openApp.numberOfLines = 0
-        openApp.textColor = UIColorEXT.DateLightGrayColor()
+        openApp.textColor = UIColor.DateLighGrayColor()
         openApp.text = "Open SwiftHN"
         openApp.userInteractionEnabled = true
         var openAppTap = UITapGestureRecognizer(target: self, action: "onOpenApp")

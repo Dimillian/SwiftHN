@@ -21,7 +21,7 @@ import SwiftHNShared
     var onButtonTouch: buttonTouchInsideEvent!
     
     // MARK: IBSpec
-    @IBInspectable var borderColor: UIColor = UIColorEXT.HNColor() {
+    @IBInspectable var borderColor: UIColor = UIColor.HNColor() {
         didSet {
             self.layer.borderColor = borderColor.CGColor
         }
@@ -39,7 +39,7 @@ import SwiftHNShared
         }
     }
     
-    @IBInspectable var labelColor: UIColor = UIColorEXT.HNColor() {
+    @IBInspectable var labelColor: UIColor = UIColor.HNColor() {
         didSet {
             self.button.setTitleColor(labelColor, forState: .Normal)
         }
@@ -81,8 +81,8 @@ import SwiftHNShared
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.borderColor = UIColorEXT.HNColor()
-        self.labelColor = UIColorEXT.HNColor()
+        self.borderColor = UIColor.HNColor()
+        self.labelColor = UIColor.HNColor()
         self.borderWidth = 0.5
         self.borderCornerRadius = 5.0
         self.labelFontSize = 11.0
@@ -98,13 +98,13 @@ import SwiftHNShared
     func onPress(sender: AnyObject) {
         UIView.animateWithDuration(self.animationDuration, animations: {
             self.labelColor = UIColor.whiteColor()
-            self.backgroundColor = UIColorEXT.HNColor()
+            self.backgroundColor = UIColor.HNColor()
         })
     }
     
     func onReset(sender: AnyObject) {
         UIView.animateWithDuration(self.animationDuration, animations: {
-            self.labelColor = UIColorEXT.HNColor()
+            self.labelColor = UIColor.HNColor()
             self.backgroundColor = UIColor.clearColor()
         })
     }

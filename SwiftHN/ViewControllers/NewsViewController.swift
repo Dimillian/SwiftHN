@@ -28,7 +28,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     private func setupInfiniteScrollingView() {
         self.infiniteScrollingView = UIView(frame: CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, 60))
         self.infiniteScrollingView!.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        self.infiniteScrollingView!.backgroundColor = UIColorEXT.LoadMoreLightGrayColor()
+        self.infiniteScrollingView!.backgroundColor = UIColor.LoadMoreLightGrayColor()
         var activityViewIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
         activityViewIndicator.color = UIColor.darkGrayColor()
         activityViewIndicator.frame = CGRectMake(self.infiniteScrollingView!.frame.size.width/2-activityViewIndicator.frame.width/2, self.infiniteScrollingView!.frame.size.height/2-activityViewIndicator.frame.height/2, activityViewIndicator.frame.width, activityViewIndicator.frame.height)
@@ -154,7 +154,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     }
     
     override func tableView(tableView: UITableView!,numberOfRowsInSection section: Int) -> Int {
-        if self.datasource {
+        if (self.datasource != nil) {
             return self.datasource.count
         }
         return 0
@@ -202,7 +202,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
                 }
                 self.tableView.setEditing(false, animated: true)
         })
-        readingList.backgroundColor = UIColorEXT.ReadtListColor()
+        readingList.backgroundColor = UIColor.ReadingListColor()
         
         var more = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "More",

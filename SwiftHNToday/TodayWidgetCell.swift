@@ -33,7 +33,7 @@ class TodayWidgetCell: UITableViewCell {
         super.awakeFromNib()
         
         self.postTitleLabel.textColor = UIColor.whiteColor()
-        self.postSubtitleLabel.textColor = UIColorEXT.DateLightGrayColor()
+        self.postSubtitleLabel.textColor = UIColor.DateLighGrayColor()
     }
     
 }
