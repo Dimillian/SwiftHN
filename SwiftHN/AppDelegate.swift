@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if (!local) {
                     completionHandler(UIBackgroundFetchResult.NewData)
                 }
-                else if (error) {
+                else if (error != nil) {
                     completionHandler(UIBackgroundFetchResult.Failed)
                 }
             })

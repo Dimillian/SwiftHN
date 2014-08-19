@@ -131,6 +131,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var post = self.posts[indexPath.row] as Post
-        self.extensionContext.openURL(post.url, completionHandler: nil)
+        self.extensionContext.openURL(post.url!, completionHandler: nil)
     }
 }

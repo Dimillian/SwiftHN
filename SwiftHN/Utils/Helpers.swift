@@ -24,7 +24,7 @@ class Helper {
     }
     
     class func showShareSheet(post: Post, controller: UIViewController) {
-        var sheet = UIActivityViewController(activityItems: [NSString(string: post.title), post.url!], applicationActivities: [OpenSafariActivity()])
+        var sheet = UIActivityViewController(activityItems: [NSString(string: post.title!), post.url!], applicationActivities: [OpenSafariActivity()])
         controller.presentViewController(sheet, animated: true, completion: nil)
     }
 }

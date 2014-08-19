@@ -80,7 +80,7 @@ class DetailViewController: HNTableViewController {
             return 1
         }
         
-        if self.datasource {
+        if (self.datasource != nil) {
             return self.datasource.count
         }
         

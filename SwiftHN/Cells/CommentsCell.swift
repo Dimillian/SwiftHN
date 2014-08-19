@@ -24,7 +24,7 @@ class CommentsCell: UITableViewCell {
             var username = comment.username
             var date = " - " + comment.prettyTime!
             
-            var usernameAttributed = NSAttributedString(string: username,
+            var usernameAttributed = NSAttributedString(string: username!,
                 attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(CommentCellFontSize),
                     NSForegroundColorAttributeName: UIColor.HNColor()])
             var dateAttribute = NSAttributedString(string: date,
@@ -56,7 +56,7 @@ class CommentsCell: UITableViewCell {
     @IBOutlet var commentHeightConstrain: NSLayoutConstraint! = nil
     @IBOutlet var usernameLeftMarginConstrain: NSLayoutConstraint! = nil
   
-    required init(coder aDecoder: NSCoder!) { // required for Xcode6-Beta5
+    required init(coder aDecoder: NSCoder) { // required for Xcode6-Beta5
         self.indentation = CommentCellMarginConstant
         super.init(coder: aDecoder)
     }
