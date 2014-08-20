@@ -32,6 +32,7 @@
 		9F7E9F60196BE6AB008B2F35 /* SwiftHNToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9F7E9F55196BE6AB008B2F35 /* SwiftHNToday.appex */; };
 		9F807F1A195ACF3800C80B04 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F19195ACF3800C80B04 /* Helpers.swift */; };
 		9F807F1C195AD40F00C80B04 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F1B195AD40F00C80B04 /* Preferences.swift */; };
+		9FAC2DA619A4E3D9009D1B60 /* SwiftHNShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */; };
 		9FB65DAE198A3FF200F591D2 /* TodayWidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB65DAD198A3FF200F591D2 /* TodayWidgetCell.swift */; };
 		9FB7540F198A7AFB0045A600 /* RoundedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB7540E198A7AFB0045A600 /* RoundedLabel.swift */; };
 		9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBC8B661940E57B0052AF48 /* WebviewController.swift */; };
@@ -271,6 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FAC2DA619A4E3D9009D1B60 /* SwiftHNShared.framework in Frameworks */,
 				9F116DF219780643002D297E /* HackerSwifter.framework in Frameworks */,
 				9F7E9F56196BE6AB008B2F35 /* NotificationCenter.framework in Frameworks */,
 			);
