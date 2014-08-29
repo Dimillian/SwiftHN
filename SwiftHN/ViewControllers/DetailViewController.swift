@@ -58,7 +58,7 @@ class DetailViewController: HNTableViewController {
     }
     
     func onShareButton() {
-        Helper.showShareSheet(self.post, controller: self)
+        Helper.showShareSheet(self.post, controller: self, barbutton: self.navigationItem.rightBarButtonItem)
     }
     
     

@@ -105,7 +105,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     //MARK: Alert management
     func showFirstTimeEditingCellAlert() {
         if (!Preferences.sharedInstance.firstTimeLaunch) {
-            var alert = UIAlertController(title: "Post quick actions",
+            var alert = UIAlertController(title: "Quick actions",
                 message: "By swipping a cell you can quickly send post to the Safari reding list, or use the more button to share it and access other functionalities",
                 preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: {(action: UIAlertAction?) in
@@ -116,7 +116,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     }
     
     func showActionSheetForPost(post: Post) {
-        var titles = ["Share", "Upvote", "Open", "Open in Safari", "Cancel"]
+        var titles = ["Share", "Open", "Open in Safari", "Cancel"]
         
         var sheet = UIAlertController(title: post.title, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
@@ -124,14 +124,14 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             self.tableView.setEditing(false, animated: true)
             if let realAction = action {
                 if (action!.title == titles[0]) {
-                    Helper.showShareSheet(post, controller: self)
+                    Helper.showShareSheet(post, controller: self, barbutton: nil)
                 }
-                else if (action!.title == titles[2]) {
+                else if (action!.title == titles[1]) {
                     var webview = self.storyboard.instantiateViewControllerWithIdentifier("WebviewController") as WebviewController
                     webview.post = post
                     self.showDetailViewController(webview, sender: nil)
                 }
-                else if (action!.title == titles[3]) {
+                else if (action!.title == titles[2]) {
                     UIApplication.sharedApplication().openURL(post.url)
                 }
             }

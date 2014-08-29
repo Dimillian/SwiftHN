@@ -23,8 +23,15 @@ class Helper {
         return false
     }
     
-    class func showShareSheet(post: Post, controller: UIViewController) {
+    class func showShareSheet(post: Post, controller: UIViewController, barbutton: UIBarButtonItem!) {
         var sheet = UIActivityViewController(activityItems: [NSString(string: post.title!), post.url!], applicationActivities: [OpenSafariActivity()])
+        if sheet.popoverPresentationController != nil {
+            sheet.modalPresentationStyle = UIModalPresentationStyle.Popover
+            sheet.popoverPresentationController.sourceView = controller.view
+            if let barbutton = barbutton {
+                sheet.popoverPresentationController.barButtonItem = barbutton
+            }
+        }
         controller.presentViewController(sheet, animated: true, completion: nil)
     }
 }
