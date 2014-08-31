@@ -1,41 +1,33 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-  <title>SwiftHN</title>
-  <meta name="description" content="A Hacker News reader in Swift">
+    <title>SwiftHN by Dimillian</title>
+  </head>
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-</head>
-
-<body>
-
-  <div class="wrapper">
+  <body>
     <header>
-      <h1 class="title">SwiftHN</h1>
+      <div class="inner">
+        <h1>SwiftHN</h1>
+        <h2>A Hacker News reader in Swift</h2>
+        <a href="https://github.com/Dimillian/SwiftHN" class="button"><small>View project on</small>GitHub</a>
+      </div>
     </header>
-    <div id="container">
-      <p class="tagline">A Hacker News reader in Swift</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/Dimillian/SwiftHN/tarball/master" class="download-button tar"><span>Download</span></a>
-          <a href="https://github.com/Dimillian/SwiftHN/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/Dimillian/SwiftHN" class="code">View SwiftHN on GitHub</a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
           <h1>
 <a name="swifthn" class="anchor" href="#swifthn"><span class="octicon octicon-link"></span></a>SwiftHN</h1>
 
@@ -48,7 +40,7 @@
 <a name="eta" class="anchor" href="#eta"><span class="octicon octicon-link"></span></a>ETA</h5>
 
 <ul>
-<li>Now link with its own Hacker News Swift scraping library, <a href="https://github.com/Dimillian/HackerSwifter">HackerSwifter</a>. This is still a work in progress but it support the most basic features. This is linked a a submodule, so be sure to clone it too (I'm looking at you Github for Mac)</li>
+<li>Now link with its own Hacker News Swift scrapping library, <a href="https://github.com/Dimillian/HackerSwifter">HackerSwifter</a>. This is still a work in progress but it support the most basic features. This is linked a a submodule, so be sure to clone it too (I'm looking at you Github for Mac)</li>
 <li>The podfile is now useless, you may still run pod install to setup the project.</li>
 <li>A basic UI which respect latest Apple guidelines</li>
 <li>Use Swift features such as extension, framework, etc...</li>
@@ -66,7 +58,7 @@
 <p>You can contribute to the app, just do a pull request. You can even contribute to the design in Sketch if you want!</p>
 
 <h5>
-<a name="planed-features" class="anchor" href="#planed-features"><span class="octicon octicon-link"></span></a>Planned features</h5>
+<a name="planed-features" class="anchor" href="#planed-features"><span class="octicon octicon-link"></span></a>Planed features</h5>
 
 <ul>
 <li>Login</li>
@@ -76,26 +68,25 @@
 <li>Today extension which show 3 latest posts in notification center</li>
 <li>Safari/Share extension to post a page to Hacker News</li>
 </ul>
-        </article>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/Dimillian/SwiftHN/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/Dimillian/SwiftHN/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/Dimillian/SwiftHN"></a> is maintained by <a href="https://github.com/Dimillian">Dimillian</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
       </div>
     </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/Dimillian" class="avatar"><img src="https://avatars2.githubusercontent.com/u/535509?s=60" width="48" height="48"/></a> <a href="https://github.com/Dimillian">Dimillian</a> maintains <a href="https://github.com/Dimillian/SwiftHN">SwiftHN</a></p>
-
-
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/Dimillian/SwiftHN/tarball/master" class="tar">tar</a><a href="https://github.com/Dimillian/SwiftHN/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
 
   
-</body>
+  </body>
 </html>
