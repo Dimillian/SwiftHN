@@ -61,7 +61,7 @@ class CommentsCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
   
-    override init(style: UITableViewCellStyle, reuseIdentifier: String) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         self.indentation = CommentCellMarginConstant
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -84,8 +84,8 @@ class CommentsCell: UITableViewCell {
         self.commentLabel.textContainerInset = UIEdgeInsetsZero
         self.commentLabel.contentInset = UIEdgeInsetsZero
         
-        self.commentLabel.frame.size.width = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.depth!))
-        self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.depth!))
+        self.commentLabel.frame.size.width = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.depth))
+        self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.depth))
     }
     
     class func heightForText(text: String, bounds: CGRect, level: Int) -> CGFloat {

@@ -45,7 +45,7 @@ class DetailViewController: HNTableViewController {
         cellHeightCache = []
         for comment : AnyObject in comments {
             if let realComment = comment as? Comment {
-                var height = CommentsCell.heightForText(realComment.text!, bounds: self.tableView.bounds, level: realComment.depth!)
+                var height = CommentsCell.heightForText(realComment.text!, bounds: self.tableView.bounds, level: realComment.depth)
                 cellHeightCache.append(height)
             }
         }
@@ -62,7 +62,7 @@ class DetailViewController: HNTableViewController {
     }
     
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         if (indexPath.section == 0) {
             var title: NSString = self.post.title!
@@ -71,11 +71,11 @@ class DetailViewController: HNTableViewController {
         return self.cellHeightCache[indexPath.row] as CGFloat
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
             return 1
         }
@@ -87,11 +87,11 @@ class DetailViewController: HNTableViewController {
         return 0
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
             var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
             cell!.post = self.post
-            return cell
+            return cell!
         }
         
         var cell = tableView.dequeueReusableCellWithIdentifier(CommentsCellId) as CommentsCell!
@@ -101,7 +101,7 @@ class DetailViewController: HNTableViewController {
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!)  {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
             var destination = segue.destinationViewController as WebviewController
             destination.post = self.post

@@ -13,12 +13,12 @@ public class HNTableViewController: UITableViewController {
     public var refreshing: Bool = false {
     didSet {
         if (self.refreshing) {
-            self.refreshControl.beginRefreshing()
-            self.refreshControl.attributedTitle = NSAttributedString(string: "Loading...")
+            self.refreshControl?.beginRefreshing()
+            self.refreshControl?.attributedTitle = NSAttributedString(string: "Loading...")
         }
         else {
-            self.refreshControl.endRefreshing()
-            self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+            self.refreshControl?.endRefreshing()
+            self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         }
     }
     }
@@ -33,6 +33,6 @@ public class HNTableViewController: UITableViewController {
         super.viewDidLoad()
                 
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.addTarget(self, action: "onPullToFresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: "onPullToFresh", forControlEvents: UIControlEvents.ValueChanged)
     }
 }

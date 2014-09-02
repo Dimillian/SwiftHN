@@ -9,23 +9,23 @@
 import UIKit
 
 class OpenSafariActivity: UIActivity {
-    override func activityType() -> String! {
+    override func activityType() -> String {
         return "Open in Safari"
     }
     
-    override func activityTitle() -> String!  {
+    override func activityTitle() -> String  {
         return "Open in Safari"
     }
     
-    override func activityImage() -> UIImage! {
+    override func activityImage() -> UIImage {
         return UIImage(named: "Safari-White")
     }
     
-    override func canPerformWithActivityItems(activityItems: [AnyObject]!) -> Bool {
+    override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
         return true
     }
     
-    override func prepareWithActivityItems(activityItems: [AnyObject]!) {
+    override func prepareWithActivityItems(activityItems: [AnyObject]) {
         var urlToOpen = activityItems[1] as NSURL
         UIApplication.sharedApplication().openURL(urlToOpen)
     }

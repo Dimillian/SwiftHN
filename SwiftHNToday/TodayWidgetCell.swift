@@ -22,9 +22,7 @@ class TodayWidgetCell: UITableViewCell {
     var post: Post! {
         didSet {
             self.postTitleLabel.text = self.post.title!
-            if let realPoint = self.post.points {
-                self.postVoteLabel.text = String(realPoint)
-            }
+            self.postVoteLabel.text = String(self.post.points)
             self.postSubtitleLabel.text = self.post.domain! + " - " + self.post.prettyTime!
         }
     }

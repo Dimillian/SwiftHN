@@ -53,7 +53,7 @@ import SwiftHNShared
     
     @IBInspectable var labelFontSize: CGFloat = 11.0 {
         didSet {
-            self.button.titleLabel.font = UIFont.systemFontOfSize(labelFontSize)
+            self.button.titleLabel?.font = UIFont.systemFontOfSize(labelFontSize)
         }
     }
     
@@ -88,7 +88,7 @@ import SwiftHNShared
         self.labelFontSize = 11.0
         
         self.button.frame = self.bounds
-        self.button.titleLabel.textAlignment = .Center
+        self.button.titleLabel?.textAlignment = .Center
         self.button.backgroundColor = UIColor.clearColor()
         
         self.addSubview(self.button)

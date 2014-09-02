@@ -92,11 +92,11 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     }
     
     func onRightButton() {
-        var navCategories = self.storyboard.instantiateViewControllerWithIdentifier("categoriesNavigationController") as UINavigationController
+        var navCategories = self.storyboard?.instantiateViewControllerWithIdentifier("categoriesNavigationController") as UINavigationController
         var categoriesVC = navCategories.visibleViewController as CategoriesViewController
         categoriesVC.delegate = self
         var popController = UIPopoverController(contentViewController: navCategories)
-        popController.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItem,
+        popController.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItem!,
             permittedArrowDirections: UIPopoverArrowDirection.Any,
             animated: true)
         
@@ -127,12 +127,12 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
                     Helper.showShareSheet(post, controller: self, barbutton: nil)
                 }
                 else if (action!.title == titles[1]) {
-                    var webview = self.storyboard.instantiateViewControllerWithIdentifier("WebviewController") as WebviewController
+                    var webview = self.storyboard?.instantiateViewControllerWithIdentifier("WebviewController") as WebviewController
                     webview.post = post
                     self.showDetailViewController(webview, sender: nil)
                 }
                 else if (action!.title == titles[2]) {
-                    UIApplication.sharedApplication().openURL(post.url)
+                    UIApplication.sharedApplication().openURL(post.url!)
                 }
             }
         }
@@ -149,24 +149,24 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     }
     
     //MARK: TableView Management
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int  {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int  {
         return 1
     }
     
-    override func tableView(tableView: UITableView!,numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
         if (self.datasource != nil) {
             return self.datasource.count
         }
         return 0
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         var title: NSString = (self.datasource[indexPath.row] as Post).title!
         return NewsCell.heightForText(title, bounds: self.tableView.bounds)
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
         cell!.post = self.datasource[indexPath.row] as Post
         cell!.cellDelegate = self
@@ -174,13 +174,15 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             self.tableView.tableFooterView = self.infiniteScrollingView
             loadMore()
         }
-        return cell
+        return cell!
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!)  {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
             var destination = segue.destinationViewController as WebviewController
-            destination.post = self.datasource[self.tableView.indexPathsForSelectedRows()[0].row] as Post
+            if let selectedRows = self.tableView.indexPathsForSelectedRows() {
+                destination.post = self.datasource[selectedRows[0].row] as Post
+            }
         }
     }
     
@@ -192,7 +194,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         
     }
     
-    override func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) -> [AnyObject]!
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]
     {
         var readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "Read\nLater",
@@ -216,13 +218,13 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     //MARK: NewsCellDelegate
     func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post) {
         if (actionType == NewsCellActionType.Comment.toRaw()) {
-            var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+            var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
             detailVC.post = post
             self.showDetailViewController(detailVC, sender: self)
         }
         else if (actionType == NewsCellActionType.Username.toRaw()) {
             if let realUsername = post.username {
-                var detailVC = self.storyboard.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
+                var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
                 detailVC.user = realUsername
                 self.showDetailViewController(detailVC, sender: self)
             }

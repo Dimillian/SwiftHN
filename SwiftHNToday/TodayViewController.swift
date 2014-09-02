@@ -69,36 +69,36 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func onOpenApp() {
-        self.extensionContext.openURL(NSURL(string:"swifthn://"), completionHandler: nil)
+        self.extensionContext!.openURL(NSURL(string:"swifthn://"), completionHandler: nil)
     }
     
     //MARK: TableView Management
-    func numberOfSectionsInTableView(tableView: UITableView!) -> Int  {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int  {
         return 1
     }
     
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.expanded {
             return self.posts.count
         }
         return self.posts.count > 5 ? 5 : self.posts.count
     }
     
-    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 55.0
     }
     
-    func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if self.expanded {
             return 0
         }
         return 60.0
     }
     
-    func tableView(tableView: UITableView!, viewForFooterInSection section: Int) -> UIView! {
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView {
         if self.expanded {
-            return nil
+            return UIView(frame: CGRectZero)
         }
         var view = UIVisualEffectView(effect: UIVibrancyEffect.notificationCenterVibrancyEffect())
         view.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 30.0)
@@ -122,15 +122,16 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return view
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.tableView.dequeueReusableCellWithIdentifier(todayCellId) as? TodayWidgetCell
         var post = self.posts[indexPath.row] as Post
         cell!.post = post
-        return cell
+        return cell!
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView
+        , didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var post = self.posts[indexPath.row] as Post
-        self.extensionContext.openURL(post.url!, completionHandler: nil)
+        self.extensionContext!.openURL(post.url!, completionHandler: nil)
     }
 }
