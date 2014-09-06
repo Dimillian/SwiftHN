@@ -11,7 +11,6 @@
 		9F116DEC197804FD002D297E /* HackerSwifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9F116DF219780643002D297E /* HackerSwifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; };
 		9F1AB00D1941F49800E68F41 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1AB00C1941F49800E68F41 /* UIColorExt.swift */; };
-		9F1EE91B194105C30061B4B6 /* SwiftHNShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F1EE91A194105C30061B4B6 /* SwiftHNShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9F1EE921194105C30061B4B6 /* SwiftHNShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */; };
 		9F1EE928194105C30061B4B6 /* SwiftHNSharedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1EE927194105C30061B4B6 /* SwiftHNSharedTests.swift */; };
 		9F1EE92B194105C30061B4B6 /* SwiftHNShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */; };
@@ -521,7 +520,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F1EE91B194105C30061B4B6 /* SwiftHNShared.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1074,13 +1072,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SwiftHN/SwiftHN.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
 				INFOPLIST_FILE = SwiftHN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4A96B1A9-DEE9-49C7-8605-9F0E909298D3";
+				PROVISIONING_PROFILE = "d755e34d-5ca7-4a78-b64e-7261f3cabee5";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1094,13 +1092,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SwiftHN/SwiftHN.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
 				INFOPLIST_FILE = SwiftHN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4A96B1A9-DEE9-49C7-8605-9F0E909298D3";
+				PROVISIONING_PROFILE = "d584ec0f-4be1-4507-afef-8b7897c53382";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1156,6 +1154,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8569d958-3689-4fce-8041-d577b2c49b1b";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHNToday/SwiftHNToday-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1166,12 +1165,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
 				INFOPLIST_FILE = SwiftHNToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3647cc89-b507-4790-bf66-a9c3839de328";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHNToday/SwiftHNToday-Bridging-Header.h";
 			};

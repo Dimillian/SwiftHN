@@ -80,7 +80,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.expanded {
-            return self.posts.count
+            return 7
         }
         return self.posts.count > 5 ? 5 : self.posts.count
     }
@@ -106,7 +106,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         view.contentView.addSubview(label)
         label.numberOfLines = 0
         label.textColor = UIColor.DateLighGrayColor()
-        label.text = "See All..."
+        label.text = "See More..."
         label.userInteractionEnabled = true
         var tap = UITapGestureRecognizer(target: self, action: "onViewMoreButton")
         label.addGestureRecognizer(tap)

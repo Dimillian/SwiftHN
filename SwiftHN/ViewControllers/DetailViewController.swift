@@ -108,4 +108,19 @@ class DetailViewController: HNTableViewController {
         }
     }
     
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animateAlongsideTransition({ (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
+                //Nothing to do here, I just want to be noticed when the transition is done. 
+                //It's actuallu quite nice to have the final size of size of the current layout,
+                //Event if it's useless in our case.
+            }, completion: { (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, UInt(0)), { ()->() in
+                    self.cacheHeight(self.datasource)
+                    dispatch_async(dispatch_get_main_queue(), { ()->() in
+                        self.tableView.reloadData()
+                    })
+                })
+        })
+    }
+    
 }
