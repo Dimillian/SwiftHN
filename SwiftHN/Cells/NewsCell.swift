@@ -57,7 +57,9 @@ class NewsCell: UITableViewCell {
             self.usernameLabel.onButtonTouch = {(sender: UIButton) in
                 self.selectedAction(.Username)
             }
-            self.readLaterIndicator.hidden = !Preferences.sharedInstance.isInReadingList(self.post.postId!)
+            if self.readLaterIndicator != nil {
+                self.readLaterIndicator.hidden = !Preferences.sharedInstance.isInReadingList(self.post.postId!)   
+            }
         }
     }
   
