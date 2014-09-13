@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="99j-UD-Bv5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -107,10 +108,20 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Votes"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fse-yI-msZ">
+                                            <rect key="frame" x="598" y="0.0" width="2" height="109.5"/>
+                                            <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="2" id="OYb-ay-ufa"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="K5O-0f-MYO" firstAttribute="centerY" secondItem="6yl-fy-Swn" secondAttribute="centerY" id="0nP-Jj-VSd"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fse-yI-msZ" secondAttribute="trailing" constant="-8" id="69o-Fc-FrH"/>
                                         <constraint firstItem="6yl-fy-Swn" firstAttribute="leading" secondItem="VdW-aR-IBv" secondAttribute="trailing" constant="17" id="9KK-oq-qdL"/>
+                                        <constraint firstItem="fse-yI-msZ" firstAttribute="top" secondItem="qo4-uO-pvA" secondAttribute="topMargin" constant="-8" id="B7B-gO-QDt"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fse-yI-msZ" secondAttribute="bottom" constant="-8" id="IVO-4P-10Y"/>
                                         <constraint firstItem="K5O-0f-MYO" firstAttribute="top" secondItem="fkD-tx-FXg" secondAttribute="bottom" constant="14.5" id="KSH-uq-Iz1"/>
                                         <constraint firstItem="fkD-tx-FXg" firstAttribute="leading" secondItem="qo4-uO-pvA" secondAttribute="leading" constant="16" id="OGW-7L-jWU"/>
                                         <constraint firstItem="VdW-aR-IBv" firstAttribute="leading" secondItem="K5O-0f-MYO" secondAttribute="trailing" constant="17" id="SmK-p3-YZl"/>
@@ -125,6 +136,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentsLabel" destination="VdW-aR-IBv" id="jmw-g8-Kvb"/>
+                                    <outlet property="readLaterIndicator" destination="fse-yI-msZ" id="qKM-TV-J5h"/>
                                     <outlet property="titleLabel" destination="QbN-9W-4XT" id="FzQ-Ct-PCz"/>
                                     <outlet property="titleMarginConstrain" destination="gXD-MT-6ut" id="8T6-gy-rs5"/>
                                     <outlet property="urlLabel" destination="fkD-tx-FXg" id="FbE-1t-Dmy"/>

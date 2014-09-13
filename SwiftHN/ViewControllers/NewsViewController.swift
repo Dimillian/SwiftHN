@@ -200,8 +200,11 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             title: "Read\nLater",
             handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
                 if (Helper.addPostToReadingList(self.datasource[indexPath.row] as Post)) {
-                    
                 }
+                var post = self.datasource
+                Preferences.sharedInstance.addToReadLater(self.datasource[indexPath.row] as Post)
+                var cell = self.tableView.cellForRowAtIndexPath(indexPath) as NewsCell
+                cell.readLaterIndicator.hidden = false
                 self.tableView.setEditing(false, animated: true)
         })
         readingList.backgroundColor = UIColor.ReadingListColor()

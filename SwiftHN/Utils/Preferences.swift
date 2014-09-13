@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import HackerSwifter
 
 let _preferencesSharedInstance = Preferences()
 
@@ -27,13 +28,21 @@ class Preferences {
         }
     }
     
-    func addToReadLater(uid: String) {
+    func addToReadLater(post: Post) {
         var array: [AnyObject]! = self.pUserDefault.arrayForKey(pReadLater)
         if (array == nil) {
             array = []
         }
-        array.append(uid)
+        array.append(post.postId!)
         self.pUserDefault.setObject(array, forKey: pReadLater)
+    }
+    
+    func isInReadingList(uid: String) -> Bool {
+        var array: [AnyObject]! = self.pUserDefault.arrayForKey(pReadLater)
+        if (array == nil) {
+            return false
+        }
+        return contains(array as [String], uid)
     }
     
     class var sharedInstance: Preferences {
