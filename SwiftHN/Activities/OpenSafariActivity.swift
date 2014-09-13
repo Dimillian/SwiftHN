@@ -18,7 +18,7 @@ class OpenSafariActivity: UIActivity {
     }
     
     override func activityImage() -> UIImage {
-        return UIImage(named: "Safari-White")
+        return UIImage(named: "Safari")
     }
     
     override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {

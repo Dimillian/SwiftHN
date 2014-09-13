@@ -32,6 +32,7 @@ class NewsCell: UITableViewCell {
     @IBOutlet var voteLabel : BorderedButton! = nil
     @IBOutlet var commentsLabel : BorderedButton! = nil
     @IBOutlet var usernameLabel: BorderedButton! = nil
+    @IBOutlet var readLaterIndicator: UIView! = nil
 
     @IBOutlet var titleMarginConstrain: NSLayoutConstraint! = nil
     

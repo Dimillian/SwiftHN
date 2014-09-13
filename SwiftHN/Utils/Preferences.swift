@@ -15,6 +15,7 @@ class Preferences {
     
     let pUserDefault = NSUserDefaults.standardUserDefaults()
     let pFirstTimeLaunchString = "isFirstTimeLaunch"
+    let pReadLater = "readLater"
     
     var firstTimeLaunch: Bool {
         get {
@@ -24,6 +25,15 @@ class Preferences {
         set {
             self.pUserDefault.setBool(newValue, forKey: pFirstTimeLaunchString)
         }
+    }
+    
+    func addToReadLater(uid: String) {
+        var array: [AnyObject]! = self.pUserDefault.arrayForKey(pReadLater)
+        if (array == nil) {
+            array = []
+        }
+        array.append(uid)
+        self.pUserDefault.setObject(array, forKey: pReadLater)
     }
     
     class var sharedInstance: Preferences {
