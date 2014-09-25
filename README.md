@@ -9,6 +9,26 @@ SwiftHN
 SwiftHN is now available on the [App Store](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=919243741&mt=8)! I've renamed it to HN Reader for obvious reason. 
 
 ##### ETA
+=======
+# Installation
+Clone this repository.
+```shell
+$ git clone https://github.com/Dimillian/SwiftHN
+```
+
+Install HackerSwifter submodule.
+```shell
+$ cd SwiftHN
+$ git submodule init
+$ git submodule update
+```
+
+Open using Xcode.
+```shell
+$ open SwiftHN.xcodeproj
+```
+
+# Features
 
 * Now link with its own Hacker News Swift scrapping library, [HackerSwifter](https://github.com/Dimillian/HackerSwifter). This is still a work in progress but it support the most basic features. This is linked as a submodule, so be sure to clone it too (I'm looking at you Github for Mac)
 * The podfile is now useless, you may still run pod install to setup the project.
@@ -28,7 +48,7 @@ The app is in progress, but already functionnal, you can read the newsfeed, send
 
 You can contribute to the app, just do a pull request. You can even contribute to the design in Sketch if you want!
 
-##### Planed features
+# Planned features
 
 * Login
 * Settings
@@ -36,5 +56,3 @@ You can contribute to the app, just do a pull request. You can even contribute t
 * Post comments
 * Today extension which show 3 latest posts in notification center
 * Safari/Share extension to post a page to Hacker News
-
-
