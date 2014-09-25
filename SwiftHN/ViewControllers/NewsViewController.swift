@@ -106,7 +106,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     func showFirstTimeEditingCellAlert() {
         if (!Preferences.sharedInstance.firstTimeLaunch) {
             var alert = UIAlertController(title: "Quick actions",
-                message: "By swipping a cell you can quickly send post to the Safari reding list, or use the more button to share it and access other functionalities",
+                message: "By swiping a cell you can quickly send post to the Safari Reading list, or use the more button to share it and access other functionalities",
                 preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: {(action: UIAlertAction?) in
                 Preferences.sharedInstance.firstTimeLaunch = true

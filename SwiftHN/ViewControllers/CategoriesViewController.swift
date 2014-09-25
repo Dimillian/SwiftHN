@@ -59,6 +59,9 @@ class CategoriesViewController: UITableViewController {
         else if (cell?.textLabel?.text == "Best") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Best, title: "HN:Best")
         }
+        else if (cell?.textLabel?.text == "Show HN") {
+            self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Show, title: "HN:Show")
+        }
         
         self.onCancelButton()
     }

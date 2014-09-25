@@ -6,6 +6,8 @@ SwiftHN
 
 ![screen-1](https://raw.githubusercontent.com/Dimillian/SwiftHN/master/git_images/images.png)
 
+SwiftHN is now available on the [App Store](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=919243741&mt=8)! I've renamed it to HN Reader for obvious reason. 
+
 ##### ETA
 
 * Now link with its own Hacker News Swift scrapping library, [HackerSwifter](https://github.com/Dimillian/HackerSwifter). This is still a work in progress but it support the most basic features. This is linked as a submodule, so be sure to clone it too (I'm looking at you Github for Mac)

@@ -1078,7 +1078,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9025a392-6962-428c-a438-1483aadebb67";
+				PROVISIONING_PROFILE = "9ce49f49-ef37-47a9-995d-2f8b5ffa956d";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1099,7 +1099,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "313709fc-ef0c-4845-981c-0675f26bf064";
+				PROVISIONING_PROFILE = "014edebd-f390-4e10-95f5-506cb8edc088";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1156,7 +1156,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d31f2ac1-9ff9-4f8c-a03a-838a3f16696d";
+				PROVISIONING_PROFILE = "e120dd3d-5436-4f5e-b378-9a19481c0ff1";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHNToday/SwiftHNToday-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1175,7 +1175,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1b83b5a6-b558-4cdb-8a78-ac3c68fbfc3c";
+				PROVISIONING_PROFILE = "6b00c92a-d1a3-4536-be16-fe6ce447c445";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHNToday/SwiftHNToday-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
