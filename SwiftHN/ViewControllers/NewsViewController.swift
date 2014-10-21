@@ -229,12 +229,12 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
                 self.tableView.selectRowAtIndexPath(realIndexPath, animated: false, scrollPosition: .None)
             }
         }
-        if (actionType == NewsCellActionType.Comment.toRaw()) {
+        if (actionType == NewsCellActionType.Comment.rawValue) {
             var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
             detailVC.post = post
             self.showDetailViewController(detailVC, sender: self)
         }
-        else if (actionType == NewsCellActionType.Username.toRaw()) {
+        else if (actionType == NewsCellActionType.Username.rawValue) {
             if let realUsername = post.username {
                 var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
                 detailVC.user = realUsername

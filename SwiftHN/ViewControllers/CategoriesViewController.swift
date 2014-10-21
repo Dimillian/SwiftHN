@@ -44,22 +44,22 @@ class CategoriesViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var cell = tableView.cellForRowAtIndexPath(indexPath)
-        if (cell?.textLabel?.text == "Hacker News") {
+        if (cell?.textLabel.text == "Hacker News") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Top, title: "HN:News")
         }
-        else if (cell?.textLabel?.text == "Latest") {
+        else if (cell?.textLabel.text == "Latest") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .New, title: "HN:Latest")
         }
-        else if (cell?.textLabel?.text == "Jobs") {
+        else if (cell?.textLabel.text == "Jobs") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Jobs, title: "HN:Jobs")
         }
-        else if (cell?.textLabel?.text == "Ask HN") {
+        else if (cell?.textLabel.text == "Ask HN") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Ask, title: "HN:Ask")
         }
-        else if (cell?.textLabel?.text == "Best") {
+        else if (cell?.textLabel.text == "Best") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Best, title: "HN:Best")
         }
-        else if (cell?.textLabel?.text == "Show HN") {
+        else if (cell?.textLabel.text == "Show HN") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Show, title: "HN:Show")
         }
         

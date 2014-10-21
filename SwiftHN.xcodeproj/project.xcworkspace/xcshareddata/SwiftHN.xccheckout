@@ -16,13 +16,13 @@
 		<string>https://github.com/Dimillian/HackerSwifter</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SwiftHN.xcodeproj/project.xcworkspace</string>
+	<string>SwiftHN.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D96377ADF9561FDD25D6ADCCCC76790575BE5FB4</key>
 		<string>../..</string>
 		<key>E0D52B920DCA102ACF12EC644CE806103E82A316</key>
-		<string>../../SwiftHN/libs/submodules</string>
+		<string>../..SwiftHN/libs/submodules</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Dimillian/SwiftHN.git</string>

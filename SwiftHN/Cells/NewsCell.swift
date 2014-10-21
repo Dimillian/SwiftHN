@@ -72,7 +72,7 @@ class NewsCell: UITableViewCell {
     }
     
     func selectedAction(action: NewsCellActionType) {
-        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action.toRaw(), post: self.post)
+        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action.rawValue, post: self.post)
     }
     
     override func layoutSubviews() {

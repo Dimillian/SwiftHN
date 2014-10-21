@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().translucent = true
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 16.0)]
+            NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 16.0)!]
     }
 
     func application(application: UIApplication!, performFetchWithCompletionHandler

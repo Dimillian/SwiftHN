@@ -69,7 +69,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func onOpenApp() {
-        self.extensionContext!.openURL(NSURL(string:"swifthn://"), completionHandler: nil)
+        self.extensionContext!.openURL(NSURL(string:"swifthn://")!, completionHandler: nil)
     }
     
     //MARK: TableView Management
