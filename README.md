@@ -13,10 +13,11 @@ SwiftHN is now available on the [App Store](https://itunes.apple.com/WebObjects/
 # Installation
 Clone this repository.
 ```shell
-$ git clone https://github.com/Dimillian/SwiftHN
+$ git clone --recursive https://github.com/Dimillian/SwiftHN
 ```
 
-Install HackerSwifter submodule.
+Incase you cloned the repository without the `recursive` option, you will have
+to manually install the HackerSwifter submodule.
 ```shell
 $ cd SwiftHN
 $ git submodule init
@@ -44,7 +45,7 @@ $ open SwiftHN.xcodeproj
 * Clean design pattern
 * More...
 
-The app is in progress, but already functionnal, you can read the newsfeed, send article to the Safari Reading List, view the article in a webview, and load comments. 
+The app is in progress, but already functional, you can read the newsfeed, send article to the Safari Reading List, view the article in a webview, and load comments. 
 
 You can contribute to the app, just do a pull request. You can even contribute to the design in Sketch if you want!
 
