@@ -10,7 +10,7 @@ import UIKit
 import SwiftHNShared
 import HackerSwifter
 
-class DetailViewController: HNTableViewController {
+class DetailViewController: HNTableViewController, NewsCellDelegate {
     
     var post: Post!
     var cellHeightCache: [CGFloat] = []
@@ -91,6 +91,7 @@ class DetailViewController: HNTableViewController {
         if (indexPath.section == 0) {
             var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
             cell!.post = self.post
+            cell!.cellDelegate = self;
             return cell!
         }
         
@@ -99,6 +100,17 @@ class DetailViewController: HNTableViewController {
         cell.comment = comment
         
         return cell
+    }
+    
+    //MARK: NewsCellDelegate
+    func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post) {   
+        if (actionType == NewsCellActionType.Username.rawValue) {
+            if let realUsername = post.username {
+                var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
+                detailVC.user = realUsername
+                self.showDetailViewController(detailVC, sender: self)
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
