@@ -95,10 +95,12 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         var navCategories = self.storyboard?.instantiateViewControllerWithIdentifier("categoriesNavigationController") as UINavigationController
         var categoriesVC = navCategories.visibleViewController as CategoriesViewController
         categoriesVC.delegate = self
-        var popController = UIPopoverController(contentViewController: navCategories)
-        popController.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItem!,
-            permittedArrowDirections: UIPopoverArrowDirection.Any,
-            animated: true)
+        navCategories.modalPresentationStyle = UIModalPresentationStyle.Popover
+        if (navCategories.popoverPresentationController != nil) {
+            navCategories.popoverPresentationController?.sourceView = self.view
+            navCategories.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        }
+        self.presentViewController(navCategories, animated: true, completion: nil)
         
     }
     
