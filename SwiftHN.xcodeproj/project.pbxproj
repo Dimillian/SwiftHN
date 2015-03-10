@@ -32,6 +32,16 @@
 		9F807F1A195ACF3800C80B04 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F19195ACF3800C80B04 /* Helpers.swift */; };
 		9F807F1C195AD40F00C80B04 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F807F1B195AD40F00C80B04 /* Preferences.swift */; };
 		9FAC2DA619A4E3D9009D1B60 /* SwiftHNShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */; };
+		9FAF12251AAF594C00FBD9B3 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF12241AAF594C00FBD9B3 /* InterfaceController.swift */; };
+		9FAF12271AAF594C00FBD9B3 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF12261AAF594C00FBD9B3 /* NotificationController.swift */; };
+		9FAF12291AAF594C00FBD9B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FAF12281AAF594C00FBD9B3 /* Images.xcassets */; };
+		9FAF122D1AAF594C00FBD9B3 /* Hacker News WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 9FAF122C1AAF594C00FBD9B3 /* Hacker News WatchKit App.app */; };
+		9FAF12351AAF594C00FBD9B3 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAF12331AAF594C00FBD9B3 /* Interface.storyboard */; };
+		9FAF12371AAF594C00FBD9B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FAF12361AAF594C00FBD9B3 /* Images.xcassets */; };
+		9FAF123A1AAF594C00FBD9B3 /* Hacker News WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9FAF121F1AAF594C00FBD9B3 /* Hacker News WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9FAF12421AAF599900FBD9B3 /* HackerSwifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; };
+		9FAF12431AAF599900FBD9B3 /* HackerSwifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9FAF12481AAF606500FBD9B3 /* CommentsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF12471AAF606500FBD9B3 /* CommentsInterfaceController.swift */; };
 		9FB65DAE198A3FF200F591D2 /* TodayWidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB65DAD198A3FF200F591D2 /* TodayWidgetCell.swift */; };
 		9FB7540F198A7AFB0045A600 /* RoundedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB7540E198A7AFB0045A600 /* RoundedLabel.swift */; };
 		9FBC8B671940E57B0052AF48 /* WebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBC8B661940E57B0052AF48 /* WebviewController.swift */; };
@@ -141,6 +151,27 @@
 			remoteGlobalIDString = 9F21AA621940A45700CF4E63;
 			remoteInfo = SwiftHN;
 		};
+		9FAF122E1AAF594C00FBD9B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F21AA5B1940A45700CF4E63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FAF122B1AAF594C00FBD9B3;
+			remoteInfo = "Hacker News WatchKit App";
+		};
+		9FAF12381AAF594C00FBD9B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F21AA5B1940A45700CF4E63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FAF121E1AAF594C00FBD9B3;
+			remoteInfo = "Hacker News WatchKit Extension";
+		};
+		9FAF12441AAF599900FBD9B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FD4A195196F3007003608F6;
+			remoteInfo = HackerSwifter;
+		};
 		9FC8BA65195C702E0084A0E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9F21AA5B1940A45700CF4E63 /* Project object */;
@@ -184,8 +215,20 @@
 			dstSubfolderSpec = 13;
 			files = (
 				9F7E9F60196BE6AB008B2F35 /* SwiftHNToday.appex in Embed App Extensions */,
+				9FAF123A1AAF594C00FBD9B3 /* Hacker News WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FAF12461AAF599900FBD9B3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9FAF12431AAF599900FBD9B3 /* HackerSwifter.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -224,6 +267,17 @@
 		9F7E9F66196BE6D9008B2F35 /* SwiftHNToday-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftHNToday-Bridging-Header.h"; sourceTree = "<group>"; };
 		9F807F19195ACF3800C80B04 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Utils/Helpers.swift; sourceTree = "<group>"; };
 		9F807F1B195AD40F00C80B04 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = Utils/Preferences.swift; sourceTree = "<group>"; };
+		9FAF121F1AAF594C00FBD9B3 /* Hacker News WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Hacker News WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FAF12221AAF594C00FBD9B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FAF12231AAF594C00FBD9B3 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		9FAF12241AAF594C00FBD9B3 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		9FAF12261AAF594C00FBD9B3 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		9FAF12281AAF594C00FBD9B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9FAF122C1AAF594C00FBD9B3 /* Hacker News WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FAF12321AAF594C00FBD9B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FAF12341AAF594C00FBD9B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		9FAF12361AAF594C00FBD9B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9FAF12471AAF606500FBD9B3 /* CommentsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsInterfaceController.swift; sourceTree = "<group>"; };
 		9FB65DAD198A3FF200F591D2 /* TodayWidgetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayWidgetCell.swift; sourceTree = "<group>"; };
 		9FB7540E198A7AFB0045A600 /* RoundedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedLabel.swift; sourceTree = "<group>"; };
 		9FBC8B661940E57B0052AF48 /* WebviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebviewController.swift; path = ViewControllers/WebviewController.swift; sourceTree = "<group>"; };
@@ -274,6 +328,14 @@
 				9FAC2DA619A4E3D9009D1B60 /* SwiftHNShared.framework in Frameworks */,
 				9F116DF219780643002D297E /* HackerSwifter.framework in Frameworks */,
 				9F7E9F56196BE6AB008B2F35 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FAF121C1AAF594C00FBD9B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FAF12421AAF599900FBD9B3 /* HackerSwifter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +428,8 @@
 				9F21AA651940A45700CF4E63 /* SwiftHN */,
 				9F1EE917194105C30061B4B6 /* SwiftHNShared */,
 				9F7E9F57196BE6AB008B2F35 /* SwiftHNToday */,
+				9FAF12201AAF594C00FBD9B3 /* Hacker News WatchKit Extension */,
+				9FAF12301AAF594C00FBD9B3 /* Hacker News WatchKit App */,
 				9F21AA641940A45700CF4E63 /* Products */,
 				4BF26A7604EA406E89BD9151 /* Frameworks */,
 				9F21AA7A1940A45700CF4E63 /* SwiftHNTests */,
@@ -382,6 +446,8 @@
 				9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */,
 				9F1EE920194105C30061B4B6 /* SwiftHNSharedTests.xctest */,
 				9F7E9F55196BE6AB008B2F35 /* SwiftHNToday.appex */,
+				9FAF121F1AAF594C00FBD9B3 /* Hacker News WatchKit Extension.appex */,
+				9FAF122C1AAF594C00FBD9B3 /* Hacker News WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -479,6 +545,45 @@
 			isa = PBXGroup;
 			children = (
 				9F7E9F59196BE6AB008B2F35 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FAF12201AAF594C00FBD9B3 /* Hacker News WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9FAF12241AAF594C00FBD9B3 /* InterfaceController.swift */,
+				9FAF12471AAF606500FBD9B3 /* CommentsInterfaceController.swift */,
+				9FAF12261AAF594C00FBD9B3 /* NotificationController.swift */,
+				9FAF12281AAF594C00FBD9B3 /* Images.xcassets */,
+				9FAF12211AAF594C00FBD9B3 /* Supporting Files */,
+			);
+			path = "Hacker News WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		9FAF12211AAF594C00FBD9B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FAF12221AAF594C00FBD9B3 /* Info.plist */,
+				9FAF12231AAF594C00FBD9B3 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FAF12301AAF594C00FBD9B3 /* Hacker News WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				9FAF12331AAF594C00FBD9B3 /* Interface.storyboard */,
+				9FAF12361AAF594C00FBD9B3 /* Images.xcassets */,
+				9FAF12311AAF594C00FBD9B3 /* Supporting Files */,
+			);
+			path = "Hacker News WatchKit App";
+			sourceTree = "<group>";
+		};
+		9FAF12311AAF594C00FBD9B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FAF12321AAF594C00FBD9B3 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -585,6 +690,7 @@
 				9F7E9F5F196BE6AB008B2F35 /* PBXTargetDependency */,
 				9F7E9F62196BE6AB008B2F35 /* PBXTargetDependency */,
 				9F116DEE197804FD002D297E /* PBXTargetDependency */,
+				9FAF12391AAF594C00FBD9B3 /* PBXTargetDependency */,
 			);
 			name = SwiftHN;
 			productName = SwiftHN;
@@ -629,6 +735,41 @@
 			productReference = 9F7E9F55196BE6AB008B2F35 /* SwiftHNToday.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		9FAF121E1AAF594C00FBD9B3 /* Hacker News WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FAF12411AAF594D00FBD9B3 /* Build configuration list for PBXNativeTarget "Hacker News WatchKit Extension" */;
+			buildPhases = (
+				9FAF121B1AAF594C00FBD9B3 /* Sources */,
+				9FAF121C1AAF594C00FBD9B3 /* Frameworks */,
+				9FAF121D1AAF594C00FBD9B3 /* Resources */,
+				9FAF12461AAF599900FBD9B3 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FAF122F1AAF594C00FBD9B3 /* PBXTargetDependency */,
+				9FAF12451AAF599900FBD9B3 /* PBXTargetDependency */,
+			);
+			name = "Hacker News WatchKit Extension";
+			productName = "Hacker News WatchKit Extension";
+			productReference = 9FAF121F1AAF594C00FBD9B3 /* Hacker News WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		9FAF122B1AAF594C00FBD9B3 /* Hacker News WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FAF12401AAF594D00FBD9B3 /* Build configuration list for PBXNativeTarget "Hacker News WatchKit App" */;
+			buildPhases = (
+				9FAF122A1AAF594C00FBD9B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hacker News WatchKit App";
+			productName = "Hacker News WatchKit App";
+			productReference = 9FAF122C1AAF594C00FBD9B3 /* Hacker News WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -666,6 +807,13 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = Z6P74P6T99;
 					};
+					9FAF121E1AAF594C00FBD9B3 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = Z6P74P6T99;
+					};
+					9FAF122B1AAF594C00FBD9B3 = {
+						CreatedOnToolsVersion = 6.2;
+					};
 				};
 			};
 			buildConfigurationList = 9F21AA5E1940A45700CF4E63 /* Build configuration list for PBXProject "SwiftHN" */;
@@ -692,6 +840,8 @@
 				9F1EE915194105C30061B4B6 /* SwiftHNShared */,
 				9F1EE91F194105C30061B4B6 /* SwiftHNSharedTests */,
 				9F7E9F54196BE6AB008B2F35 /* SwiftHNToday */,
+				9FAF121E1AAF594C00FBD9B3 /* Hacker News WatchKit Extension */,
+				9FAF122B1AAF594C00FBD9B3 /* Hacker News WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -752,6 +902,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9FAF121D1AAF594C00FBD9B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FAF122D1AAF594C00FBD9B3 /* Hacker News WatchKit App.app in Resources */,
+				9FAF12291AAF594C00FBD9B3 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FAF122A1AAF594C00FBD9B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FAF12351AAF594C00FBD9B3 /* Interface.storyboard in Resources */,
+				9FAF12371AAF594C00FBD9B3 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -808,6 +976,16 @@
 				9F7E9F5B196BE6AB008B2F35 /* TodayViewController.swift in Sources */,
 				9FB65DAE198A3FF200F591D2 /* TodayWidgetCell.swift in Sources */,
 				9FB7540F198A7AFB0045A600 /* RoundedLabel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FAF121B1AAF594C00FBD9B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FAF12271AAF594C00FBD9B3 /* NotificationController.swift in Sources */,
+				9FAF12251AAF594C00FBD9B3 /* InterfaceController.swift in Sources */,
+				9FAF12481AAF606500FBD9B3 /* CommentsInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,6 +1052,21 @@
 			target = 9F21AA621940A45700CF4E63 /* SwiftHN */;
 			targetProxy = 9F7E9F6B196BEC63008B2F35 /* PBXContainerItemProxy */;
 		};
+		9FAF122F1AAF594C00FBD9B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FAF122B1AAF594C00FBD9B3 /* Hacker News WatchKit App */;
+			targetProxy = 9FAF122E1AAF594C00FBD9B3 /* PBXContainerItemProxy */;
+		};
+		9FAF12391AAF594C00FBD9B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FAF121E1AAF594C00FBD9B3 /* Hacker News WatchKit Extension */;
+			targetProxy = 9FAF12381AAF594C00FBD9B3 /* PBXContainerItemProxy */;
+		};
+		9FAF12451AAF599900FBD9B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HackerSwifter;
+			targetProxy = 9FAF12441AAF599900FBD9B3 /* PBXContainerItemProxy */;
+		};
 		9FC8BA66195C702E0084A0E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9F1EE915194105C30061B4B6 /* SwiftHNShared */;
@@ -898,6 +1091,14 @@
 				9F21AA6F1940A45700CF4E63 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9FAF12331AAF594C00FBD9B3 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FAF12341AAF594C00FBD9B3 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1074,6 +1275,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SwiftHN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
@@ -1094,6 +1296,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = SwiftHN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1183,6 +1386,78 @@
 			};
 			name = Release;
 		};
+		9FAF123B1AAF594D00FBD9B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Hacker News WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9FAF123C1AAF594D00FBD9B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "Hacker News WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9FAF123D1AAF594D00FBD9B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Hacker_News_WatchKit_Extension;
+				INFOPLIST_FILE = "Hacker News WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		9FAF123E1AAF594D00FBD9B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = NO;
+				IBSC_MODULE = Hacker_News_WatchKit_Extension;
+				INFOPLIST_FILE = "Hacker News WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1239,6 +1514,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9FAF12401AAF594D00FBD9B3 /* Build configuration list for PBXNativeTarget "Hacker News WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FAF123D1AAF594D00FBD9B3 /* Debug */,
+				9FAF123E1AAF594D00FBD9B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FAF12411AAF594D00FBD9B3 /* Build configuration list for PBXNativeTarget "Hacker News WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FAF123B1AAF594D00FBD9B3 /* Debug */,
+				9FAF123C1AAF594D00FBD9B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

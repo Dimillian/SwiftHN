@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--HN:Top-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="HN:Top" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Hacker_News_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="OFO-l3-jhb">
+                            <items>
+                                <tableRow identifier="HNNewsRow" id="dw8-I4-MeM" customClass="HNNewsRow" customModule="Hacker_News_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="n3P-mE-HDF">
+                                        <items>
+                                            <group width="1" alignment="left" id="U9r-NU-DFB">
+                                                <items>
+                                                    <label alignment="left" text="comments" id="Lsl-Oo-151">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <label alignment="left" text="domain" id="LCA-Ei-uIU">
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                            <group width="1" height="0.0" alignment="left" id="rdQ-oZ-Jk9">
+                                                <items>
+                                                    <label width="20" height="1" alignment="left" text="10" textAlignment="center" numberOfLines="0" id="DFd-L3-5fz">
+                                                        <color key="textColor" red="0.94117647059999998" green="0.50980392159999999" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" type="system" pointSize="9"/>
+                                                    </label>
+                                                    <label alignment="left" text="title" numberOfLines="0" id="Ifm-aQ-r3G">
+                                                        <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                    </label>
+                                                </items>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="domainLabel" destination="LCA-Ei-uIU" id="gi3-eN-tIS"/>
+                                        <outlet property="titleLabel" destination="Ifm-aQ-r3G" id="dZr-qI-D8n"/>
+                                        <outlet property="usernameLabel" destination="Lsl-Oo-151" id="Lqv-pX-Nqq"/>
+                                        <outlet property="voteLabel" destination="DFd-L3-5fz" id="9bg-ir-Pie"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="tableView" destination="OFO-l3-jhb" id="v9p-D7-yQN"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--HN:Post-->
+        <scene sceneID="F3R-g0-8qd">
+            <objects>
+                <controller identifier="commentsController" title="HN:Post" id="5Sj-Hc-zoy" customClass="CommentsInterfaceController" customModule="Hacker_News_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="fG5-El-NiL">
+                            <items>
+                                <tableRow identifier="HNCommentRow" id="M3l-oF-qxO" customClass="HNCommentRow" customModule="Hacker_News_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="HI7-M6-Gkk">
+                                        <items>
+                                            <label alignment="left" text="Label" id="T2E-lC-moU">
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                            <label alignment="left" text="Label" numberOfLines="0" id="odN-O3-nrT">
+                                                <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                            </label>
+                                        </items>
+                                        <edgeInsets key="margins" left="2" right="2" top="2" bottom="2"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="commentLabel" destination="odN-O3-nrT" id="74Q-Hb-E1h"/>
+                                        <outlet property="usernameLabel" destination="T2E-lC-moU" id="4x2-sa-SP0"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="tableView" destination="fG5-El-NiL" id="e22-Ap-UPh"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="414" y="343"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Hacker_News_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
