@@ -48,11 +48,11 @@ class WebviewController: UIViewController, UIWebViewDelegate {
         Helper.showShareSheet(self.post, controller: self, barbutton: self.navigationItem.rightBarButtonItem)
     }
 
-    func webViewDidStartLoad(webView: UIWebView!) {
+    func webViewDidStartLoad(webView: UIWebView) {
         self.setupLoadingButton()
     }
     
-    func webViewDidFinishLoad(webView: UIWebView!) {
+    func webViewDidFinishLoad(webView: UIWebView) {
         self.setupShareButton()
         self.title = webView.stringByEvaluatingJavaScriptFromString("document.title")
     }

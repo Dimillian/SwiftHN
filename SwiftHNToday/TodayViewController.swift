@@ -96,7 +96,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return 60.0
     }
     
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView {
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if self.expanded {
             return UIView(frame: CGRectZero)
         }

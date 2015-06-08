@@ -36,7 +36,7 @@ class InterfaceController: WKInterfaceController {
         self.tableView.setNumberOfRows(self.datasource.count, withRowType: "HNNewsRow")
         var rowCount = 0
         for item in self.datasource {
-            var row = self.tableView.rowControllerAtIndex(rowCount) as HNNewsRow
+            var row = self.tableView.rowControllerAtIndex(rowCount) as! HNNewsRow
             row.voteLabel.setText(String(item.points))
             row.titleLabel.setText(item.title)
             row.usernameLabel.setText(String(item.commentsCount) + " Comments")

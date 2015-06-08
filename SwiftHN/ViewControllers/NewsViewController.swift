@@ -59,7 +59,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         let fetchPage = Int(ceil(Double(self.datasource.count)/30))+1
         Post.fetch(self.filter, page:fetchPage, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
             if let realDatasource = posts {
-                var tempDatasource:NSMutableArray = NSMutableArray(array: self.datasource, copyItems: false)
+                var tempDatasource:NSMutableArray = NSMutableArray(array: self.datasource)
                 let postsNotFromNewPageCount = ((fetchPage-1)*30)
                 if (tempDatasource.count - postsNotFromNewPageCount > 0) {
                     tempDatasource.removeObjectsInRange(NSMakeRange(postsNotFromNewPageCount, tempDatasource.count-postsNotFromNewPageCount))
@@ -92,8 +92,8 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     }
     
     func onRightButton() {
-        var navCategories = self.storyboard?.instantiateViewControllerWithIdentifier("categoriesNavigationController") as UINavigationController
-        var categoriesVC = navCategories.visibleViewController as CategoriesViewController
+        var navCategories = self.storyboard?.instantiateViewControllerWithIdentifier("categoriesNavigationController") as! UINavigationController
+        var categoriesVC = navCategories.visibleViewController as! CategoriesViewController
         categoriesVC.delegate = self
         navCategories.modalPresentationStyle = UIModalPresentationStyle.Popover
         if (navCategories.popoverPresentationController != nil) {
@@ -129,7 +129,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
                     Helper.showShareSheet(post, controller: self, barbutton: nil)
                 }
                 else if (action!.title == titles[1]) {
-                    var webview = self.storyboard?.instantiateViewControllerWithIdentifier("WebviewController") as WebviewController
+                    var webview = self.storyboard?.instantiateViewControllerWithIdentifier("WebviewController") as! WebviewController
                     webview.post = post
                     self.showDetailViewController(webview, sender: nil)
                 }
@@ -164,13 +164,13 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        var title: NSString = (self.datasource[indexPath.row] as Post).title!
+        var title: NSString = (self.datasource[indexPath.row] as! Post).title!
         return NewsCell.heightForText(title, bounds: self.tableView.bounds)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
-        cell!.post = self.datasource[indexPath.row] as Post
+        cell!.post = self.datasource[indexPath.row] as! Post
         cell!.cellDelegate = self
         if (loadMoreEnabled && indexPath.row == self.datasource.count-3) {
             self.tableView.tableFooterView = self.infiniteScrollingView
@@ -181,9 +181,9 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
-            var destination = segue.destinationViewController as WebviewController
+            var destination = segue.destinationViewController as! WebviewController
             if let selectedRows = self.tableView.indexPathsForSelectedRows() {
-                destination.post = self.datasource[selectedRows[0].row] as Post
+                destination.post = self.datasource[selectedRows[0].row] as? Post
             }
         }
     }
@@ -201,11 +201,11 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         var readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "Read\nLater",
             handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
-                if (Helper.addPostToReadingList(self.datasource[indexPath.row] as Post)) {
+                if (Helper.addPostToReadingList(self.datasource[indexPath.row] as! Post)) {
                 }
                 var post = self.datasource
-                Preferences.sharedInstance.addToReadLater(self.datasource[indexPath.row] as Post)
-                var cell = self.tableView.cellForRowAtIndexPath(indexPath) as NewsCell
+                Preferences.sharedInstance.addToReadLater(self.datasource[indexPath.row] as! Post)
+                var cell = self.tableView.cellForRowAtIndexPath(indexPath) as! NewsCell
                 cell.readLaterIndicator.hidden = false
                 self.tableView.setEditing(false, animated: true)
         })
@@ -214,7 +214,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         var more = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "More",
             handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
-                self.showActionSheetForPost(self.datasource[indexPath.row] as Post)
+                self.showActionSheetForPost(self.datasource[indexPath.row] as! Post)
         })
         
         return [readingList, more]
@@ -232,13 +232,13 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             }
         }
         if (actionType == NewsCellActionType.Comment.rawValue) {
-            var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+            var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
             detailVC.post = post
             self.showDetailViewController(detailVC, sender: self)
         }
         else if (actionType == NewsCellActionType.Username.rawValue) {
             if let realUsername = post.username {
-                var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
+                var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as! UserViewController
                 detailVC.user = realUsername
                 self.showDetailViewController(detailVC, sender: self)
             }

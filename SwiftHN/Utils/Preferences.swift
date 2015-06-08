@@ -42,7 +42,7 @@ class Preferences {
         if (array == nil) {
             return false
         }
-        return contains(array as [String], uid)
+        return contains(array as! [String], uid)
     }
     
     class var sharedInstance: Preferences {

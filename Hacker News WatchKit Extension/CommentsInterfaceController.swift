@@ -35,7 +35,7 @@ class CommentsInterfaceController: WKInterfaceController {
         self.tableView.setNumberOfRows(self.datasource.count, withRowType: "HNCommentRow")
         var rowCount = 0
         for item in self.datasource {
-            var row = self.tableView.rowControllerAtIndex(rowCount) as HNCommentRow
+            var row = self.tableView.rowControllerAtIndex(rowCount) as! HNCommentRow
             if let realtext = item.text {
                 row.commentLabel.setText(realtext)
                 row.usernameLabel.setText(item.username)

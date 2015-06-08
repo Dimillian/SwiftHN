@@ -18,7 +18,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
         self.minimumPrimaryColumnWidth = 320.0
     }
     
-    func splitViewController(splitViewController: UISplitViewController!, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
         return true;
     }
     

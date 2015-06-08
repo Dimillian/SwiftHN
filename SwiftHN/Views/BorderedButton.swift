@@ -110,7 +110,7 @@ import SwiftHNShared
     }
     
     func onRealPress(sender: AnyObject) {
-        self.onButtonTouch(sender: sender as UIButton)
+        self.onButtonTouch(sender: sender as! UIButton)
     }
     
 }

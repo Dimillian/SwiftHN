@@ -95,8 +95,8 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
             return cell!
         }
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(CommentsCellId) as CommentsCell!
-        var comment = self.datasource[indexPath.row] as Comment
+        var cell = tableView.dequeueReusableCellWithIdentifier(CommentsCellId) as! CommentsCell!
+        var comment = self.datasource[indexPath.row] as! Comment
         cell.comment = comment
         
         return cell
@@ -106,7 +106,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post) {   
         if (actionType == NewsCellActionType.Username.rawValue) {
             if let realUsername = post.username {
-                var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as UserViewController
+                var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as! UserViewController
                 detailVC.user = realUsername
                 self.showDetailViewController(detailVC, sender: self)
             }
@@ -115,7 +115,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
-            var destination = segue.destinationViewController as WebviewController
+            var destination = segue.destinationViewController as! WebviewController
             destination.post = self.post
         }
     }

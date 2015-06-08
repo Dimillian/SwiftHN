@@ -1522,6 +1522,7 @@
 				9FAF123E1AAF594D00FBD9B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FAF12411AAF594D00FBD9B3 /* Build configuration list for PBXNativeTarget "Hacker News WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -1530,6 +1531,7 @@
 				9FAF123C1AAF594D00FBD9B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
