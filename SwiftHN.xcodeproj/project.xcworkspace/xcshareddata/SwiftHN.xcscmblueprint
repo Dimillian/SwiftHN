@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D96377ADF9561FDD25D6ADCCCC76790575BE5FB4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E0D52B920DCA102ACF12EC644CE806103E82A316" : 0,
+    "D96377ADF9561FDD25D6ADCCCC76790575BE5FB4" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "849892B6-533B-485B-AFD4-DEABF6ADE24D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E0D52B920DCA102ACF12EC644CE806103E82A316" : "SwiftHNSwiftHN\/libs\/submodules",
+    "D96377ADF9561FDD25D6ADCCCC76790575BE5FB4" : "SwiftHN"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwiftHN",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwiftHN.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Dimillian\/SwiftHN.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D96377ADF9561FDD25D6ADCCCC76790575BE5FB4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Dimillian\/HackerSwifter",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E0D52B920DCA102ACF12EC644CE806103E82A316"
+    }
+  ]
+}

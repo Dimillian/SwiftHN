@@ -23,6 +23,7 @@
 		9F3ED6201948D91F0072E02D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3ED61F1948D91F0072E02D /* DetailViewController.swift */; };
 		9F45C8D51949BAC50003B7AD /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D41949BAC50003B7AD /* SplitViewController.swift */; };
 		9F45C8D81949BE6F0003B7AD /* SplitViewControllerEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45C8D71949BE6F0003B7AD /* SplitViewControllerEXT.swift */; };
+		9F7124AE1B26FB2000867148 /* HackerSwifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; };
 		9F75D490196F23150061D908 /* OpenSafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F75D48F196F23150061D908 /* OpenSafariActivity.swift */; };
 		9F773639196BF5A900A6C5EC /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F773638196BF5A900A6C5EC /* BorderedButton.swift */; };
 		9F7E9F56196BE6AB008B2F35 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6CA16D1945BB5A003A26D4 /* NotificationCenter.framework */; };
@@ -39,8 +40,6 @@
 		9FAF12351AAF594C00FBD9B3 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAF12331AAF594C00FBD9B3 /* Interface.storyboard */; };
 		9FAF12371AAF594C00FBD9B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FAF12361AAF594C00FBD9B3 /* Images.xcassets */; };
 		9FAF123A1AAF594C00FBD9B3 /* Hacker News WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9FAF121F1AAF594C00FBD9B3 /* Hacker News WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9FAF12421AAF599900FBD9B3 /* HackerSwifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; };
-		9FAF12431AAF599900FBD9B3 /* HackerSwifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F116DE6197804EC002D297E /* HackerSwifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9FAF12481AAF606500FBD9B3 /* CommentsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF12471AAF606500FBD9B3 /* CommentsInterfaceController.swift */; };
 		9FB65DAE198A3FF200F591D2 /* TodayWidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB65DAD198A3FF200F591D2 /* TodayWidgetCell.swift */; };
 		9FB7540F198A7AFB0045A600 /* RoundedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB7540E198A7AFB0045A600 /* RoundedLabel.swift */; };
@@ -165,13 +164,6 @@
 			remoteGlobalIDString = 9FAF121E1AAF594C00FBD9B3;
 			remoteInfo = "Hacker News WatchKit Extension";
 		};
-		9FAF12441AAF599900FBD9B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9FD4A195196F3007003608F6;
-			remoteInfo = HackerSwifter;
-		};
 		9FC8BA65195C702E0084A0E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9F21AA5B1940A45700CF4E63 /* Project object */;
@@ -218,17 +210,6 @@
 				9FAF123A1AAF594C00FBD9B3 /* Hacker News WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9FAF12461AAF599900FBD9B3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				9FAF12431AAF599900FBD9B3 /* HackerSwifter.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -335,7 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FAF12421AAF599900FBD9B3 /* HackerSwifter.framework in Frameworks */,
+				9F7124AE1B26FB2000867148 /* HackerSwifter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,13 +723,11 @@
 				9FAF121B1AAF594C00FBD9B3 /* Sources */,
 				9FAF121C1AAF594C00FBD9B3 /* Frameworks */,
 				9FAF121D1AAF594C00FBD9B3 /* Resources */,
-				9FAF12461AAF599900FBD9B3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				9FAF122F1AAF594C00FBD9B3 /* PBXTargetDependency */,
-				9FAF12451AAF599900FBD9B3 /* PBXTargetDependency */,
 			);
 			name = "Hacker News WatchKit Extension";
 			productName = "Hacker News WatchKit Extension";
@@ -776,6 +755,7 @@
 		9F21AA5B1940A45700CF4E63 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Thomas Ricouard";
 				TargetAttributes = {
@@ -813,6 +793,7 @@
 					};
 					9FAF122B1AAF594C00FBD9B3 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = Z6P74P6T99;
 					};
 				};
 			};
@@ -1062,11 +1043,6 @@
 			target = 9FAF121E1AAF594C00FBD9B3 /* Hacker News WatchKit Extension */;
 			targetProxy = 9FAF12381AAF594C00FBD9B3 /* PBXContainerItemProxy */;
 		};
-		9FAF12451AAF599900FBD9B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = HackerSwifter;
-			targetProxy = 9FAF12441AAF599900FBD9B3 /* PBXContainerItemProxy */;
-		};
 		9FC8BA66195C702E0084A0E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9F1EE915194105C30061B4B6 /* SwiftHNShared */;
@@ -1273,14 +1249,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SwiftHN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9ce49f49-ef37-47a9-995d-2f8b5ffa956d";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1294,15 +1270,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = SwiftHN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "014edebd-f390-4e10-95f5-506cb8edc088";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1349,8 +1325,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thomas Ricouard (7MB55D6BJ5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1359,7 +1335,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e120dd3d-5436-4f5e-b378-9a19481c0ff1";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHNToday/SwiftHNToday-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1371,14 +1347,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ricouard (Z6P74P6T99)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = SwiftHNToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6b00c92a-d1a3-4536-be16-fe6ce447c445";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftHNToday/SwiftHNToday-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1391,7 +1367,6 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1412,7 +1387,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Hacker News WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1427,6 +1401,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1446,6 +1421,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				IBSC_MODULE = Hacker_News_WatchKit_Extension;
 				INFOPLIST_FILE = "Hacker News WatchKit App/Info.plist";
