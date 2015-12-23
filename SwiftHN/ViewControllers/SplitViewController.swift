@@ -18,16 +18,16 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
         self.minimumPrimaryColumnWidth = 320.0
     }
     
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
         return true;
     }
     
-    override func showDetailViewController(vc: UIViewController!, sender: AnyObject!) {
+    override func showDetailViewController(vc: UIViewController, sender: AnyObject?) {
         if (vc.parentViewController is UINavigationController) {
             super.showDetailViewController(vc, sender: sender)
         }
         else {
-            var nav = UINavigationController(rootViewController: vc)
+            let nav = UINavigationController(rootViewController: vc)
             super.showDetailViewController(nav, sender: sender)
         }
     }

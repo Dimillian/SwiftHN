@@ -110,7 +110,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
             var alert = UIAlertController(title: "Quick actions",
                 message: "By swiping a cell you can quickly send post to the Safari Reading list, or use the more button to share it and access other functionalities",
                 preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: {(action: UIAlertAction?) in
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: {(action: UIAlertAction) in
                 Preferences.sharedInstance.firstTimeLaunch = true
             }))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -182,7 +182,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
             var destination = segue.destinationViewController as! WebviewController
-            if let selectedRows = self.tableView.indexPathsForSelectedRows() {
+            if let selectedRows = self.tableView.indexPathsForSelectedRows {
                 destination.post = self.datasource[selectedRows[0].row] as? Post
             }
         }
@@ -196,11 +196,11 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         
     }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]
     {
         var readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "Read\nLater",
-            handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
+            handler: {(action: UITableViewRowAction, indexpath: NSIndexPath) -> Void in
                 if (Helper.addPostToReadingList(self.datasource[indexPath.row] as! Post)) {
                 }
                 var post = self.datasource
@@ -213,7 +213,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         
         var more = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "More",
-            handler: {(action: UITableViewRowAction!, indexpath: NSIndexPath!) -> Void in
+            handler: {(action: UITableViewRowAction, indexpath: NSIndexPath) -> Void in
                 self.showActionSheetForPost(self.datasource[indexPath.row] as! Post)
         })
         
