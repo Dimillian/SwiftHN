@@ -755,6 +755,7 @@
 		9F21AA5B1940A45700CF4E63 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Thomas Ricouard";

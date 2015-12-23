@@ -63,7 +63,7 @@ class NewsCell: UITableViewCell {
         }
     }
   
-    required init(coder aDecoder: NSCoder) { // required for Xcode6-Beta5
+    required init?(coder aDecoder: NSCoder) { // required for Xcode6-Beta5
         super.init(coder: aDecoder)
     }
 
@@ -82,7 +82,7 @@ class NewsCell: UITableViewCell {
     }
     
     class func heightForText(text: NSString, bounds: CGRect) -> CGFloat {
-        var size = text.boundingRectWithSize(CGSizeMake(CGRectGetWidth(bounds) - (NewsCellTitleMarginConstant * 2), CGFloat.max),
+        let size = text.boundingRectWithSize(CGSizeMake(CGRectGetWidth(bounds) - (NewsCellTitleMarginConstant * 2), CGFloat.max),
             options: NSStringDrawingOptions.UsesLineFragmentOrigin,
             attributes: [NSFontAttributeName: UIFont.systemFontOfSize(NewsCellTitleFontSize)],
             context: nil)

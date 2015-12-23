@@ -23,13 +23,13 @@ class CategoriesViewController: UITableViewController {
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Done, target: self, action: "onCancelButton")
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Done, target: self, action: "onCancelButton")
         self.navigationItem.rightBarButtonItem = cancelButton
     }
     

@@ -57,7 +57,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return UIEdgeInsetsMake(self.topBottomWidgetInset, 0, self.topBottomWidgetInset, 0)
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         self.completionHandler = completionHandler
         self.completionHandler?(NCUpdateResult.NewData)
     }

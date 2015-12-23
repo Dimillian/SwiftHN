@@ -26,7 +26,7 @@ class OpenSafariActivity: UIActivity {
     }
     
     override func prepareWithActivityItems(activityItems: [AnyObject]) {
-        var urlToOpen = activityItems[1] as! NSURL
+        let urlToOpen = activityItems[1] as! NSURL
         UIApplication.sharedApplication().openURL(urlToOpen)
     }
 }

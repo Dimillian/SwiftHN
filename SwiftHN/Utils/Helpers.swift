@@ -17,7 +17,11 @@ class Helper {
         var readingList = SSReadingList.defaultReadingList()
         var error: NSError?
         if let url: String = post.url?.absoluteString {
-            readingList.addReadingListItemWithURL(NSURL(string: url), title: post.title, previewText: nil, error: &error)
+            do {
+                try readingList!.addReadingListItemWithURL(NSURL(string: url)!, title: post.title, previewText: nil)
+            } catch var error1 as NSError {
+                error = error1
+            }
             return error != nil
         }
         return false
