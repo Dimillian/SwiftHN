@@ -113,6 +113,18 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
         }
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if #available(iOS 9, *) {
+            if identifier == "toWebview" {
+                if let url = (sender as? NewsCell)?.post.url {
+                    showViewController(SafariViewController(URL: url), sender: nil)
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
             var destination = segue.destinationViewController as! WebviewController
