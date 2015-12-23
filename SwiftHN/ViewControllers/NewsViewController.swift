@@ -183,7 +183,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         if #available(iOS 9, *) {
             if identifier == "toWebview" {
                 if let url = (sender as? NewsCell)?.post.url {
-                    showViewController(SafariViewController(URL: url), sender: nil)
+                    presentViewController(SafariViewController(URL: url), animated: true, completion: nil)
                     return false
                 }
             }

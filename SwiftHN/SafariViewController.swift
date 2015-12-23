@@ -9,26 +9,32 @@
 import SafariServices
 
 @available(iOS 9.0, *)
-class SafariViewController: SFSafariViewController, SFSafariViewControllerDelegate {
-    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+class SafariViewController: SFSafariViewController {
+    private var previousBarStyle: UIStatusBarStyle?
     
-    override func viewDidLoad() {
-        self.delegate = self
-        setupLoadingButton()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        overrideStatusBarStyle()
     }
     
-    func setupLoadingButton() {
-        self.navigationItem.rightBarButtonItem = nil
-        let loadingItem = UIBarButtonItem(customView: self.activityIndicator)
-        self.activityIndicator.startAnimating()
-        self.navigationItem.rightBarButtonItem = loadingItem
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        restoreStatusBarStyle()
     }
     
-    func hideLoadingButton() {
-        self.navigationItem.rightBarButtonItem = nil
+    private func overrideStatusBarStyle() {
+        if previousBarStyle == nil {
+            previousBarStyle = UIApplication.sharedApplication().statusBarStyle
+        }
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
     }
     
-    func safariViewController(controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool) {
-        hideLoadingButton()
+    private func restoreStatusBarStyle() {
+        if let previousBarStyle = previousBarStyle {
+            UIApplication.sharedApplication().statusBarStyle = previousBarStyle
+        }
     }
 }
