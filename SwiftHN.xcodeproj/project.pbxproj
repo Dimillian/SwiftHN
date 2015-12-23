@@ -182,7 +182,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 9F116DE0197804EC002D297E /* HackerSwifter.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 9FE8C7F71C2A99EC001D91EF;
+			remoteGlobalIDString = 9FE8C8111C2A9B1D001D91EF;
 			remoteInfo = HackerSwifterWatch;
 		};
 		9FEC10651C2A940500B578B1 /* PBXContainerItemProxy */ = {
@@ -267,7 +267,6 @@
 		9F1AB00C1941F49800E68F41 /* UIColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExt.swift; path = Extension/UIColorExt.swift; sourceTree = "<group>"; };
 		9F1EE916194105C30061B4B6 /* SwiftHNShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftHNShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1EE919194105C30061B4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F1EE91A194105C30061B4B6 /* SwiftHNShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftHNShared.h; sourceTree = "<group>"; };
 		9F1EE920194105C30061B4B6 /* SwiftHNSharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftHNSharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1EE926194105C30061B4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1EE927194105C30061B4B6 /* SwiftHNSharedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHNSharedTests.swift; sourceTree = "<group>"; };
@@ -409,7 +408,6 @@
 			children = (
 				9FC8BA62195C6E060084A0E0 /* HNKit */,
 				9F1EE93B194106C90061B4B6 /* Extensions */,
-				9F1EE91A194105C30061B4B6 /* SwiftHNShared.h */,
 				9F1EE918194105C30061B4B6 /* Supporting Files */,
 			);
 			path = SwiftHNShared;
@@ -1145,11 +1143,12 @@
 		9F1EE930194105C30061B4B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1165,6 +1164,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1175,11 +1175,12 @@
 		9F1EE931194105C30061B4B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1191,6 +1192,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
