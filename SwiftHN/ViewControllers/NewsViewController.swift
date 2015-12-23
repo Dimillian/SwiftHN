@@ -188,7 +188,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
                 }
             }
         }
-        return true
+        return super.shouldPerformSegueWithIdentifier(identifier, sender: sender)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
