@@ -100,38 +100,38 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         if self.expanded {
             return UIView(frame: CGRectZero)
         }
-        var view = UIVisualEffectView(effect: UIVibrancyEffect.notificationCenterVibrancyEffect())
+        let view = UIVisualEffectView(effect: UIVibrancyEffect.notificationCenterVibrancyEffect())
         view.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 30.0)
-        var label = UILabel(frame: CGRectMake(48.0, 0, self.tableView.frame.size.width - 48.0, 30.0))
+        let label = UILabel(frame: CGRectMake(48.0, 0, self.tableView.frame.size.width - 48.0, 30.0))
         view.contentView.addSubview(label)
         label.numberOfLines = 0
         label.textColor = UIColor.DateLighGrayColor()
         label.text = "See More..."
         label.userInteractionEnabled = true
-        var tap = UITapGestureRecognizer(target: self, action: "onViewMoreButton")
+        let tap = UITapGestureRecognizer(target: self, action: "onViewMoreButton")
         label.addGestureRecognizer(tap)
         
-        var openApp = UILabel(frame: CGRectMake(48.0, 30.0, self.tableView.frame.size.width - 48.0, 30.0))
+        let openApp = UILabel(frame: CGRectMake(48.0, 30.0, self.tableView.frame.size.width - 48.0, 30.0))
         view.contentView.addSubview(openApp)
         openApp.numberOfLines = 0
         openApp.textColor = UIColor.DateLighGrayColor()
         openApp.text = "Open SwiftHN"
         openApp.userInteractionEnabled = true
-        var openAppTap = UITapGestureRecognizer(target: self, action: "onOpenApp")
+        let openAppTap = UITapGestureRecognizer(target: self, action: "onOpenApp")
         openApp.addGestureRecognizer(openAppTap)
         return view
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = self.tableView.dequeueReusableCellWithIdentifier(todayCellId) as? TodayWidgetCell
-        var post = self.posts[indexPath.row] as Post
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(todayCellId) as? TodayWidgetCell
+        let post = self.posts[indexPath.row] as Post
         cell!.post = post
         return cell!
     }
     
     func tableView(tableView: UITableView
         , didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var post = self.posts[indexPath.row] as Post
+        let post = self.posts[indexPath.row] as Post
         self.extensionContext!.openURL(post.url!, completionHandler: nil)
     }
 }

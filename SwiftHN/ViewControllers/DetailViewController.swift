@@ -45,7 +45,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
         cellHeightCache = []
         for comment : AnyObject in comments {
             if let realComment = comment as? Comment {
-                var height = CommentsCell.heightForText(realComment.text!, bounds: self.tableView.bounds, level: realComment.depth)
+                let height = CommentsCell.heightForText(realComment.text!, bounds: self.tableView.bounds, level: realComment.depth)
                 cellHeightCache.append(height)
             }
         }
@@ -53,7 +53,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     
     
     func setupBarButtonItems() {
-        var shareItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "onShareButton")
+        let shareItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "onShareButton")
         self.navigationItem.rightBarButtonItem = shareItem
     }
     
@@ -65,7 +65,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         if (indexPath.section == 0) {
-            var title: NSString = self.post.title!
+            let title: NSString = self.post.title!
             return NewsCell.heightForText(title, bounds: self.tableView.bounds)
         }
         return self.cellHeightCache[indexPath.row] as CGFloat
@@ -89,14 +89,14 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
-            var cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
             cell!.post = self.post
             cell!.cellDelegate = self;
             return cell!
         }
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(CommentsCellId) as! CommentsCell!
-        var comment = self.datasource[indexPath.row] as! Comment
+        let cell = tableView.dequeueReusableCellWithIdentifier(CommentsCellId) as! CommentsCell!
+        let comment = self.datasource[indexPath.row] as! Comment
         cell.comment = comment
         
         return cell
@@ -106,7 +106,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post) {   
         if (actionType == NewsCellActionType.Username.rawValue) {
             if let realUsername = post.username {
-                var detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as! UserViewController
+                let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as! UserViewController
                 detailVC.user = realUsername
                 self.showDetailViewController(detailVC, sender: self)
             }
@@ -127,7 +127,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
-            var destination = segue.destinationViewController as! WebviewController
+            let destination = segue.destinationViewController as! WebviewController
             destination.post = self.post
         }
     }

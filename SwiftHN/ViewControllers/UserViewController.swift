@@ -43,7 +43,7 @@ class UserViewController: NewsViewController {
         let fetchPage = Int(ceil(Double(self.datasource.count)/30))+1
         Post.fetch(self.user, page:fetchPage, lastPostId:(self.datasource.lastObject as! Post).postId, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
             if let realPosts = posts {
-                var tempPosts:NSMutableArray = NSMutableArray(array: self.datasource)
+                let tempPosts:NSMutableArray = NSMutableArray(array: self.datasource)
                 let postsNotFromNewPageCount = ((fetchPage-1)*30)
                 if (postsNotFromNewPageCount > 0) {
                     tempPosts.removeObjectsInRange(NSMakeRange(postsNotFromNewPageCount, tempPosts.count-postsNotFromNewPageCount))
