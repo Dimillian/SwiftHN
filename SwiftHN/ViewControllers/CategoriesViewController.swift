@@ -43,7 +43,7 @@ class CategoriesViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var cell = tableView.cellForRowAtIndexPath(indexPath)
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
         if (cell?.textLabel?.text == "Hacker News") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Top, title: "HN:News")
         }

@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>Hacker News WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>Notification - Hacker News WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>SwiftHN 2.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

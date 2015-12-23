@@ -24,7 +24,7 @@ class WebviewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         self.webView.delegate = self
-        if let realpost = self.post {
+        if let _ = self.post {
             if let realUrl = self.post.url {
                 self.webView.loadRequest(NSURLRequest(URL: realUrl))
             }
