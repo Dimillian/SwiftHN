@@ -29,6 +29,12 @@ public class HNTableViewController: UITableViewController {
         }
     }
     
+    public var ids: [Int]! {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
                 

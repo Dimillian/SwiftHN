@@ -38,6 +38,16 @@
                ReferencedContainer = "container:SwiftHN.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9FD4A1A0196F3008003608F6"
+               BuildableName = "HackerSwifterTests.xctest"
+               BlueprintName = "HackerSwifterTests"
+               ReferencedContainer = "container:SwiftHN/libs/submodules/Hacker Swifter/HackerSwifter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

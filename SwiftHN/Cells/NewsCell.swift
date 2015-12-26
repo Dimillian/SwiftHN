@@ -41,8 +41,14 @@ class NewsCell: UITableViewCell {
     var post: Post! {
         didSet{
             self.titleLabel.text = self.post.title!
-            self.urlLabel.text = self.post.domain! + " - " + self.post.prettyTime!
-            self.voteLabel.labelText = String(self.post.points) + " votes"
+            if let _time = self.post.time {
+                let date = NSDate(timeIntervalSince1970: NSTimeInterval(_time))
+                self.urlLabel.text = self.post.domain! + " - " + date.timeAgo
+            }
+            else {
+                self.urlLabel.text = self.post.domain! + " - " + self.post.prettyTime!
+            }
+            self.voteLabel.labelText = String(self.post.score) + " votes"
             self.commentsLabel.labelText = String(self.post.commentsCount) + " comments"
             self.usernameLabel.labelText = self.post.username!
             
@@ -59,6 +65,16 @@ class NewsCell: UITableViewCell {
             }
             if self.readLaterIndicator != nil {
                 self.readLaterIndicator.hidden = !Preferences.sharedInstance.isInReadingList(self.post.postId!)   
+            }
+        }
+    }
+    
+    var postId: Int! {
+        didSet {
+            Post.fetchPost(self.postId) { (post, error, local) -> Void in
+                if let _post = post {
+                    self.post = _post
+                }
             }
         }
     }
