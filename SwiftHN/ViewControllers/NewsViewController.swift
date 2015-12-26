@@ -12,71 +12,25 @@ import HackerSwifter
 
 class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesViewControllerDelegate {
     
-    var filter: Post.PostFilter = .Top
-    var loadMoreEnabled = false
-    var infiniteScrollingView:UIView?
+    var filter: Fetcher.APIEndpoint = .Top
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "HN:News"
         
-        self.setupInfiniteScrollingView()
         self.setupNavigationItems()
     }
     
-    private func setupInfiniteScrollingView() {
-        self.infiniteScrollingView = UIView(frame: CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, 60))
-        self.infiniteScrollingView!.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        self.infiniteScrollingView!.backgroundColor = UIColor.LoadMoreLightGrayColor()
-        let activityViewIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
-        activityViewIndicator.color = UIColor.darkGrayColor()
-        activityViewIndicator.frame = CGRectMake(self.infiniteScrollingView!.frame.size.width/2-activityViewIndicator.frame.width/2, self.infiniteScrollingView!.frame.size.height/2-activityViewIndicator.frame.height/2, activityViewIndicator.frame.width, activityViewIndicator.frame.height)
-        activityViewIndicator.startAnimating()
-        self.infiniteScrollingView!.addSubview(activityViewIndicator)
-    }
     
     func onPullToFresh() {
         
         self.refreshing = true
         
-        Post.fetch(self.filter, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
-            if let realDatasource = posts {
-                self.datasource = realDatasource
-                if (self.datasource.count % 30 == 0) {
-                    self.loadMoreEnabled = true
-                } else {
-                    self.loadMoreEnabled = false
-                }
-            }
-            if (!local) {
-                self.refreshing = false
-            }
-        })
-    }
-    
-    func loadMore() {
-        let fetchPage = Int(ceil(Double(self.datasource.count)/30))+1
-        Post.fetch(self.filter, page:fetchPage, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
-            if let realDatasource = posts {
-                let tempDatasource:NSMutableArray = NSMutableArray(array: self.datasource)
-                let postsNotFromNewPageCount = ((fetchPage-1)*30)
-                if (tempDatasource.count - postsNotFromNewPageCount > 0) {
-                    tempDatasource.removeObjectsInRange(NSMakeRange(postsNotFromNewPageCount, tempDatasource.count-postsNotFromNewPageCount))
-                }
-                tempDatasource.addObjectsFromArray(realDatasource)
-                self.datasource = tempDatasource
-                if (self.datasource.count % 30 == 0) {
-                    self.loadMoreEnabled = true
-                } else {
-                    self.loadMoreEnabled = false
-                }
-            }
-            if (!local) {
-                self.refreshing = false
-                self.tableView.tableFooterView = nil
-            }
-        })
+        Post.fetchPost(self.filter) { (post, error, local) -> Void in
+            self.ids = post
+            self.refreshing = false
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -102,6 +56,11 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         }
         self.presentViewController(navCategories, animated: true, completion: nil)
         
+    }
+    
+    func post(indexpath: NSIndexPath) -> Post? {
+        let cell: NewsCell = self.tableView.cellForRowAtIndexPath(indexpath) as! NewsCell
+        return cell.post
     }
     
     //MARK: Alert management
@@ -156,33 +115,29 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     }
     
     override func tableView(tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
-        if (self.datasource != nil) {
-            return self.datasource.count
+        if (self.ids != nil) {
+            return self.ids.count
         }
         return 0
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        let title: NSString = (self.datasource[indexPath.row] as! Post).title!
-        return NewsCell.heightForText(title, bounds: self.tableView.bounds)
+        return 120.0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
-        cell!.post = self.datasource[indexPath.row] as! Post
+        cell!.postId = self.ids[indexPath.row]
         cell!.cellDelegate = self
-        if (loadMoreEnabled && indexPath.row == self.datasource.count-3) {
-            self.tableView.tableFooterView = self.infiniteScrollingView
-            loadMore()
-        }
+        
         return cell!
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if #available(iOS 9, *) {
             if identifier == "toWebview" {
-                if let url = (sender as? NewsCell)?.post.url {
+                if let url = (sender as? NewsCell)?.post!.url {
                     presentViewController(SafariViewController(URL: url), animated: true, completion: nil)
                     return false
                 }
@@ -195,7 +150,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         if (segue.identifier == "toWebview") {
             let destination = segue.destinationViewController as! WebviewController
             if let selectedRows = self.tableView.indexPathsForSelectedRows {
-                destination.post = self.datasource[selectedRows[0].row] as? Post
+                destination.post = self.post(selectedRows[0])
             }
         }
     }
@@ -213,10 +168,9 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         let readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "Read\nLater",
             handler: {(action: UITableViewRowAction, indexpath: NSIndexPath) -> Void in
-                if (Helper.addPostToReadingList(self.datasource[indexPath.row] as! Post)) {
+                if (Helper.addPostToReadingList(self.post(indexPath)!)) {
                 }
-                _ = self.datasource
-                Preferences.sharedInstance.addToReadLater(self.datasource[indexPath.row] as! Post)
+                Preferences.sharedInstance.addToReadLater(self.post(indexPath)!)
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! NewsCell
                 cell.readLaterIndicator.hidden = false
                 self.tableView.setEditing(false, animated: true)
@@ -226,7 +180,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         let more = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "More",
             handler: {(action: UITableViewRowAction, indexpath: NSIndexPath) -> Void in
-                self.showActionSheetForPost(self.datasource[indexPath.row] as! Post)
+                self.showActionSheetForPost(self.post(indexPath)!)
         })
         
         return [readingList, more]
@@ -257,10 +211,14 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         }
     }
     
+    func newsCellPostDidLoad(cell: NewsCell) {
+        //let indexpath = self.tableView.indexPathForCell(cell)
+        //self.tableView.reloadRowsAtIndexPaths([indexpath!], withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
+    
     //MARK: CategoriesDelegate
-    func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: Post.PostFilter, title: String) {
+    func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: Fetcher.APIEndpoint, title: String) {
         self.filter = filer
-        self.datasource = nil
         self.onPullToFresh()
         self.title = title
     }

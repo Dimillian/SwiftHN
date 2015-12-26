@@ -33,14 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-            Post.fetch(Post.PostFilter.Top, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
-                if (!local) {
-                    completionHandler(UIBackgroundFetchResult.NewData)
-                }
-                else if (error != nil) {
-                    completionHandler(UIBackgroundFetchResult.Failed)
-                }
-            })
+        Post.fetchPost(.Top) { (posts, error, local) -> Void in
+            if (!local) {
+                completionHandler(UIBackgroundFetchResult.NewData)
+            }
+            else if (error != nil) {
+                completionHandler(UIBackgroundFetchResult.Failed)
+            }
+        }
     }
     
     func applicationWillResignActive(application: UIApplication) {

@@ -18,7 +18,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     let topBottomWidgetInset: CGFloat = 10.0
     
     var completionHandler: ((NCUpdateResult) -> Void)?
-    var posts: [Post] = [] {
+    var posts: [Int] = [] {
         didSet {
             self.tableView.reloadData()
             self.preferredContentSize = CGSizeMake(0, self.tableView.contentSize.height)
@@ -39,12 +39,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         
         self.tableView.backgroundColor = UIColor.clearColor()
     
-        Post.fetch(Post.PostFilter.Top, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
-            if let realDatasource = posts {
-                self.posts = realDatasource
-                self.completionHandler?(NCUpdateResult.NewData)
-            }
-        })
+        Post.fetchPost(.Top) { (posts, error, local) -> Void in
+            self.posts = posts
+            self.completionHandler?(NCUpdateResult.NewData)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -124,14 +122,14 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier(todayCellId) as? TodayWidgetCell
-        let post = self.posts[indexPath.row] as Post
-        cell!.post = post
+        let post = self.posts[indexPath.row] as Int
+        cell!.postId = post
         return cell!
     }
     
     func tableView(tableView: UITableView
         , didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let post = self.posts[indexPath.row] as Post
-        self.extensionContext!.openURL(post.url!, completionHandler: nil)
+        let cell: TodayWidgetCell = self.tableView.cellForRowAtIndexPath(indexPath) as! TodayWidgetCell
+        self.extensionContext!.openURL(cell.post!.url!, completionHandler: nil)
     }
 }

@@ -19,10 +19,10 @@ let CommentCellBottomMargin: CGFloat = 16.0
 
 class CommentsCell: UITableViewCell {
 
-    var comment: Comment! {
+    var comment: Post! {
         didSet {
-            let username = comment.username
-            let date = " - " + comment.prettyTime!
+            let username = comment!.username
+            let date = " - " + NSDate(timeIntervalSince1970: comment!.time).timeAgo
             
             let usernameAttributed = NSAttributedString(string: username!,
                 attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(CommentCellFontSize),
@@ -36,7 +36,15 @@ class CommentsCell: UITableViewCell {
             self.commentLabel.font = UIFont.systemFontOfSize(CommentCellFontSize)
             
             self.usernameLabel.attributedText = fullAttributed
-            self.commentLabel.text = comment.text
+            self.commentLabel.text = comment!.text
+        }
+    }
+    
+    var commentId: Int? {
+        didSet {
+            Post.fetchPost(self.commentId!) { (post, error, local) -> Void in
+                
+            }
         }
     }
     
@@ -84,8 +92,8 @@ class CommentsCell: UITableViewCell {
         self.commentLabel.textContainerInset = UIEdgeInsetsZero
         self.commentLabel.contentInset = UIEdgeInsetsZero
         
-        self.commentLabel.frame.size.width = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(self.comment.depth))
-        self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(self.comment.depth))
+        self.commentLabel.frame.size.width = self.contentView.bounds.width - (self.commentLeftMarginConstraint.constant * 2) - (CommentCellMarginConstant * CGFloat(0))
+        self.indentation = CommentCellMarginConstant + (CommentCellMarginConstant * CGFloat(0))
     }
     
     class func heightForText(text: String, bounds: CGRect, level: Int) -> CGFloat {

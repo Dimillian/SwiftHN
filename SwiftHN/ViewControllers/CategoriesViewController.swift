@@ -10,7 +10,7 @@ import UIKit
 import HackerSwifter
 
 protocol CategoriesViewControllerDelegate {
-    func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: Post.PostFilter, title: String)
+    func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: Fetcher.APIEndpoint, title: String)
 }
 
 class CategoriesViewController: UITableViewController {
@@ -55,9 +55,6 @@ class CategoriesViewController: UITableViewController {
         }
         else if (cell?.textLabel?.text == "Ask HN") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Ask, title: "HN:Ask")
-        }
-        else if (cell?.textLabel?.text == "Best") {
-            self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Best, title: "HN:Best")
         }
         else if (cell?.textLabel?.text == "Show HN") {
             self.delegate?.categoriesViewControllerDidSelecteFilter(self, filer: .Show, title: "HN:Show")

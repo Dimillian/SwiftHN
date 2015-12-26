@@ -20,16 +20,15 @@ class HNNewsRow: NSObject {
 class InterfaceController: WKInterfaceController {
 
     @IBOutlet var tableView: WKInterfaceTable!
-    var datasource: [Post]!
+    var datasource: [Int]!
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        Post.fetch(Post.PostFilter.Top, completion: {(posts: [Post]!, error: Fetcher.ResponseError!, local: Bool) in
+        Post.fetchPost(.Top) { (posts, error, local) -> Void in
             self.datasource = posts
             self.setupTable();
-        })
-
+        }
     }
     
     func setupTable() {
@@ -37,10 +36,12 @@ class InterfaceController: WKInterfaceController {
         var rowCount = 0
         for item in self.datasource {
             let row = self.tableView.rowControllerAtIndex(rowCount) as! HNNewsRow
-            row.voteLabel.setText(String(item.points))
-            row.titleLabel.setText(item.title)
-            row.usernameLabel.setText(String(item.commentsCount) + " Comments")
-            row.domainLabel.setText(item.domain)
+            Post.fetchPost(item, completion: { (post, error, local) -> Void in
+                row.voteLabel.setText(String(post.score))
+                row.titleLabel.setText(post.title!)
+                row.usernameLabel.setText(String(post.commentsCount) + " Comments")
+                row.domainLabel.setText(post.domain!)
+            })
             rowCount++
         }
     }

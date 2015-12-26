@@ -8,6 +8,7 @@
 
 import UIKit
 import HackerSwifter
+import SwiftHNShared
 
 let NewsCellsId = "newsCellId"
 let NewsCellHeight: CGFloat = 110.0
@@ -23,39 +24,42 @@ enum NewsCellActionType: Int {
 
 @objc protocol NewsCellDelegate {
     func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post)
+    func newsCellPostDidLoad(cell: NewsCell)
 }
 
 class NewsCell: UITableViewCell {
     
-    @IBOutlet var titleLabel : UILabel! = nil
-    @IBOutlet var urlLabel : UILabel! = nil
-    @IBOutlet var voteLabel : BorderedButton! = nil
-    @IBOutlet var commentsLabel : BorderedButton! = nil
-    @IBOutlet var usernameLabel: BorderedButton! = nil
-    @IBOutlet var readLaterIndicator: UIView! = nil
+    @IBOutlet var titleLabel : UILabel!
+    @IBOutlet var urlLabel : UILabel!
+    @IBOutlet var voteLabel : BorderedButton!
+    @IBOutlet var commentsLabel : BorderedButton!
+    @IBOutlet var usernameLabel: BorderedButton!
+    @IBOutlet var readLaterIndicator: UIView!
 
-    @IBOutlet var titleMarginConstrain: NSLayoutConstraint! = nil
+    @IBOutlet var titleMarginConstrain: NSLayoutConstraint!
     
     weak var cellDelegate: NewsCellDelegate?
     
-    var post: Post! {
-        didSet{
-            self.titleLabel.text = self.post.title!
-            if let _time = self.post.time {
-                let date = NSDate(timeIntervalSince1970: NSTimeInterval(_time))
-                self.urlLabel.text = self.post.domain! + " - " + date.timeAgo
+    var post: Post? {
+        didSet {
+            
+            self.titleLabel.text = self.post!.title!
+            
+            if self.post!.time != 0 {
+                let time = self.post!.time
+                self.urlLabel.text = self.post!.domain! + " - " + NSDate(timeIntervalSince1970: NSTimeInterval(time)).timeAgo
             }
-            else {
-                self.urlLabel.text = self.post.domain! + " - " + self.post.prettyTime!
-            }
-            self.voteLabel.labelText = String(self.post.points) + " votes"
-            self.commentsLabel.labelText = String(self.post.commentsCount) + " comments"
-            self.usernameLabel.labelText = self.post.username!
+            
+            self.voteLabel.labelText = String(self.post!.score) + " votes"
+            self.commentsLabel.labelText = String(self.post!.commentsCount) + " comments"
+            self.usernameLabel.labelText = self.post!.username!
+            
             
             self.voteLabel.onButtonTouch = {(sender: UIButton) in
                 self.selectedAction(.Vote)
             }
             
+
             self.commentsLabel.onButtonTouch = {(sender: UIButton) in
                 self.selectedAction(.Comment)
             }
@@ -63,17 +67,25 @@ class NewsCell: UITableViewCell {
             self.usernameLabel.onButtonTouch = {(sender: UIButton) in
                 self.selectedAction(.Username)
             }
+            
             if self.readLaterIndicator != nil {
-                self.readLaterIndicator.hidden = !Preferences.sharedInstance.isInReadingList(self.post.postId!)   
+                self.readLaterIndicator.hidden = !Preferences.sharedInstance.isInReadingList(String(self.post!.id))
             }
+            
         }
     }
     
-    var postId: Int! {
+    var postId: Int? {
         didSet {
-            Post.fetchPost(self.postId) { (post, error, local) -> Void in
-                if let _post = post {
-                    self.post = _post
+            self.titleLabel.text = "Loading"
+            self.urlLabel.text = ""
+            self.voteLabel.labelText = ""
+            self.usernameLabel.labelText = ""
+            self.commentsLabel.labelText = ""
+            Post.fetchPost(self.postId!) { (post, error, local) -> Void in
+                if (self.postId == post.id) {
+                    self.post = post
+                    self.cellDelegate?.newsCellPostDidLoad(self)
                 }
             }
         }
@@ -88,8 +100,9 @@ class NewsCell: UITableViewCell {
     }
     
     func selectedAction(action: NewsCellActionType) {
-        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action.rawValue, post: self.post)
+        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action.rawValue, post: self.post!)
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()

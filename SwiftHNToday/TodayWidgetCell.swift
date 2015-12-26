@@ -19,14 +19,22 @@ class TodayWidgetCell: UITableViewCell {
     @IBOutlet var postVoteLabel: RoundedLabel!
     @IBOutlet var subtitleWrapperView: UIView!
     
-    var post: Post! {
+    var post: Post? {
         didSet {
-            self.postTitleLabel.text = self.post.title!
-            self.postVoteLabel.text = String(self.post.points)
-            self.postSubtitleLabel.text = self.post.domain! + " - " + self.post.prettyTime!
+            self.postTitleLabel.text = self.post!.title!
+            self.postVoteLabel.text = String(self.post!.score)
+            self.postSubtitleLabel.text = self.post!.domain! + " - " + NSDate(timeIntervalSince1970: self.post!.time).timeAgo
         }
     }
     
+    var postId: Int? {
+        didSet {
+            self.postTitleLabel.text = "Loading"
+            Post.fetchPost(self.postId!) { (post, error, local) -> Void in
+                self.post = post
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         

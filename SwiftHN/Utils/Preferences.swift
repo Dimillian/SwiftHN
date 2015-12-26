@@ -33,7 +33,7 @@ class Preferences {
         if (array == nil) {
             array = []
         }
-        array.append(post.postId!)
+        array.append(String(post.id))
         self.pUserDefault.setObject(array, forKey: pReadLater)
     }
     
