@@ -48,7 +48,7 @@ class NewsCell: UITableViewCell {
             else {
                 self.urlLabel.text = self.post.domain! + " - " + self.post.prettyTime!
             }
-            self.voteLabel.labelText = String(self.post.score) + " votes"
+            self.voteLabel.labelText = String(self.post.points) + " votes"
             self.commentsLabel.labelText = String(self.post.commentsCount) + " comments"
             self.usernameLabel.labelText = self.post.username!
             
