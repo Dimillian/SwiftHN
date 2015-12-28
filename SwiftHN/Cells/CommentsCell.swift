@@ -19,12 +19,15 @@ let CommentCellBottomMargin: CGFloat = 16.0
 
 class CommentsCell: UITableViewCell {
 
-    var comment: Post! {
+    var comment: Item! {
         didSet {
-            let username = comment!.username
+            var username = ""
+            if let _username = comment!.username {
+                username = _username
+            }
             let date = " - " + NSDate(timeIntervalSince1970: comment!.time).timeAgo
             
-            let usernameAttributed = NSAttributedString(string: username!,
+            let usernameAttributed = NSAttributedString(string: username,
                 attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(CommentCellFontSize),
                     NSForegroundColorAttributeName: UIColor.HNColor()])
             let dateAttribute = NSAttributedString(string: date,
@@ -36,14 +39,14 @@ class CommentsCell: UITableViewCell {
             self.commentLabel.font = UIFont.systemFontOfSize(CommentCellFontSize)
             
             self.usernameLabel.attributedText = fullAttributed
-            self.commentLabel.text = comment!.text
+            self.commentLabel.text =  comment!.text
         }
     }
     
     var commentId: Int? {
         didSet {
-            Post.fetchPost(self.commentId!) { (post, error, local) -> Void in
-                
+            Item.fetchPost(self.commentId!) { (item, error, local) -> Void in
+                self.comment = item
             }
         }
     }
@@ -85,9 +88,7 @@ class CommentsCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        self.commentLabel.text = comment.text
-        
+                
         self.commentLabel.textContainer.lineFragmentPadding = 0
         self.commentLabel.textContainerInset = UIEdgeInsetsZero
         self.commentLabel.contentInset = UIEdgeInsetsZero

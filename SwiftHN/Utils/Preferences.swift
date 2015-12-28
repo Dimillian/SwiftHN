@@ -28,12 +28,12 @@ class Preferences {
         }
     }
     
-    func addToReadLater(post: Post) {
+    func addToReadLater(item: Item) {
         var array: [AnyObject]! = self.pUserDefault.arrayForKey(pReadLater)
         if (array == nil) {
             array = []
         }
-        array.append(String(post.id))
+        array.append(String(item))
         self.pUserDefault.setObject(array, forKey: pReadLater)
     }
     

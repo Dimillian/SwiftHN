@@ -27,9 +27,11 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         
         self.refreshing = true
         
-        Post.fetchPost(self.filter) { (post, error, local) -> Void in
-            self.ids = post
-            self.refreshing = false
+        Item.fetchPost(self.filter) { (items, error, local) -> Void in
+            self.ids = items
+            if !local {
+                self.refreshing = false   
+            }
         }
     }
     
@@ -58,9 +60,9 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         
     }
     
-    func post(indexpath: NSIndexPath) -> Post? {
+    func item(indexpath: NSIndexPath) -> Item? {
         let cell: NewsCell = self.tableView.cellForRowAtIndexPath(indexpath) as! NewsCell
-        return cell.post
+        return cell.item
     }
     
     //MARK: Alert management
@@ -76,24 +78,24 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         }
     }
     
-    func showActionSheetForPost(post: Post) {
+    func showActionSheetForPost(item: Item) {
         var titles = ["Share", "Open", "Open in Safari", "Cancel"]
         
-        let sheet = UIAlertController(title: post.title, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let sheet = UIAlertController(title: item.title, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         let handler = {(action: UIAlertAction?) -> () in
             self.tableView.setEditing(false, animated: true)
             if let _ = action {
                 if (action!.title == titles[0]) {
-                    Helper.showShareSheet(post, controller: self, barbutton: nil)
+                    Helper.showShareSheet(item, controller: self, barbutton: nil)
                 }
                 else if (action!.title == titles[1]) {
                     let webview = self.storyboard?.instantiateViewControllerWithIdentifier("WebviewController") as! WebviewController
-                    webview.post = post
+                    webview.item = item
                     self.showDetailViewController(webview, sender: nil)
                 }
                 else if (action!.title == titles[2]) {
-                    UIApplication.sharedApplication().openURL(post.url!)
+                    UIApplication.sharedApplication().openURL(item.url!)
                 }
             }
         }
@@ -109,35 +111,54 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         self.presentViewController(sheet, animated: true, completion: nil)
     }
     
+    
+    override func defaultCellHeight() -> CGFloat {
+        return 120.0
+    }
+    
     //MARK: TableView Management
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int  {
         return 1
     }
     
     override func tableView(tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
-        if (self.ids != nil) {
-            return self.ids.count
-        }
-        return 0
+        return self.ids.count
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        return 120.0
+        return self.cellHeight[indexPath.row]
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
-        cell!.postId = self.ids[indexPath.row]
+        cell!.index = indexPath.row
+        let item = self.cachedItems[indexPath.row]
+        if item.id != -1 {
+            cell!.item = item
+        }
+        else {
+            self.loadPost(indexPath)
+        }
         cell!.cellDelegate = self
-        
         return cell!
+    }
+    
+    private func loadPost(indexPath: NSIndexPath) {
+        let id = self.ids[indexPath.row]
+        Item.fetchPost(self.ids[indexPath.row]) { (item, error, local) -> Void in
+            if (item != nil && id == item.id) {
+                self.cellHeight[indexPath.row] = NewsCell.heightForText(item.title!, bounds: self.tableView.bounds)
+                self.cachedItems[indexPath.row] = item
+                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+            }
+        }
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if #available(iOS 9, *) {
             if identifier == "toWebview" {
-                if let url = (sender as? NewsCell)?.post!.url {
+                if let url = (sender as? NewsCell)?.item!.url {
                     presentViewController(SafariViewController(URL: url), animated: true, completion: nil)
                     return false
                 }
@@ -150,7 +171,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         if (segue.identifier == "toWebview") {
             let destination = segue.destinationViewController as! WebviewController
             if let selectedRows = self.tableView.indexPathsForSelectedRows {
-                destination.post = self.post(selectedRows[0])
+                destination.item = self.item(selectedRows[0])
             }
         }
     }
@@ -168,9 +189,9 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         let readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "Read\nLater",
             handler: {(action: UITableViewRowAction, indexpath: NSIndexPath) -> Void in
-                if (Helper.addPostToReadingList(self.post(indexPath)!)) {
+                if (Helper.addPostToReadingList(self.item(indexPath)!)) {
                 }
-                Preferences.sharedInstance.addToReadLater(self.post(indexPath)!)
+                Preferences.sharedInstance.addToReadLater(self.item(indexPath)!)
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! NewsCell
                 cell.readLaterIndicator.hidden = false
                 self.tableView.setEditing(false, animated: true)
@@ -180,14 +201,14 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         let more = UITableViewRowAction(style: UITableViewRowActionStyle.Normal,
             title: "More",
             handler: {(action: UITableViewRowAction, indexpath: NSIndexPath) -> Void in
-                self.showActionSheetForPost(self.post(indexPath)!)
+                self.showActionSheetForPost(self.item(indexPath)!)
         })
         
         return [readingList, more]
     }
     
     //MARK: NewsCellDelegate
-    func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post) {
+    func newsCellDidSelectButton(cell: NewsCell, actionType: Int, item: Item) {
         
         let indexPath = self.tableView.indexPathForCell(cell)
         if let realIndexPath = indexPath {
@@ -199,11 +220,11 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         }
         if (actionType == NewsCellActionType.Comment.rawValue) {
             let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
-            detailVC.post = post
+            detailVC.item = item
             self.showDetailViewController(detailVC, sender: self)
         }
         else if (actionType == NewsCellActionType.Username.rawValue) {
-            if let realUsername = post.username {
+            if let realUsername = item.username {
                 let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as! UserViewController
                 detailVC.user = realUsername
                 self.showDetailViewController(detailVC, sender: self)
@@ -211,14 +232,10 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         }
     }
     
-    func newsCellPostDidLoad(cell: NewsCell) {
-        //let indexpath = self.tableView.indexPathForCell(cell)
-        //self.tableView.reloadRowsAtIndexPaths([indexpath!], withRowAnimation: UITableViewRowAnimation.Automatic)
-    }
-    
     //MARK: CategoriesDelegate
     func categoriesViewControllerDidSelecteFilter(controller: CategoriesViewController, filer: Fetcher.APIEndpoint, title: String) {
         self.filter = filer
+        self.ids = []
         self.onPullToFresh()
         self.title = title
     }

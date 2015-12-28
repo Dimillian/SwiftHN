@@ -25,8 +25,8 @@ class UserViewController: NewsViewController {
         
         self.refreshing = true
         
-        Post.fetchPost(self.user) { (posts, error, local) -> Void in
-            self.ids = posts
+        Item.fetchPost(self.user) { (items, error, local) -> Void in
+            self.ids = items
             if (!local) {
                 self.refreshing = false
             }

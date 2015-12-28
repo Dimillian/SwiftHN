@@ -12,11 +12,7 @@ import HackerSwifter
 
 class DetailViewController: HNTableViewController, NewsCellDelegate {
     
-    var post: Post? {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    var item: Item?
     
     var cellHeightCache: [CGFloat] = []
     
@@ -31,9 +27,12 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     
     func onPullToFresh() {
         
-        Post.fetchPost(self.post!.id) { (post, error, local) -> Void in
+        Item.fetchPost(self.item!.id) { (item, error, local) -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.post = post
+                self.item = item
+                if let kids = item.kids {
+                    self.ids = kids
+                }
                 if (!local) {
                     self.refreshing = false
                 }
@@ -42,6 +41,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     }
     
     func cacheHeight(comments: NSArray) {
+        /*
         cellHeightCache = []
         for comment : AnyObject in comments {
             if let realComment = comment as? Comment {
@@ -49,6 +49,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
                 cellHeightCache.append(height)
             }
         }
+        */
     }
     
     
@@ -58,21 +59,17 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     }
     
     func onShareButton() {
-        Helper.showShareSheet(self.post!, controller: self, barbutton: self.navigationItem.rightBarButtonItem)
+        Helper.showShareSheet(self.item!, controller: self, barbutton: self.navigationItem.rightBarButtonItem)
     }
     
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         if (indexPath.section == 0) {
-            if let _post = post {
-                if let title: NSString = _post.title! as NSString {
-                    return NewsCell.heightForText(title, bounds: self.tableView.bounds)
-                }
-            }
-            return 0
+            return NewsCell.heightForText((self.item?.title)!, bounds: self.tableView.bounds)
         }
-        return self.cellHeightCache[indexPath.row] as CGFloat
+        return 100.0
+        //return self.cellHeightCache[indexPath.row] as CGFloat
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -84,32 +81,28 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
             return 1
         }
         
-        if (self.post?.kids != nil) {
-            return self.post!.kids!.count
-        }
-        
-        return 0
+        return self.ids.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
             let cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
-            cell!.post = self.post
+            cell!.item = self.item
             cell!.cellDelegate = self;
             return cell!
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(CommentsCellId) as! CommentsCell!
-        let comment = self.datasource[indexPath.row] as! Int
+        let comment = self.ids[indexPath.row]
         cell.commentId = comment
         
         return cell
     }
     
     //MARK: NewsCellDelegate
-    func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post) {   
+    func newsCellDidSelectButton(cell: NewsCell, actionType: Int, item: Item) {
         if (actionType == NewsCellActionType.Username.rawValue) {
-            if let realUsername = post.username {
+            if let realUsername = item.username {
                 let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserViewController") as! UserViewController
                 detailVC.user = realUsername
                 self.showDetailViewController(detailVC, sender: self)
@@ -126,7 +119,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if #available(iOS 9, *) {
             if identifier == "toWebview" {
-                if let url = (sender as? NewsCell)?.post!.url {
+                if let url = (sender as? NewsCell)?.item!.url {
                     presentViewController(SafariViewController(URL: url), animated: true, completion: nil)
                     return false
                 }
@@ -138,7 +131,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if (segue.identifier == "toWebview") {
             let destination = segue.destinationViewController as! WebviewController
-            destination.post = self.post
+            destination.item = self.item
         }
     }
     
@@ -149,7 +142,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
                 //Event if it's useless in our case.
             }, completion: { (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, UInt(0)), { ()->() in
-                    self.cacheHeight(self.datasource)
+                    //self.cacheHeight(self.datasource)
                     dispatch_async(dispatch_get_main_queue(), { ()->() in
                         self.tableView.reloadData()
                     })

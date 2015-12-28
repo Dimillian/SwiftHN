@@ -13,12 +13,12 @@ import HackerSwifter
 
 class Helper {
     
-    class func addPostToReadingList(post: Post) -> Bool {
+    class func addPostToReadingList(item: Item) -> Bool {
         let readingList = SSReadingList.defaultReadingList()
         var error: NSError?
-        if let url: String = post.url?.absoluteString {
+        if let url: String = item.url?.absoluteString {
             do {
-                try readingList!.addReadingListItemWithURL(NSURL(string: url)!, title: post.title, previewText: nil)
+                try readingList!.addReadingListItemWithURL(NSURL(string: url)!, title: item.title, previewText: nil)
             } catch let error1 as NSError {
                 error = error1
             }
@@ -27,8 +27,8 @@ class Helper {
         return false
     }
     
-    class func showShareSheet(post: Post, controller: UIViewController, barbutton: UIBarButtonItem!) {
-        let sheet = UIActivityViewController(activityItems: [NSString(string: post.title!), post.url!], applicationActivities: [OpenSafariActivity()])
+    class func showShareSheet(item: Item, controller: UIViewController, barbutton: UIBarButtonItem!) {
+        let sheet = UIActivityViewController(activityItems: [NSString(string: item.title!), item.url!], applicationActivities: [OpenSafariActivity()])
         if sheet.popoverPresentationController != nil {
             sheet.modalPresentationStyle = UIModalPresentationStyle.Popover
             sheet.popoverPresentationController?.sourceView = controller.view

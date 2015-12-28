@@ -16,18 +16,14 @@ class HNCommentRow: NSObject {
 }
 
 class CommentsInterfaceController: WKInterfaceController {
-    var post: Post!
-    var datasource: [Comment]!
+    var post: Item!
+    var datasource: [Int]!
     
     @IBOutlet var tableView: WKInterfaceTable!
     override func awakeWithContext(context: AnyObject?) {
-        if let realPost = context as? Post {
+        if let realPost = context as? Item {
             self.post = realPost
-            
-            Comment.fetch(forPost: self.post, completion: {(comments: [Comment]!, error: Fetcher.ResponseError!, local: Bool) in
-                self.datasource = comments
-                self.setupTable()
-            })
+            setupTable()
         }
     }
     
@@ -36,11 +32,15 @@ class CommentsInterfaceController: WKInterfaceController {
         var rowCount = 0
         for item in self.datasource {
             let row = self.tableView.rowControllerAtIndex(rowCount) as! HNCommentRow
-            if let realtext = item.text {
-                row.commentLabel.setText(realtext)
-                row.usernameLabel.setText(item.username)
-            }
+            setupRow(row, id: item)
             rowCount++
         }
+    }
+    
+    func setupRow(row: HNCommentRow, id: Int) {
+        Item.fetchPost(id, completion: { (item, error, local) -> Void in
+            row.commentLabel.setText(item.text!)
+            row.usernameLabel.setText(item.username!)
+        })
     }
 }

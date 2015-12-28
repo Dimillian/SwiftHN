@@ -25,8 +25,8 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        Post.fetchPost(.Top) { (posts, error, local) -> Void in
-            self.datasource = posts
+        Item.fetchPost(.Top) { (items, error, local) -> Void in
+            self.datasource = items
             self.setupTable();
         }
     }
@@ -36,7 +36,7 @@ class InterfaceController: WKInterfaceController {
         var rowCount = 0
         for item in self.datasource {
             let row = self.tableView.rowControllerAtIndex(rowCount) as! HNNewsRow
-            Post.fetchPost(item, completion: { (post, error, local) -> Void in
+            Item.fetchPost(item, completion: { (post, error, local) -> Void in
                 row.voteLabel.setText(String(post.score))
                 row.titleLabel.setText(post.title!)
                 row.usernameLabel.setText(String(post.commentsCount) + " Comments")

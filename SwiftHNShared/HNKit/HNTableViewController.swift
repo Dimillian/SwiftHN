@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HackerSwifter
 
 public class HNTableViewController: UITableViewController {
     
@@ -23,16 +24,19 @@ public class HNTableViewController: UITableViewController {
         }
     }
     
-    public var datasource: NSArray! {
+    public var cellHeight: [CGFloat] = []
+    public var cachedItems: [Item] = []
+        
+    public var ids: [Int] = [] {
         didSet {
+            self.cellHeight = [CGFloat](count: self.ids.count, repeatedValue: self.defaultCellHeight())
+            self.cachedItems = [Item](count: self.ids.count, repeatedValue: Item(id: -1))
             self.tableView.reloadData()
         }
     }
     
-    public var ids: [Int]! {
-        didSet {
-            self.tableView.reloadData()
-        }
+    public func defaultCellHeight() -> CGFloat {
+        return 100.0
     }
     
     public override func viewDidLoad() {

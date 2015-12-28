@@ -19,19 +19,19 @@ class TodayWidgetCell: UITableViewCell {
     @IBOutlet var postVoteLabel: RoundedLabel!
     @IBOutlet var subtitleWrapperView: UIView!
     
-    var post: Post? {
+    var item: Item? {
         didSet {
-            self.postTitleLabel.text = self.post!.title!
-            self.postVoteLabel.text = String(self.post!.score)
-            self.postSubtitleLabel.text = self.post!.domain! + " - " + NSDate(timeIntervalSince1970: self.post!.time).timeAgo
+            self.postTitleLabel.text = self.item!.title!
+            self.postVoteLabel.text = String(self.item!.score)
+            self.postSubtitleLabel.text = self.item!.domain! + " - " + NSDate(timeIntervalSince1970: self.item!.time).timeAgo
         }
     }
     
     var postId: Int? {
         didSet {
             self.postTitleLabel.text = "Loading"
-            Post.fetchPost(self.postId!) { (post, error, local) -> Void in
-                self.post = post
+            Item.fetchPost(self.postId!) { (item, error, local) -> Void in
+                self.item = item
             }
         }
     }

@@ -18,7 +18,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     let topBottomWidgetInset: CGFloat = 10.0
     
     var completionHandler: ((NCUpdateResult) -> Void)?
-    var posts: [Int] = [] {
+    var items: [Int] = [] {
         didSet {
             self.tableView.reloadData()
             self.preferredContentSize = CGSizeMake(0, self.tableView.contentSize.height)
@@ -39,8 +39,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         
         self.tableView.backgroundColor = UIColor.clearColor()
     
-        Post.fetchPost(.Top) { (posts, error, local) -> Void in
-            self.posts = posts
+        Item.fetchPost(.Top) { (items, error, local) -> Void in
+            self.items = items
             self.completionHandler?(NCUpdateResult.NewData)
         }
     }
@@ -80,7 +80,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         if self.expanded {
             return 7
         }
-        return self.posts.count > 5 ? 5 : self.posts.count
+        return self.items.count > 5 ? 5 : self.items.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -122,7 +122,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier(todayCellId) as? TodayWidgetCell
-        let post = self.posts[indexPath.row] as Int
+        let post = self.items[indexPath.row] as Int
         cell!.postId = post
         return cell!
     }
@@ -130,6 +130,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     func tableView(tableView: UITableView
         , didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell: TodayWidgetCell = self.tableView.cellForRowAtIndexPath(indexPath) as! TodayWidgetCell
-        self.extensionContext!.openURL(cell.post!.url!, completionHandler: nil)
+        self.extensionContext!.openURL(cell.item!.url!, completionHandler: nil)
     }
 }

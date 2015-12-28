@@ -14,7 +14,7 @@ class WebviewController: UIViewController, UIWebViewDelegate {
     @IBOutlet var webView : UIWebView! = nil
     var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
     
-    var post: Post!
+    var item: Item!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,8 +24,8 @@ class WebviewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         self.webView.delegate = self
-        if let _ = self.post {
-            if let realUrl = self.post.url {
+        if let _ = self.item {
+            if let realUrl = self.item.url {
                 self.webView.loadRequest(NSURLRequest(URL: realUrl))
             }
         }
@@ -45,7 +45,7 @@ class WebviewController: UIViewController, UIWebViewDelegate {
     }
     
     func onShareButton() {
-        Helper.showShareSheet(self.post, controller: self, barbutton: self.navigationItem.rightBarButtonItem)
+        Helper.showShareSheet(self.item, controller: self, barbutton: self.navigationItem.rightBarButtonItem)
     }
 
     func webViewDidStartLoad(webView: UIWebView) {

@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        Post.fetchPost(.Top) { (posts, error, local) -> Void in
+        Item.fetchPost(.Top) { (items, error, local) -> Void in
             if (!local) {
                 completionHandler(UIBackgroundFetchResult.NewData)
             }

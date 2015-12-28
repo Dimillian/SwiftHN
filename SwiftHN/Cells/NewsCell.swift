@@ -23,8 +23,7 @@ enum NewsCellActionType: Int {
 }
 
 @objc protocol NewsCellDelegate {
-    func newsCellDidSelectButton(cell: NewsCell, actionType: Int, post: Post)
-    func newsCellPostDidLoad(cell: NewsCell)
+    func newsCellDidSelectButton(cell: NewsCell, actionType: Int, item: Item)
 }
 
 class NewsCell: UITableViewCell {
@@ -40,19 +39,21 @@ class NewsCell: UITableViewCell {
     
     weak var cellDelegate: NewsCellDelegate?
     
-    var post: Post? {
+    var index: Int = -1
+    
+    var item: Item? {
         didSet {
             
-            self.titleLabel.text = self.post!.title!
+            self.titleLabel.text = self.item!.title!
             
-            if self.post!.time != 0 {
-                let time = self.post!.time
-                self.urlLabel.text = self.post!.domain! + " - " + NSDate(timeIntervalSince1970: NSTimeInterval(time)).timeAgo
+            if self.item!.time != 0 {
+                let time = self.item!.time
+                self.urlLabel.text = self.item!.domain! + " - " + NSDate(timeIntervalSince1970: NSTimeInterval(time)).timeAgo
             }
             
-            self.voteLabel.labelText = String(self.post!.score) + " votes"
-            self.commentsLabel.labelText = String(self.post!.commentsCount) + " comments"
-            self.usernameLabel.labelText = self.post!.username!
+            self.voteLabel.labelText = String(self.item!.score) + " votes"
+            self.commentsLabel.labelText = String(self.item!.commentsCount) + " comments"
+            self.usernameLabel.labelText = self.item!.username!
             
             
             self.voteLabel.onButtonTouch = {(sender: UIButton) in
@@ -69,28 +70,12 @@ class NewsCell: UITableViewCell {
             }
             
             if self.readLaterIndicator != nil {
-                self.readLaterIndicator.hidden = !Preferences.sharedInstance.isInReadingList(String(self.post!.id))
+                self.readLaterIndicator.hidden = !Preferences.sharedInstance.isInReadingList(String(self.item!.id))
             }
             
         }
     }
-    
-    var postId: Int? {
-        didSet {
-            self.titleLabel.text = "Loading"
-            self.urlLabel.text = ""
-            self.voteLabel.labelText = ""
-            self.usernameLabel.labelText = ""
-            self.commentsLabel.labelText = ""
-            Post.fetchPost(self.postId!) { (post, error, local) -> Void in
-                if (self.postId == post.id) {
-                    self.post = post
-                    self.cellDelegate?.newsCellPostDidLoad(self)
-                }
-            }
-        }
-    }
-  
+      
     required init?(coder aDecoder: NSCoder) { // required for Xcode6-Beta5
         super.init(coder: aDecoder)
     }
@@ -100,7 +85,7 @@ class NewsCell: UITableViewCell {
     }
     
     func selectedAction(action: NewsCellActionType) {
-        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action.rawValue, post: self.post!)
+        self.cellDelegate?.newsCellDidSelectButton(self, actionType: action.rawValue, item: self.item!)
     }
     
     
