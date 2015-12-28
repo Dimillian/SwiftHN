@@ -43,36 +43,43 @@ class NewsCell: UITableViewCell {
     
     var item: Item? {
         didSet {
-            
-            self.titleLabel.text = self.item!.title!
-            
-            if self.item!.time != 0 {
-                let time = self.item!.time
-                self.urlLabel.text = self.item!.domain! + " - " + NSDate(timeIntervalSince1970: NSTimeInterval(time)).timeAgo
+            if item == nil {
+                self.titleLabel.text = "Loding..."
+                self.urlLabel.text = ""
+                self.usernameLabel.labelText = "..."
+                self.voteLabel.labelText = "..."
+                self.commentsLabel.labelText = "..."
             }
-            
-            self.voteLabel.labelText = String(self.item!.score) + " votes"
-            self.commentsLabel.labelText = String(self.item!.commentsCount) + " comments"
-            self.usernameLabel.labelText = self.item!.username!
-            
-            
-            self.voteLabel.onButtonTouch = {(sender: UIButton) in
-                self.selectedAction(.Vote)
+            else {
+                self.titleLabel.text = self.item!.title!
+                
+                if self.item!.time != 0 {
+                    let time = self.item!.time
+                    self.urlLabel.text = self.item!.domain! + " - " + NSDate(timeIntervalSince1970: NSTimeInterval(time)).timeAgo
+                }
+                
+                self.voteLabel.labelText = String(self.item!.score) + " votes"
+                self.commentsLabel.labelText = String(self.item!.commentsCount) + " comments"
+                self.usernameLabel.labelText = self.item!.username!
+                
+                
+                self.voteLabel.onButtonTouch = {(sender: UIButton) in
+                    self.selectedAction(.Vote)
+                }
+                
+                
+                self.commentsLabel.onButtonTouch = {(sender: UIButton) in
+                    self.selectedAction(.Comment)
+                }
+                
+                self.usernameLabel.onButtonTouch = {(sender: UIButton) in
+                    self.selectedAction(.Username)
+                }
+                
+                if self.readLaterIndicator != nil {
+                    self.readLaterIndicator.hidden = !Preferences.sharedInstance.isInReadingList(String(self.item!.id))
+                }
             }
-            
-
-            self.commentsLabel.onButtonTouch = {(sender: UIButton) in
-                self.selectedAction(.Comment)
-            }
-            
-            self.usernameLabel.onButtonTouch = {(sender: UIButton) in
-                self.selectedAction(.Username)
-            }
-            
-            if self.readLaterIndicator != nil {
-                self.readLaterIndicator.hidden = !Preferences.sharedInstance.isInReadingList(String(self.item!.id))
-            }
-            
         }
     }
       
@@ -82,6 +89,7 @@ class NewsCell: UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String!)  {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
     }
     
     func selectedAction(action: NewsCellActionType) {

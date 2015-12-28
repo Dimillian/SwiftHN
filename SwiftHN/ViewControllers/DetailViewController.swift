@@ -14,8 +14,6 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
     
     var item: Item?
     
-    var cellHeightCache: [CGFloat] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,20 +37,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
             })
         }
     }
-    
-    func cacheHeight(comments: NSArray) {
-        /*
-        cellHeightCache = []
-        for comment : AnyObject in comments {
-            if let realComment = comment as? Comment {
-                let height = CommentsCell.heightForText(realComment.text!, bounds: self.tableView.bounds, level: realComment.depth)
-                cellHeightCache.append(height)
-            }
-        }
-        */
-    }
-    
-    
+        
     func setupBarButtonItems() {
         let shareItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "onShareButton")
         self.navigationItem.rightBarButtonItem = shareItem
@@ -84,6 +69,19 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
         return self.ids.count
     }
     
+    private func loadComment(indexPath: NSIndexPath) {
+        let id = self.ids[indexPath.row]
+        Item.fetchPost(self.ids[indexPath.row]) { (item, error, local) -> Void in
+            if (item != nil && id == item.id) {
+                if let text = item.text {
+                    self.cellHeight[indexPath.row] = CommentsCell.heightForText(text, bounds: self.tableView.bounds, level:0)
+                }
+                self.cachedItems[indexPath.row] = item
+                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+            }
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
             let cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
@@ -93,8 +91,16 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(CommentsCellId) as! CommentsCell!
-        let comment = self.ids[indexPath.row]
-        cell.commentId = comment
+        cell!.index = indexPath.row
+        cell!.comment  = nil
+        let item = self.cachedItems[indexPath.row]
+        if item.id != -1 {
+            cell!.comment = item
+        }
+        else {
+            self.loadComment(indexPath)
+        }
+        
         
         return cell
     }

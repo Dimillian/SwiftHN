@@ -133,6 +133,7 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(NewsCellsId) as? NewsCell
         cell!.index = indexPath.row
+        cell!.item  = nil
         let item = self.cachedItems[indexPath.row]
         if item.id != -1 {
             cell!.item = item
@@ -148,7 +149,9 @@ class NewsViewController: HNTableViewController, NewsCellDelegate, CategoriesVie
         let id = self.ids[indexPath.row]
         Item.fetchPost(self.ids[indexPath.row]) { (item, error, local) -> Void in
             if (item != nil && id == item.id) {
-                self.cellHeight[indexPath.row] = NewsCell.heightForText(item.title!, bounds: self.tableView.bounds)
+                if let title = item.title {
+                    self.cellHeight[indexPath.row] = NewsCell.heightForText(title, bounds: self.tableView.bounds)
+                }
                 self.cachedItems[indexPath.row] = item
                 self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
             }

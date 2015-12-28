@@ -19,38 +19,38 @@ let CommentCellBottomMargin: CGFloat = 16.0
 
 class CommentsCell: UITableViewCell {
 
+    var index: Int = -1
+    
     var comment: Item! {
         didSet {
-            var username = ""
-            if let _username = comment!.username {
-                username = _username
+            if comment == nil {
+                self.usernameLabel.text = "Loading..."
+                self.commentLabel.text = ""
             }
-            let date = " - " + NSDate(timeIntervalSince1970: comment!.time).timeAgo
-            
-            let usernameAttributed = NSAttributedString(string: username,
-                attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(CommentCellFontSize),
-                    NSForegroundColorAttributeName: UIColor.HNColor()])
-            let dateAttribute = NSAttributedString(string: date,
-                attributes: [NSFontAttributeName: UIFont.systemFontOfSize(CommentCellFontSize),
-                    NSForegroundColorAttributeName: UIColor.DateLighGrayColor()])
-            let fullAttributed = NSMutableAttributedString(attributedString: usernameAttributed)
-            fullAttributed.appendAttributedString(dateAttribute)
-            
-            self.commentLabel.font = UIFont.systemFontOfSize(CommentCellFontSize)
-            
-            self.usernameLabel.attributedText = fullAttributed
-            self.commentLabel.text =  comment!.text
-        }
-    }
-    
-    var commentId: Int? {
-        didSet {
-            Item.fetchPost(self.commentId!) { (item, error, local) -> Void in
-                self.comment = item
+            else {
+                var username = ""
+                if let _username = comment!.username {
+                    username = _username
+                }
+                let date = " - " + NSDate(timeIntervalSince1970: comment!.time).timeAgo
+                
+                let usernameAttributed = NSAttributedString(string: username,
+                    attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(CommentCellFontSize),
+                        NSForegroundColorAttributeName: UIColor.HNColor()])
+                let dateAttribute = NSAttributedString(string: date,
+                    attributes: [NSFontAttributeName: UIFont.systemFontOfSize(CommentCellFontSize),
+                        NSForegroundColorAttributeName: UIColor.DateLighGrayColor()])
+                let fullAttributed = NSMutableAttributedString(attributedString: usernameAttributed)
+                fullAttributed.appendAttributedString(dateAttribute)
+                
+                self.commentLabel.font = UIFont.systemFontOfSize(CommentCellFontSize)
+                
+                self.usernameLabel.attributedText = fullAttributed
+                self.commentLabel.text =  comment!.text
             }
         }
     }
-    
+        
     var indentation: CGFloat {
         didSet {
             self.commentLeftMarginConstraint.constant = indentation

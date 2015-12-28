@@ -35,7 +35,7 @@ extension NSDate {
             if components.day < 2 {
                 return "Yesterday"
             } else  {
-                return String(format: "%@ days ago", arguments: [String(Double(components.day))])
+                return String(format: "%@ days ago", arguments: [String(Int(components.day))])
             }
         }
         
@@ -59,7 +59,7 @@ extension NSDate {
             if components.second < 5 {
                 return "Just now"
             } else {
-                return String(format: "%@ seconds ago", arguments: [String(Double(components.second))])
+                return String(format: "%@ seconds ago", arguments: [String(Int(components.second))])
             }
         }
         

@@ -33,7 +33,7 @@ class Preferences {
         if (array == nil) {
             array = []
         }
-        array.append(String(item))
+        array.append(String(item.id))
         self.pUserDefault.setObject(array, forKey: pReadLater)
     }
     
