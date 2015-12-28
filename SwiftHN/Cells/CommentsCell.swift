@@ -21,7 +21,7 @@ class CommentsCell: UITableViewCell {
 
     var index: Int = -1
     
-    var comment: Item! {
+    var comment: Item? {
         didSet {
             if comment == nil {
                 self.usernameLabel.text = "Loading..."

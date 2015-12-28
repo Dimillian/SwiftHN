@@ -53,8 +53,7 @@ class DetailViewController: HNTableViewController, NewsCellDelegate {
         if (indexPath.section == 0) {
             return NewsCell.heightForText((self.item?.title)!, bounds: self.tableView.bounds)
         }
-        return 100.0
-        //return self.cellHeightCache[indexPath.row] as CGFloat
+        return self.cellHeight[indexPath.row]
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
